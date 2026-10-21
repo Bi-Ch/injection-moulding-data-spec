@@ -1,0 +1,3 @@
+# Only for validating generated examples against the repository schemas.
+# The converter itself has no external runtime dependency.
+jsonschema==4.26.0

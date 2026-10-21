@@ -1,0 +1,41 @@
+{
+  "$schema": "../../../manifest.schema.json",
+  "manifestVersion": "0.1.0-draft.1",
+  "parameterDefinition": "../../../parameterDefinition.json",
+  "cycleId": "96184",
+  "actualCountCycleMachine": 96184,
+  "actualTimeCycleStart": "2026-09-22T17:01:26.310000+02:00",
+  "measuredTimeCreationFile": "2026-09-22T17:02:07.721+02:00",
+  "nominalDiameterScrew": 25.0,
+  "nominalMaterialType": "PP",
+  "nominalMaterialName": "Sabic 576P",
+  "descriptionMould": "multi-specimen",
+  "descriptionMouldCavity_1": "tensile test specimen",
+  "descriptionMouldCavity_2": "bending test specimen",
+  "nominalCountCavitiesMould": 2,
+  "actualTimestepSizeIMM": 85.24949917060411,
+  "measuredQualityCycleIsGood": null,
+  "manifestMetadata": {
+    "trialNumber": "",
+    "notes": "",
+    "snapshotPolicy": "first_set_last_actual"
+  },
+  "resources": [
+    {
+      "path": "README.md",
+      "role": "supplementary"
+    },
+    {
+      "path": "actual_set_parameters/actual_96184.csv",
+      "role": "actualParameters"
+    },
+    {
+      "path": "actual_set_parameters/set_96184.csv",
+      "role": "setParameters"
+    },
+    {
+      "path": "timeseries/timeseries_96184.csv",
+      "role": "timeSeries"
+    }
+  ]
+}

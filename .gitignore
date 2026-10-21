@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.agents/
+.codex/
+.DS_Store
+Thumbs.db
+
+tools/csv_to_cycle_package/output*/
+oldVerionsBeforInitialCommit/

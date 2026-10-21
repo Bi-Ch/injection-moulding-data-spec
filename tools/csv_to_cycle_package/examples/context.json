@@ -1,0 +1,15 @@
+{
+  "machine_folder": "FictionalManufacturer-FictionalMachineType-FictionalMachineID",
+  "manifest": {
+    "nominalMaterialType": "FictionalThermoplastic",
+    "nominalMaterialName": "FictionalGrade-01",
+    "nominalDiameterScrew": 25,
+    "descriptionMould": "Fictional demonstration mould",
+    "nominalCountCavitiesMould": 1,
+    "descriptionMouldCavity_1": "Fictional cavity A",
+    "manifestMetadata": {
+      "exampleType": "synthetic",
+      "notes": "All input values, names and mappings are invented. The final recorded temperature is selected as the cycle actual value for this example only."
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dataset parameter correspondences",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schemaVersion", "canonicalDefinition", "purpose", "relationDefinitions", "curationPolicy", "sources", "mappings", "snapshotStatistics"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schemaVersion": {"type": "string"},
+    "canonicalDefinition": {"type": "string"},
+    "purpose": {"type": "string", "minLength": 1},
+    "relationDefinitions": {
+      "type": "object", "additionalProperties": false,
+      "required": ["exactMatch", "closeMatch", "related", "needsCuration"],
+      "properties": {
+        "exactMatch": {"type": "string"}, "closeMatch": {"type": "string"},
+        "related": {"type": "string"}, "needsCuration": {"type": "string"}
+      }
+    },
+    "curationPolicy": {"type": "object", "additionalProperties": {"type": "string"}},
+    "sources": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/source"}},
+    "mappings": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["variableName", "publishedNamings"],
+        "properties": {
+          "variableName": {"type": "string", "minLength": 1},
+          "publishedNamings": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/assignment"}}
+        }
+      }
+    },
+    "snapshotStatistics": {
+      "type": "object", "additionalProperties": false,
+      "required": ["sources", "mappingGroups", "assignments", "relations", "reviewDates"],
+      "properties": {
+        "sources": {"type": "integer", "minimum": 1},
+        "mappingGroups": {"type": "integer", "minimum": 1},
+        "assignments": {"type": "integer", "minimum": 1},
+        "relations": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+        "reviewDates": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}}
+      }
+    }
+  },
+  "$defs": {
+    "nullableText": {"type": ["string", "null"]},
+    "curation": {
+      "type": "object", "additionalProperties": false,
+      "required": ["reviewStatus", "reviewDate", "sourceAuthorConfirmation", "conversionValidation"],
+      "properties": {
+        "reviewStatus": {"const": "reviewedBySpecificationAuthor"},
+        "reviewDate": {"type": "string", "format": "date"},
+        "sourceAuthorConfirmation": {"enum": ["notObtained", "obtained"]},
+        "conversionValidation": {"enum": ["notPerformed", "performed"]}
+      }
+    },
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["sourceId", "sourceType", "title", "DOI", "url", "version", "bibliographicCitation", "associatedPublicationDOI", "note", "curation"],
+      "properties": {
+        "sourceId": {"type": "string", "minLength": 1},
+        "sourceType": {"enum": ["publishedDataset", "publishedGitRepository"]},
+        "title": {"$ref": "#/$defs/nullableText"},
+        "DOI": {"$ref": "#/$defs/nullableText"},
+        "url": {"$ref": "#/$defs/nullableText"},
+        "version": {"$ref": "#/$defs/nullableText"},
+        "bibliographicCitation": {"$ref": "#/$defs/nullableText"},
+        "associatedPublicationDOI": {"$ref": "#/$defs/nullableText"},
+        "note": {"type": "string"},
+        "curation": {"$ref": "#/$defs/curation"}
+      },
+      "anyOf": [
+        {"properties": {"DOI": {"type": "string", "minLength": 1}}},
+        {"properties": {"url": {"type": "string", "minLength": 1}}}
+      ]
+    },
+    "assignment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["sourceId", "publishedId", "publishedLabel", "publishedUnit", "publishedDtype", "canonicalInstanceHeader", "relation", "note", "curation", "sourceFiles"],
+      "properties": {
+        "sourceId": {"type": "string", "minLength": 1},
+        "publishedId": {"type": "string", "minLength": 1},
+        "publishedLabel": {"$ref": "#/$defs/nullableText"},
+        "publishedUnit": {"$ref": "#/$defs/nullableText"},
+        "publishedDtype": {"$ref": "#/$defs/nullableText"},
+        "canonicalInstanceHeader": {"$ref": "#/$defs/nullableText"},
+        "relation": {"enum": ["exactMatch", "closeMatch", "related", "needsCuration"]},
+        "note": {"type": "string"},
+        "curation": {"$ref": "#/$defs/curation"},
+        "sourceFiles": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1, "pattern": "^(?!/)(?!.*\\\\)(?!.*:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"}
+        }
+      }
+    }
+  }
+}

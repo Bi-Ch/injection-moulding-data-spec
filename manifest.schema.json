@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Injection Moulding Process Data Cycle Manifest",
+  "description": "Schema for the mandatory cycle-package identity and resource inventory. Additional parameter-backed context keys require application-level checks against parameterDefinition.json.",
+  "type": "object",
+  "required": [
+    "manifestVersion",
+    "parameterDefinition",
+    "cycleId",
+    "resources"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "manifestVersion": {
+      "const": "0.1.0-draft.1"
+    },
+    "parameterDefinition": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?![A-Za-z][A-Za-z0-9+.-]*:)[^\\\\]+$"
+    },
+    "cycleId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "resources": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/resource"
+      }
+    },
+    "actualCountCycleMachine": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Absolute, non-resettable machine lifetime count of completed cycles. Together with the machine identity, it identifies the cycle; it is not globally unique on its own."
+    },
+    "measuredTimeCreationFile": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "actualTimeCycleStart": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "actualTimestepSizeIMM": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "nominalDiameterScrew": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "nominalMaterialType": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nominalMaterialName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nominalMaterialFillerType": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nominalMaterialFillerPercentWeight": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "nominalCountCavitiesMould": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "descriptionMould": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "measuredQualityCycleIsGood": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "manifestMetadata": {
+      "type": "object"
+    }
+  },
+  "patternProperties": {
+    "^descriptionMouldCavity_[1-9][0-9]*$": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "propertyNames": {
+    "anyOf": [
+      {
+        "not": {
+          "pattern": "^descriptionMouldCavity"
+        }
+      },
+      {
+        "pattern": "^descriptionMouldCavity_[1-9][0-9]*$"
+      }
+    ]
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "resource": {
+      "type": "object",
+      "required": [
+        "path",
+        "role"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\\\]+$"
+        },
+        "role": {
+          "enum": [
+            "timeSeries",
+            "setParameters",
+            "actualParameters",
+            "measuredMetadata",
+            "measuredQualities",
+            "supplementary"
+          ]
+        }
+      }
+    }
+  }
+}

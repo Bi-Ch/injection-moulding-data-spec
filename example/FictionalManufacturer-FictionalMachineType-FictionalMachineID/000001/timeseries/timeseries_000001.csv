@@ -1,0 +1,4 @@
+relativeTimestampCycle,timeseriesPressureInjection,timeseriesPositionScrew,timeseriesRevolutionsScrew,timeseriesVelocityScrewPeripheral,timeseriesTriggerInjection
+ms,bar,mm,r/min,mm/s,notApplicable
+0.0,0.0,50.0,30.0,62.831853,false
+2.0,12.5,49.9,60.0,125.663706,true

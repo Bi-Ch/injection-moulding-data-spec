@@ -1,0 +1,60 @@
+{
+  "$schema": "../../../manifest.schema.json",
+  "manifestVersion": "0.1.0-draft.1",
+  "parameterDefinition": "../../../parameterDefinition.json",
+  "cycleId": "000001",
+  "actualCountCycleMachine": 1,
+  "measuredTimeCreationFile": "2026-01-01T12:01:00Z",
+  "actualTimeCycleStart": "2026-01-01T12:00:00Z",
+  "nominalDiameterScrew": 40.0,
+  "nominalMaterialType": "FictionalThermoplastic",
+  "nominalMaterialName": "FictionalGrade-01",
+  "nominalMaterialFillerType": null,
+  "nominalMaterialFillerPercentWeight": null,
+  "nominalCountCavitiesMould": 2,
+  "descriptionMould": "FictionalTwoCavityMould",
+  "descriptionMouldCavity_1": "Fictional cavity A",
+  "descriptionMouldCavity_2": "Fictional cavity B",
+  "actualTimestepSizeIMM": 2.0,
+  "measuredQualityCycleIsGood": true,
+  "manifestMetadata": {
+    "exampleType": "synthetic",
+    "notes": "All identifiers and values in this folder are invented.",
+    "derivations": {
+      "timeseriesVelocityScrewPeripheral": {
+        "sourceParameters": [
+          "timeseriesRevolutionsScrew",
+          "nominalDiameterScrew"
+        ],
+        "formula": "pi * nominalDiameterScrew * timeseriesRevolutionsScrew / 60",
+        "rounding": "six decimal places"
+      }
+    }
+  },
+  "resources": [
+    {
+      "path": "README.md",
+      "role": "supplementary"
+    },
+    {
+      "path": "metadata/measured_000001.csv",
+      "role": "measuredMetadata"
+    },
+    {
+      "path": "metadata/measured_qualities_000001.csv",
+      "role": "measuredQualities"
+    },
+    {
+      "path": "actual_set_parameters/set_000001.csv",
+      "role": "setParameters"
+    },
+    {
+      "path": "actual_set_parameters/actual_000001.csv",
+      "role": "actualParameters"
+    },
+    {
+      "path": "timeseries/timeseries_000001.csv",
+      "role": "timeSeries"
+    }
+  ]
+}

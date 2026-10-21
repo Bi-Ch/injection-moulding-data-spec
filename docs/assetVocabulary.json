@@ -1,0 +1,83 @@
+{
+  "nonNormative": false,
+  "note": "InjectionMoldingMachine and TemperatureControlDevice are application-level canonical asset codes used by this draft; they are not asserted to be standard identifiers.",
+  "assets": [
+    {
+      "code": "InjectionMoldingMachine",
+      "preferredLabelEnglish": "injection-moulding machine",
+      "preferredLabelGerman": "Spritzgiessmaschine",
+      "descriptionEnglish": "Application-level asset code for the injection-moulding machine that provides or executes machine values.",
+      "descriptionGerman": "Anwendungsinterner Asset-Code fuer die Spritzgiessmaschine, die Maschinenwerte bereitstellt oder ausfuehrt."
+    },
+    {
+      "code": "TemperatureControlDevice",
+      "preferredLabelEnglish": "temperature-control device",
+      "preferredLabelGerman": "Temperiergeraet",
+      "descriptionEnglish": "Application-level asset code for a temperature-control device.",
+      "descriptionGerman": "Anwendungsinterner Asset-Code fuer ein Temperiergeraet."
+    },
+    {
+      "code": "Mould",
+      "preferredLabelEnglish": "injection mould",
+      "preferredLabelGerman": "Spritzgiesswerkzeug",
+      "descriptionEnglish": "Asset code for the injection mould or mould-side quantity.",
+      "descriptionGerman": "Asset-Code fuer das Spritzgiesswerkzeug oder eine werkzeugseitige Groesse."
+    },
+    {
+      "code": "HotRunnerDevice",
+      "preferredLabelEnglish": "hot-runner device",
+      "preferredLabelGerman": "Heisskanalregler",
+      "descriptionEnglish": "Asset code for a hot-runner control device.",
+      "descriptionGerman": "Asset-Code fuer einen Heisskanalregler."
+    },
+    {
+      "code": "Dryer",
+      "preferredLabelEnglish": "material dryer",
+      "preferredLabelGerman": "Materialtrockner",
+      "descriptionEnglish": "Asset code for a material dryer.",
+      "descriptionGerman": "Asset-Code fuer einen Materialtrockner."
+    },
+    {
+      "code": "DosingSystem",
+      "preferredLabelEnglish": "material dosing system",
+      "preferredLabelGerman": "Materialdosiersystem",
+      "descriptionEnglish": "Asset code for a dosing system.",
+      "descriptionGerman": "Asset-Code fuer ein Materialdosiersystem."
+    },
+    {
+      "code": "QualityInspection",
+      "preferredLabelEnglish": "quality inspection system",
+      "preferredLabelGerman": "Qualitaetspruefsystem",
+      "descriptionEnglish": "Asset code for a quality inspection source.",
+      "descriptionGerman": "Asset-Code fuer eine Qualitaetspruefquelle."
+    },
+    {
+      "code": "Scale",
+      "preferredLabelEnglish": "weighing scale",
+      "preferredLabelGerman": "Waage",
+      "descriptionEnglish": "Asset code for a weighing scale.",
+      "descriptionGerman": "Asset-Code fuer eine Waage."
+    },
+    {
+      "code": "ExternalSensor",
+      "preferredLabelEnglish": "external sensor or data-acquisition device",
+      "preferredLabelGerman": "externer Sensor oder Datenerfassung",
+      "descriptionEnglish": "Asset code for an external sensor or data-acquisition device.",
+      "descriptionGerman": "Asset-Code fuer einen externen Sensor oder eine Datenerfassung."
+    },
+    {
+      "code": "Environment",
+      "preferredLabelEnglish": "environmental measurement source",
+      "preferredLabelGerman": "Umgebungsmessquelle",
+      "descriptionEnglish": "Asset code for an environmental measurement source.",
+      "descriptionGerman": "Asset-Code fuer eine Umgebungsmessquelle."
+    },
+    {
+      "code": "Unknown",
+      "preferredLabelEnglish": "not assignable from available information",
+      "preferredLabelGerman": "aus verfuegbaren Informationen nicht zuordenbar",
+      "descriptionEnglish": "Placeholder code for unresolved assignment discussions; empty asset lists are preferred in parameter entries until curated.",
+      "descriptionGerman": "Platzhalter fuer offene Zuordnungsdiskussionen; in Parametereintraegen werden bis zur Kuratierung leere Asset-Listen bevorzugt."
+    }
+  ]
+}

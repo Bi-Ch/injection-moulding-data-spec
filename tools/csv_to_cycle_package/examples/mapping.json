@@ -1,0 +1,14 @@
+{
+  "cycle_column": "cycle",
+  "set": {
+    "setTemperatureBarrel_1": {"column": "barrel_temperature_1_setting", "unit": "°C"}
+  },
+  "actual": {
+    "actualTemperatureBarrel_1": {"column": "barrel_temperature_1_actual", "unit": "°C", "select": "last"}
+  },
+  "timeseries": {
+    "relativeTimestampCycle": {"column": "cycle_time_ms", "unit": "ms"},
+    "timeseriesPressureInjection": {"column": "pressure_bar", "unit": "bar"},
+    "timeseriesPositionScrew": {"column": "position_screw_mm", "unit": "mm"}
+  }
+}

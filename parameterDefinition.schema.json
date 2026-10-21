@@ -1,0 +1,802 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "parameterDefinition.schema.json",
+  "title": "Injection moulding process data parameter definition",
+  "type": "object",
+  "required": [
+    "specification",
+    "parameters"
+  ],
+  "properties": {
+    "specification": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "version",
+        "releaseStatus",
+        "schema"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "releaseStatus": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "parameters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "variableName",
+          "canonicalId",
+          "descriptionEnglish",
+          "descriptionGerman",
+          "dataType",
+          "dataRepresentation",
+          "valueRole",
+          "unit",
+          "releaseProfile",
+          "assetAssignment",
+          "measurementLocation",
+          "instances",
+          "representativeValue"
+        ],
+        "additionalProperties": true,
+        "allOf": [
+          {
+            "if": {
+              "required": [
+                "dataRepresentation"
+              ],
+              "properties": {
+                "dataRepresentation": {
+                  "const": "timeSeries"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "variableName": {
+                  "pattern": "^(timeseries[A-Z].*|relativeTimestamp[A-Z].*)$"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "variableName"
+              ],
+              "properties": {
+                "variableName": {
+                  "pattern": "^timeseries[A-Z].*"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "dataRepresentation": {
+                  "const": "timeSeries"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "profileSegments"
+              ]
+            },
+            "then": {
+              "required": [
+                "dataRepresentation",
+                "valueRole",
+                "instances"
+              ],
+              "properties": {
+                "dataRepresentation": {
+                  "const": "cycleValue"
+                },
+                "valueRole": {
+                  "const": "set"
+                },
+                "instances": {
+                  "required": [
+                    "supported",
+                    "dimensions"
+                  ],
+                  "properties": {
+                    "supported": {
+                      "const": true
+                    },
+                    "dimensions": {
+                      "contains": {
+                        "type": "object",
+                        "required": [
+                          "key"
+                        ],
+                        "properties": {
+                          "key": {
+                            "const": "profileSegmentIndex"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "unit"
+              ],
+              "properties": {
+                "unit": {
+                  "type": "null"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "unitSemantics"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "unitSemantics"
+                ]
+              }
+            }
+          }
+        ],
+        "properties": {
+          "variableName": {
+            "type": "string",
+            "minLength": 1
+          },
+          "canonicalId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "legacyAliases": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "deprecated": {
+            "type": "boolean"
+          },
+          "replacedBy": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "descriptionEnglish": {
+            "type": "string",
+            "minLength": 1
+          },
+          "descriptionGerman": {
+            "type": "string",
+            "minLength": 1
+          },
+          "dataType": {
+            "enum": [
+              "boolean",
+              "float",
+              "int",
+              "object",
+              "string"
+            ]
+          },
+          "dataRepresentation": {
+            "enum": [
+              "cycleValue",
+              "timeSeries"
+            ]
+          },
+          "valueRole": {
+            "enum": [
+              "actual",
+              "description",
+              "measured",
+              "nominal",
+              "set",
+              "timestamp"
+            ]
+          },
+          "unit": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/unit"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "unitSemantics": {
+            "enum": [
+              "dimensionless",
+              "notApplicable",
+              "unknown"
+            ]
+          },
+          "releaseProfile": {
+            "enum": [
+              "core",
+              "draft",
+              "experimental"
+            ]
+          },
+          "semanticAliases": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "alternativeRepresentationOf": {
+            "type": "string",
+            "minLength": 1
+          },
+          "derivableFrom": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "assetAssignment": {
+            "$ref": "#/$defs/assetAssignment"
+          },
+          "measurementLocation": {
+            "$ref": "#/$defs/measurementLocation"
+          },
+          "instances": {
+            "$ref": "#/$defs/instances"
+          },
+          "representativeValue": {
+            "$ref": "#/$defs/representativeValue"
+          },
+          "profileSegments": {
+            "$ref": "#/$defs/profileSegments"
+          },
+          "profileTransitions": false,
+          "standardReferences": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "sourceStandard",
+                    "release",
+                    "term",
+                    "relation",
+                    "explanation"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "sourceStandard": {
+                      "type": "string"
+                    },
+                    "aliasStandards": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "release": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "term": {
+                      "type": "string"
+                    },
+                    "relation": {
+                      "enum": [
+                        "exactMatch",
+                        "closeMatch",
+                        "related",
+                        "broaderTerm",
+                        "narrowerTerm"
+                      ]
+                    },
+                    "explanation": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "usageNote": {
+            "type": "string",
+            "minLength": 1
+          },
+          "curation": {
+            "$ref": "#/$defs/curation"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "assetCode": {
+      "enum": [
+        "InjectionMoldingMachine",
+        "TemperatureControlDevice",
+        "Mould",
+        "HotRunnerDevice",
+        "Dryer",
+        "DosingSystem",
+        "QualityInspection",
+        "Scale",
+        "ExternalSensor",
+        "Environment",
+        "Unknown"
+      ]
+    },
+    "unit": {
+      "type": "object",
+      "required": [
+        "displayName",
+        "codes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "codes": {
+          "type": "object",
+          "required": [
+            "unEceRec20",
+            "iecTs62720"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "unEceRec20": {
+              "type": "string",
+              "minLength": 1
+            },
+            "iecTs62720": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "assetAssignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "providingAssets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/assetCode"
+          }
+        },
+        "affectedAssets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/assetCode"
+          }
+        },
+        "possibleProvidingAssets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/assetCode"
+          }
+        }
+      }
+    },
+    "measurementLocation": {
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "unknown",
+            "machineInternalUnspecified",
+            "mouldInternalUnspecified",
+            "barrelHeatingZone",
+            "barrelFlange",
+            "nozzle",
+            "screwAntechamber",
+            "screwPosition",
+            "hydraulicCylinder",
+            "mouldCavity",
+            "mouldSurface",
+            "temperatureControlSupplyLine",
+            "temperatureControlReturnLine",
+            "hotRunnerZone",
+            "materialHopper",
+            "ambient",
+            "externalMeasurementLocation",
+            "notApplicable"
+          ]
+        },
+        "descriptionEnglish": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "descriptionGerman": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isInstanceSpecific": {
+          "type": "boolean"
+        }
+      }
+    },
+    "instances": {
+      "type": "object",
+      "required": [
+        "supported"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "supported": {
+          "type": "boolean"
+        },
+        "indexBase": {
+          "const": 1
+        },
+        "headerPattern": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dimensions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/instanceDimension"
+          }
+        },
+        "unsuffixedValuePolicy": {
+          "enum": [
+            "notApplicable",
+            "singleOrUnspecifiedInstance",
+            "singleOnly",
+            "notAllowed"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "supported": {
+                "const": true
+              }
+            },
+            "required": [
+              "supported"
+            ]
+          },
+          "then": {
+            "required": [
+              "indexBase",
+              "headerPattern",
+              "dimensions",
+              "unsuffixedValuePolicy"
+            ]
+          },
+          "else": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "indexBase"
+                  ]
+                },
+                {
+                  "required": [
+                    "headerPattern"
+                  ]
+                },
+                {
+                  "required": [
+                    "dimensions"
+                  ]
+                },
+                {
+                  "required": [
+                    "unsuffixedValuePolicy"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "instanceDimension": {
+      "type": "object",
+      "required": [
+        "key"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "allowedValues": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "descriptionEnglish": {
+          "type": "string",
+          "minLength": 1
+        },
+        "descriptionGerman": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "profileSegments": {
+      "type": "object",
+      "required": [
+        "indexDimension"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "indexDimension": {
+          "const": "profileSegmentIndex"
+        },
+        "segmentDurationParameterRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "indexAlignment": {
+          "const": "sameProfileSegmentIndex"
+        },
+        "totalDurationParameterRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "internalBreakpoints": {
+          "$ref": "#/$defs/profileInternalBreakpoints"
+        },
+        "lastSegmentEnd": {
+          "$ref": "#/$defs/profileLastSegmentEnd"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "segmentDurationParameterRef",
+            "indexAlignment"
+          ],
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "internalBreakpoints"
+                ]
+              },
+              {
+                "required": [
+                  "lastSegmentEnd"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "required": [
+            "internalBreakpoints"
+          ],
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "segmentDurationParameterRef"
+                ]
+              },
+              {
+                "required": [
+                  "indexAlignment"
+                ]
+              },
+              {
+                "required": [
+                  "totalDurationParameterRef"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "profileInternalBreakpoints": {
+      "type": "object",
+      "required": [
+        "parameterRef",
+        "indexDimension",
+        "semantics",
+        "indexRelationship",
+        "cardinality"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "parameterRef": {
+          "type": "string",
+          "minLength": 1
+        },
+        "indexDimension": {
+          "const": "profileBreakpointIndex"
+        },
+        "semantics": {
+          "const": "betweenSegments"
+        },
+        "indexRelationship": {
+          "const": "breakpoint_i_between_segment_i_and_i_plus_1"
+        },
+        "cardinality": {
+          "const": "segmentCountMinusOne"
+        }
+      }
+    },
+    "profileLastSegmentEnd": {
+      "type": "object",
+      "required": [
+        "eventReference",
+        "relation"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "eventReference": {
+          "const": "injectionToHoldingSwitchover"
+        },
+        "relation": {
+          "const": "coincidentEvent"
+        }
+      }
+    },
+    "representativeValue": {
+      "type": "object",
+      "required": [
+        "isRepresentative",
+        "representativeVariantAllowed"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "isRepresentative": {
+          "type": "boolean"
+        },
+        "representativeVariantAllowed": {
+          "type": "boolean"
+        },
+        "recommendedVariableName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "represents": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "descriptionEnglish": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "descriptionGerman": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "allowedMethods": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "machineReportedRepresentative",
+              "arithmeticMean",
+              "weightedMean",
+              "referenceInstance",
+              "otherDocumented"
+            ]
+          }
+        },
+        "requiredDocumentation": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "representationMethod",
+              "sourceParameter",
+              "sourceInstances"
+            ]
+          }
+        }
+      }
+    },
+    "curation": {
+      "type": "object",
+      "required": [
+        "reviewStatus"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "reviewStatus": {
+          "enum": [
+            "migrated",
+            "needsCuration",
+            "needsReview",
+            "reviewed"
+          ]
+        },
+        "fieldsNeedingReview": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

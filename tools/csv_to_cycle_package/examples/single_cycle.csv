@@ -1,0 +1,4 @@
+cycle_time_ms,barrel_temperature_1_setting,barrel_temperature_1_actual,pressure_bar,position_screw_mm
+0,200,198,10,30
+10,200,199,100,25
+20,200,200,250,20
