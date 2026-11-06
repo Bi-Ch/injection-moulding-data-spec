@@ -1,6 +1,6 @@
 {
   "$schema": "../../../manifest.schema.json",
-  "manifestVersion": "0.1.0-draft.1",
+  "manifestVersion": "1.0",
   "parameterDefinition": "../../../parameterDefinition.json",
   "cycleId": "000001",
   "actualCountCycleMachine": 1,

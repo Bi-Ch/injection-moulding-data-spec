@@ -1,6 +1,6 @@
 {
   "nonNormative": false,
-  "note": "InjectionMoldingMachine and TemperatureControlDevice are application-level canonical asset codes used by this draft; they are not asserted to be standard identifiers.",
+  "note": "InjectionMoldingMachine and TemperatureControlDevice are application-level canonical asset codes used by this specification; they are not asserted to be standard identifiers.",
   "assets": [
     {
       "code": "InjectionMoldingMachine",

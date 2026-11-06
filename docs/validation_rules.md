@@ -12,7 +12,7 @@ Use a JSON Schema Draft 2020-12 validator for these pairs:
 | Each cycle's `manifest.json` | `manifest.schema.json` |
 | `mappings/datasetParameterMappings.json` | `mappings/datasetParameterMappings.schema.json` |
 
-Enable date/time format checking. This Python example checks the repository catalogue, correspondence register and example manifests. Run it from the repository root with `jsonschema` installed; the dependency is listed in the converter's [test requirements](../tools/csv_to_cycle_package/requirements-test.txt).
+Enable date/time format checking. This Python example checks the repository catalogue, correspondence register and example manifests. Run it from the repository root in a Python environment with `jsonschema` installed.
 
 ```python
 import json
@@ -58,7 +58,9 @@ For another dataset, apply the manifest check to its cycle directories and the c
 | Units | Exact catalogue display units or unit-semantics tokens; any source conversion is documented. |
 | File role | Settings, cycle actuals, time series and non-quality measurements match their catalogue roles and representations. |
 | Instance headers | Declared patterns, numeric indices from 1, permitted controlled codes and documented physical associations. |
-| Profiles | Paired holding pressures and durations; contiguous velocity segments with exactly `N - 1` matching internal breakpoints. |
+| Profiles | Paired holding pressures and durations; contiguous injection/mould velocity segments with exactly `N - 1` matching internal breakpoints. Position and volume breakpoints use the catalogue's fixed reference positions; screw-position breakpoint values are nonnegative. |
+| Profile interpolation | Case-insensitive matching against `Steps` or `Ramps`, as declared by `allowedValuesCaseSensitive: false`; `steps`, `ramps` and other capitalizations are accepted. An absent selector remains unknown. Holding-pressure ramps require their declared starting pressure and use segment durations; velocity ramps use position or volume intervals and hold the final segment value. |
+| Ejector profiles | Fixed steps with aligned velocity, endpoint and force-limit indices. Forward requires `N` end positions; backward may omit only the final one, explicitly defaulting to 0 mm. Recorded endpoints must be populated. Optional force-limit blocks cover all segments; supplied limits are nonnegative, while negative velocity or position values retain their meanings. |
 | Time series | Documented cycle origin, ordered observation times and explained gaps or transformations; no assumption of regularity from a nominal interval alone. |
 | Quality-Long | Six columns, no unit row, exactly one typed value per observation and distinguishing times for repeated parameter-instance pairs. |
 | Cavity descriptions | Non-empty indexed descriptions, with indices within the stated cavity count when available. |
@@ -72,4 +74,4 @@ Supplementary raw files retain their original format. Validate their inventory a
 
 Review cycle assignment, units, measurement basis, time transformations and quality polarity against the source documentation and observations. Sample exported values across cycles and instances. Record missing context and the scope of the checks with the dataset. Schema validity cannot resolve an ambiguous sensor location, verify calibration or justify a statistical summary.
 
-The [CSV converter tests](../tools/csv_to_cycle_package/README.md#checks-and-tests) exercise the converter's supported input and output. They are not a complete dataset validator and do not validate the industrial acquisition behind measured cycle 96184. The [reading guide](reading_data.md) identifies context needed to judge reuse.
+The [reading guide](reading_data.md) identifies context needed to judge reuse.

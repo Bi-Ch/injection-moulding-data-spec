@@ -65,7 +65,8 @@ The keys within `set`, `actual` and `timeseries` are exact canonical output head
 | `select` | For `set`/`actual` only: `constant` (default), `first` or `last`. |
 
 `constant` requires all observations in the cycle to agree, including missing
-values. `first` and `last` select the literal first/last observation; they do not
+values. For a declared case-insensitive enumeration, capitalization-only changes
+still agree. `first` and `last` select the literal first/last observation; they do not
 skip empty cells. Choose them only when that selection matches the intended
 parameter definition. In the synthetic example, the last temperature is expressly
 chosen as the cycle actual value. This is not a universal acquisition rule.
@@ -80,6 +81,28 @@ required. Unmapped source columns are ignored. Missing mapped columns and unknow
 configuration keys are errors. Indexed headers follow the catalogue, including
 one-based numeric indices and controlled asset codes. Deprecated names and legacy
 aliases are not accepted as canonical output.
+
+Profile interpolation is an optional scalar setting in the `set` mapping. Use the
+catalogue's `Steps` or `Ramps` mode and declare its unit as `notApplicable`. The four
+selectors accept any capitalization, including `steps`, `ramps`, uppercase and
+mixed case, through `allowedValuesCaseSensitive: false`. The converter preserves
+the selected input value's spelling. Parameter names, headers and asset codes
+remain case-sensitive; allowed-value matching is case-sensitive when the flag is absent.
+An absent selector remains unknown; the converter does not default it to `Steps`.
+When a holding-pressure profile is included with `Ramps`, also supply the declared
+starting-pressure value, `setPressureInjectionLimit`. The [profile guide](../../docs/instances_and_representative_values.md#profile-interpolation)
+explains why holding-pressure ramps and velocity ramps interpret segment values
+differently. The converter stores these settings without generating a trajectory.
+
+Ejector profiles have fixed step behaviour and use explicit segment indices such
+as `setVelocityEjectorForward_1`, `setPositionEjectorForward_1` and
+`setForceEjectorForward_1`. Every forward segment needs an end position. Backward
+profiles may omit only the final end-position column; the catalogue then defines
+that endpoint as 0 mm, without the converter adding a column or value. A recorded
+position cell cannot be empty. Force limits may be omitted; if a force-limit block
+is mapped, its indices must cover the velocity segments and any supplied values
+must be nonnegative. Negative positions and velocities retain their signs. See
+the [ejector profile rules](../../docs/instances_and_representative_values.md#ejector-profiles).
 
 ## Input and cycle boundaries
 
@@ -163,42 +186,22 @@ If the script is moved outside this repository, use `--specification PATH` to po
 to the directory containing the catalogue and both schemas. The canonical files
 are the source of truth, not a duplicate list of parameters in this script.
 
-## Checks and tests
+Reference CSV outputs for the two-cycle example are supplied under
+[examples/expected](examples/expected). Manifest creation timestamps vary between
+runs; the CSV outputs do not.
 
-The runtime checks names, value types, resource roles, units, instance patterns,
-time ordering, selected manifest constraints and profile companion columns. For
-segmented set profiles it requires explicit contiguous segment indices and the
-catalogue's corresponding duration or internal-breakpoint columns. It does not
-verify physical switchover events, calibration, conversion provenance, or domain
-equivalence. Representative derivations and detailed-quality Long files are outside
-its scope. It is not a complete semantic conformance validator.
+## Version, licence and scope
 
-Behaviour tests require only Python. The optional `jsonschema` dependency adds an
-independent check of the generated manifests and catalogue against the unchanged
-repository schemas:
+This is version `1.0`, the supplementary converter for
+`injection-moulding-process-data` version `1.0`. The script, documentation, synthetic
+inputs, configurations and reference outputs are licensed under
+[Creative Commons Attribution 4.0 International (CC BY 4.0)](../../LICENSE).
 
-```sh
-python -m pip install -r tools/csv_to_cycle_package/requirements-test.txt
-python -m unittest discover -s tools/csv_to_cycle_package -p "test_*.py" -v
-```
-
-Without `jsonschema`, the schema test is explicitly skipped. Expected CSV contents
-for the two-cycle example are supplied under [examples/expected](examples/expected).
-Manifest creation timestamps vary between runs; the CSV outputs do not.
-The completed local run and specification hashes are recorded in [VALIDATION.md](VALIDATION.md).
-
-## Publication status and scope
-
-This is version `0.1.0-draft.1`, the supplementary converter for `injection-moulding-process-data`.
-The script, documentation, synthetic inputs, configurations, expected outputs and
-tests belong to the matching specification version. This draft has no assigned
-software licence or versioned archival DOI.
-
-The supported input is deliberately small: one aligned CSV per conversion. Joining
-separate setting/signal tables, live streams, vendor formats, unit conversions,
-derived aggregates and binary measuring charts remain application-specific input
-preparation. The `convert(...)` function can serve as a starting point for further
-development without making those interface details part of the publication.
+The converter accepts one aligned CSV per run. Joining separate setting/signal
+tables, processing live streams or vendor formats, converting units, calculating
+derived aggregates and decoding binary measuring charts require source-specific
+preparation. Python applications can call `convert(...)` directly with the same
+input, mapping, context and output arguments as the command-line interface.
 
 ## Recommended cycle selection
 

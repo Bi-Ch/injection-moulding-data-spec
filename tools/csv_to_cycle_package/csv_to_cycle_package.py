@@ -17,7 +17,7 @@ import re
 import tempfile
 
 
-VERSION = "0.1.0-draft.1"
+VERSION = "1.0"
 SPECIFICATION = Path(__file__).resolve().parents[2]
 ROLES = {"set": "setParameters", "actual": "actualParameters", "timeseries": "timeSeries"}
 CONTEXT = {"actualCountCycleMachine", "actualTimestepSizeIMM", "actualTimeCycleStart",
@@ -94,6 +94,13 @@ def unit_cell(definition):
     return definition["unit"]["displayName"] if definition["unit"] else definition["unitSemantics"]
 
 
+def comparison_value(value, definition):
+    """Compare case-insensitive enum values without changing their stored spelling."""
+    if isinstance(value, str) and definition.get("allowedValuesCaseSensitive", True) is False:
+        return value.casefold()
+    return value
+
+
 def typed(value, definition, where):
     """Blank CSV cells and JSON null stay missing; never turn them into zero."""
     if value is None or value == "":
@@ -119,6 +126,10 @@ def typed(value, definition, where):
                 f"{where}: use true or false")
         return value.lower() == "true"
     require(kind == "string" and isinstance(value, str), f"{where}: unsupported or invalid type {kind}")
+    if "allowedValues" in definition:
+        require(comparison_value(value, definition) in
+                [comparison_value(allowed, definition) for allowed in definition["allowedValues"]],
+                f"{where}: value must be one of {definition['allowedValues']}")
     return value
 
 
@@ -181,6 +192,23 @@ def check_profiles(entries, catalogue):
             continue
         name = definition["variableName"]
         segments = indices(name)
+        if "segmentEndPositionParameterRef" in profile:
+            position = profile["segmentEndPositionParameterRef"]
+            endpoints = indices(position)
+            force = profile["segmentForceLimitParameterRef"]
+            limits = indices(force)
+            if not segments and not endpoints and not limits:
+                continue
+            require(segments and segments == set(range(1, len(segments) + 1)),
+                    f"{name}: segments must be 1..N")
+            allowed_endpoints = [segments]
+            if "defaultLastSegmentEndPosition" in profile:
+                allowed_endpoints.append(segments - {len(segments)})
+            require(endpoints in allowed_endpoints,
+                    f"{name}: inconsistent endpoint indices for {position}")
+            require(not limits or limits == segments,
+                    f"{name}: inconsistent force-limit indices for {force}")
+            continue
         companion = profile.get("segmentDurationParameterRef") or profile["internalBreakpoints"]["parameterRef"]
         other = indices(companion)
         if not segments and not other:
@@ -279,13 +307,32 @@ def values_for_cycle(rows, prepared):
             if role != "timeseries":
                 selection = rule.get("select", "constant")
                 if selection == "constant":
-                    require(all(v == values[0] for v in values), f"{target} changes within a cycle; specify first/last only if scientifically justified")
+                    compared = [comparison_value(v, definition) for v in values]
+                    require(all(v == compared[0] for v in compared), f"{target} changes within a cycle; specify first/last only if scientifically justified")
                 values = [values[-1] if selection == "last" else values[0]]
             elif target == "relativeTimestampCycle":
                 require(all(v is not None and v >= 0 for v in values), "Time axis must be nonnegative and nonmissing")
                 require(all(b > a for a, b in zip(values, values[1:])), "Time axis must increase strictly within each cycle")
             columns.append(values)
         tables[role] = list(zip(*columns))
+    if "set" in tables:
+        selected = dict(zip((target for target, _, _ in prepared["set"]), tables["set"][0]))
+        profiles = {definition["variableName"]: definition["profileSegments"]
+                    for _, _, definition in prepared["set"] if "profileSegments" in definition}
+        for name, profile in profiles.items():
+            start = profile.get("rampStartValueParameterRef")
+            mode = selected.get(profile.get("interpolationParameterRef"))
+            if start and isinstance(mode, str) and mode.casefold() == "ramps":
+                require(selected.get(start) is not None,
+                        f"{name}: Ramps requires a nonmissing {start} start value")
+            if "segmentEndPositionParameterRef" in profile:
+                position = profile["segmentEndPositionParameterRef"]
+                force = profile["segmentForceLimitParameterRef"]
+                for target, value in selected.items():
+                    if re.fullmatch(re.escape(position) + r"_[1-9][0-9]*", target):
+                        require(value is not None, f"{target}: a supplied endpoint must be nonmissing")
+                    if re.fullmatch(re.escape(force) + r"_[1-9][0-9]*", target):
+                        require(value is None or value >= 0, f"{target}: force limit must be nonnegative")
     return tables
 
 

@@ -2,7 +2,7 @@
 
 Quality observations need enough context to identify the inspected object and understand the method and assessment. Store this information in a document under the cycle's `metadata/` directory and inventory it as `supplementary`. A shared procedure may be described once in a stable, versioned document referenced by the cycle documentation.
 
-The six-column Quality-Long file stays unchanged. The accompanying document records the following information where available:
+The accompanying document supplies context for the six-column Quality-Long observations. Record the following information where available:
 
 | Information | Content |
 | --- | --- |

@@ -37,6 +37,11 @@
         "schema": {
           "type": "string",
           "minLength": 1
+        },
+        "license": {
+          "type": "string",
+          "minLength": 1,
+          "description": "SPDX license identifier for the specification."
         }
       }
     },
@@ -168,6 +173,32 @@
                   "unitSemantics"
                 ]
               }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "allowedValues"
+              ]
+            },
+            "then": {
+              "properties": {
+                "dataType": {
+                  "const": "string"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "allowedValuesCaseSensitive"
+              ]
+            },
+            "then": {
+              "required": [
+                "allowedValues"
+              ]
             }
           }
         ],
@@ -350,6 +381,20 @@
           },
           "curation": {
             "$ref": "#/$defs/curation"
+          },
+          "allowedValues": {
+            "description": "Allowed values for a string-valued parameter. Matching is case-sensitive unless allowedValuesCaseSensitive is false. Missing observations remain missing; this list does not define a default.",
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "allowedValuesCaseSensitive": {
+            "type": "boolean",
+            "description": "Whether allowedValues matching distinguishes case. When absent, matching is case-sensitive. False permits capitalization variants while preserving the supplied value."
           }
         }
       }
@@ -613,6 +658,34 @@
         },
         "lastSegmentEnd": {
           "$ref": "#/$defs/profileLastSegmentEnd"
+        },
+        "interpolationParameterRef": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Reference to the scalar profile-wide interpolation setting. Omission does not imply a mode."
+        },
+        "rampStartValueParameterRef": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Reference to the configured starting value of the first segment when the profile-wide setting is Ramps. Subsequent segments start at the preceding segment target."
+        },
+        "segmentEndPositionParameterRef": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Per-segment endpoint coordinate, including the final movement endpoint, indexed by profileSegmentIndex."
+        },
+        "segmentForceLimitParameterRef": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Optional observed setting for each segment force limit, indexed like the segment velocity and end position. Omission does not imply a numerical limit."
+        },
+        "fixedInterpolation": {
+          "const": "Steps",
+          "description": "Fixed step behaviour for profiles without an interpolation selector."
+        },
+        "defaultLastSegmentEndPosition": {
+          "type": "number",
+          "description": "Final segment end coordinate used only when that endpoint is omitted. Its unit and zero reference come from segmentEndPositionParameterRef."
         }
       },
       "oneOf": [
@@ -631,6 +704,26 @@
               {
                 "required": [
                   "lastSegmentEnd"
+                ]
+              },
+              {
+                "required": [
+                  "segmentEndPositionParameterRef"
+                ]
+              },
+              {
+                "required": [
+                  "segmentForceLimitParameterRef"
+                ]
+              },
+              {
+                "required": [
+                  "fixedInterpolation"
+                ]
+              },
+              {
+                "required": [
+                  "defaultLastSegmentEndPosition"
                 ]
               }
             ]
@@ -656,11 +749,81 @@
                 "required": [
                   "totalDurationParameterRef"
                 ]
+              },
+              {
+                "required": [
+                  "segmentEndPositionParameterRef"
+                ]
+              },
+              {
+                "required": [
+                  "segmentForceLimitParameterRef"
+                ]
+              },
+              {
+                "required": [
+                  "fixedInterpolation"
+                ]
+              },
+              {
+                "required": [
+                  "defaultLastSegmentEndPosition"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "required": [
+            "segmentEndPositionParameterRef",
+            "segmentForceLimitParameterRef",
+            "indexAlignment",
+            "fixedInterpolation"
+          ],
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "segmentDurationParameterRef"
+                ]
+              },
+              {
+                "required": [
+                  "totalDurationParameterRef"
+                ]
+              },
+              {
+                "required": [
+                  "internalBreakpoints"
+                ]
+              },
+              {
+                "required": [
+                  "lastSegmentEnd"
+                ]
+              },
+              {
+                "required": [
+                  "interpolationParameterRef"
+                ]
+              },
+              {
+                "required": [
+                  "rampStartValueParameterRef"
+                ]
               }
             ]
           }
         }
-      ]
+      ],
+      "dependentRequired": {
+        "rampStartValueParameterRef": [
+          "interpolationParameterRef"
+        ],
+        "defaultLastSegmentEndPosition": [
+          "segmentEndPositionParameterRef"
+        ]
+      }
     },
     "profileInternalBreakpoints": {
       "type": "object",

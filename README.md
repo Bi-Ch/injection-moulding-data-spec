@@ -2,7 +2,7 @@
 
 This specification describes how to store injection-moulding process data so that it can be understood and reused independently of the original acquisition software. A parameter catalogue defines quantities, units and instance names. A folder for each machine cycle brings together settings, cycle results, time series, quality observations and their context through a manifest.
 
-The scope is conventional thermoplastic injection moulding with one injection unit. The current catalogue is version `0.1.0-draft.1`, with release status `publicDraft`. It contains 214 parameter definitions: 113 Core, 54 Draft and 47 Experimental. Documentation is in English; parameter descriptions are available in English and German.
+The scope is conventional thermoplastic injection moulding with one injection unit. The catalogue is version `1.0`, with release status `published`. It contains 220 parameter definitions: 134 Core, 39 Draft and 47 Experimental. Documentation is in English; parameter descriptions are available in English and German.
 
 ## Use the specification
 
@@ -38,6 +38,12 @@ Search queries and screening records are retained under [research/](research/). 
 
 ## Status and reuse
 
-Core, Draft and Experimental describe the maturity of a definition, not the accuracy of an observation. Quality-Long remains a design draft without a separate machine-readable schema. Machine-specific measurement methods, representative-value calculations and quality criteria remain part of the dataset documentation.
+Core, Draft and Experimental describe the maturity of a definition, not the accuracy of an observation. Quality-Long defines a six-column layout for detailed quality observations; no separate machine-readable schema is supplied. Machine-specific measurement methods, representative-value calculations and quality criteria remain part of the dataset documentation.
 
-Keep the exact catalogue used with the data when archiving or exchanging a package. The draft has no assigned licence or completed archival DOI. The repository is intended to accompany the publication; its current status does not establish permission to reuse third-party datasets.
+Keep the exact catalogue used with the data when archiving or exchanging a package. The catalogue, manifest format, correspondence register and CSV converter use version `1.0`. Versions and release designations of referenced datasets and standards identify those external sources.
+
+## License
+
+Unless otherwise indicated, the original content of this repository is licensed under the [Creative Commons Attribution 4.0 International licence (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). The full licence text is provided in [LICENSE](LICENSE). When reusing the material, credit the repository contributors, identify the specification and version, link to the licence and indicate any changes.
+
+Third-party datasets and standards cited in this repository retain their own licences and terms of use.

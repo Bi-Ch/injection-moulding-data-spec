@@ -3,16 +3,17 @@
   "specification": {
     "id": "injectionMouldingProcessData",
     "title": "Injection Moulding Process Data Parameter Specification",
-    "version": "0.1.0-draft.1",
-    "releaseStatus": "publicDraft",
-    "schema": "parameterDefinition.schema.json"
+    "version": "1.0",
+    "releaseStatus": "published",
+    "schema": "parameterDefinition.schema.json",
+    "license": "CC-BY-4.0"
   },
   "parameters": [
     {
       "variableName": "timeseriesFlowRateHoseMouldInlet",
       "canonicalId": "im-process-data.parameter.timeseriesFlowRateHoseMouldInlet",
-      "descriptionEnglish": "Flow rate in the temperature control hose inlet towards the mould",
-      "descriptionGerman": "Durchfluss im Temperierschlauch im Vorlauf zum Werkzeug",
+      "descriptionEnglish": "Time-resolved flow rate in the temperature control hose inlet towards the mould",
+      "descriptionGerman": "Zeitaufgeloester Durchfluss im Temperierschlauch im Vorlauf zum Werkzeug",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -98,8 +99,8 @@
     {
       "variableName": "timeseriesFlowRateTemperatureControlDevice",
       "canonicalId": "im-process-data.parameter.timeseriesFlowRateTemperatureControlDevice",
-      "descriptionEnglish": "Flow rate in the return line from the mould to the temperature-control device.",
-      "descriptionGerman": "Durchfluss im Ruecklauf vom Werkzeug zum Temperiergeraet.",
+      "descriptionEnglish": "Time-resolved flow rate in the return line from the mould to the temperature-control device.",
+      "descriptionGerman": "Zeitaufgeloester Durchfluss im Ruecklauf vom Werkzeug zum Temperiergeraet.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -178,15 +179,15 @@
       },
       "curation": {
         "reviewStatus": "reviewed",
-        "notes": "The existing temperatureControlDeviceIndex dimension is used so that published controller identifiers can be retained as concrete instance headers; an unsuffixed value denotes a single or unspecified device."
+        "notes": "The temperatureControlDeviceIndex dimension preserves published controller identifiers as concrete instance headers; an unsuffixed value denotes a single or unspecified device."
       },
       "releaseProfile": "core"
     },
     {
       "variableName": "timeseriesPressureHoseMouldInlet",
       "canonicalId": "im-process-data.parameter.timeseriesPressureHoseMouldInlet",
-      "descriptionEnglish": "Pressure in the temperature-control supply hose from the TemperatureControlDevice towards the mould.",
-      "descriptionGerman": "Druck im Temperiervorlaufschlauch vom Temperiergeraet zum Werkzeug.",
+      "descriptionEnglish": "Time-resolved pressure in the temperature-control supply hose from the TemperatureControlDevice towards the mould.",
+      "descriptionGerman": "Zeitaufgeloester Druck im Temperiervorlaufschlauch vom Temperiergeraet zum Werkzeug.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -261,8 +262,8 @@
     {
       "variableName": "timeseriesPressureHoseMouldOutlet",
       "canonicalId": "im-process-data.parameter.timeseriesPressureHoseMouldOutlet",
-      "descriptionEnglish": "Pressure in the temperature-control return hose from the mould towards the TemperatureControlDevice.",
-      "descriptionGerman": "Druck im Temperierruecklaufschlauch vom Werkzeug zum Temperiergeraet.",
+      "descriptionEnglish": "Time-resolved pressure in the temperature-control return hose from the mould towards the TemperatureControlDevice.",
+      "descriptionGerman": "Zeitaufgeloester Druck im Temperierruecklaufschlauch vom Werkzeug zum Temperiergeraet.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -337,8 +338,8 @@
     {
       "variableName": "timeseriesForceClampingMould",
       "canonicalId": "im-process-data.parameter.timeseriesForceClampingMould",
-      "descriptionEnglish": "clamping force",
-      "descriptionGerman": "Schliesskraft",
+      "descriptionEnglish": "Time-resolved clamping force in kN.",
+      "descriptionGerman": "Zeitaufgeloeste Schliesskraft in kN.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -411,8 +412,8 @@
     {
       "variableName": "timeseriesForceClampingNozzle",
       "canonicalId": "im-process-data.parameter.timeseriesForceClampingNozzle",
-      "descriptionEnglish": "nozzle contact pressure",
-      "descriptionGerman": "Duesenanpresskraft",
+      "descriptionEnglish": "Time-resolved nozzle contact force in kN.",
+      "descriptionGerman": "Zeitaufgeloeste Duesenanpresskraft in kN.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -461,8 +462,8 @@
     {
       "variableName": "timeseriesForceEjector",
       "canonicalId": "im-process-data.parameter.timeseriesForceEjector",
-      "descriptionEnglish": "ejector force",
-      "descriptionGerman": "Auswerferkraft",
+      "descriptionEnglish": "Time-resolved ejector force in kN",
+      "descriptionGerman": "Zeitaufgeloeste Auswerferkraft in kN.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -514,8 +515,8 @@
     {
       "variableName": "timeseriesPositionEjector",
       "canonicalId": "im-process-data.parameter.timeseriesPositionEjector",
-      "descriptionEnglish": "Ejector position relative to the machine-calibrated production zero in the retracted position. The value increases in the ejection direction; negative values are permitted when the ejector is moved behind this zero position.",
-      "descriptionGerman": "Auswerferposition relativ zum maschinenseitig kalibrierten Produktionsnullpunkt in zurueckgefahrener Stellung. Der Wert waechst in Auswerfrichtung; negative Werte sind zulaessig, wenn der Auswerfer hinter diesen Nullpunkt bewegt wird.",
+      "descriptionEnglish": "Time-resolved ejector position relative to the machine-calibrated production zero in the retracted position. The value increases in the ejection direction; negative values are permitted when the ejector is moved behind this zero position.",
+      "descriptionGerman": "Zeitaufgeloeste Auswerferposition relativ zum maschinenseitig kalibrierten Produktionsnullpunkt in zurueckgefahrener Stellung. Der Wert waechst in Auswerfrichtung; negative Werte sind zulaessig, wenn der Auswerfer hinter diesen Nullpunkt bewegt wird.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -567,8 +568,8 @@
     {
       "variableName": "timeseriesPositionMould",
       "canonicalId": "im-process-data.parameter.timeseriesPositionMould",
-      "descriptionEnglish": "Mould position relative to the first-contact position, which is defined as 0 mm. The machine may detect first contact using a documented manufacturer-specific adjustment or contact force, before full clamping force is applied.",
-      "descriptionGerman": "Werkzeugposition relativ zur ersten Kontaktposition, die als 0 mm definiert ist. Die Maschine darf den ersten Kontakt anhand einer dokumentierten herstellerspezifischen Justier- oder Kontaktkraft erkennen, bevor die volle Schliesskraft aufgebaut wird.",
+      "descriptionEnglish": "Time-resolved mould position relative to the first-contact position, which is defined as 0 mm. The machine may detect first contact using a documented manufacturer-specific adjustment or contact force, before full clamping force is applied.",
+      "descriptionGerman": "Zeitaufgeloeste Werkzeugposition relativ zur ersten Kontaktposition, die als 0 mm definiert ist. Die Maschine darf den ersten Kontakt anhand einer dokumentierten herstellerspezifischen Justier- oder Kontaktkraft erkennen, bevor die volle Schliesskraft aufgebaut wird.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -620,8 +621,8 @@
     {
       "variableName": "timeseriesPositionMovablePlaten",
       "canonicalId": "im-process-data.parameter.timeseriesPositionMovablePlaten",
-      "descriptionEnglish": "Position of the movable platen in its own machine coordinate system. Its zero point and direction are not assumed to be directly comparable with timeseriesPositionMould.",
-      "descriptionGerman": "Position der beweglichen Schliessplatte in einem eigenen Maschinenkoordinatensystem. Nullpunkt und Richtung werden nicht als direkt mit timeseriesPositionMould vergleichbar vorausgesetzt.",
+      "descriptionEnglish": "Time-resolved position of the movable platen in its own machine coordinate system. Its zero point and direction are not assumed to be directly comparable with timeseriesPositionMould.",
+      "descriptionGerman": "Zeitaufgeloeste Position der beweglichen Schliessplatte in einem eigenen Maschinenkoordinatensystem. Nullpunkt und Richtung werden nicht als direkt mit timeseriesPositionMould vergleichbar vorausgesetzt.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -670,8 +671,8 @@
     {
       "variableName": "timeseriesPositionNozzle",
       "canonicalId": "im-process-data.parameter.timeseriesPositionNozzle",
-      "descriptionEnglish": "Axial nozzle position relative to the first mechanical contact with the mould, which is defined as 0 mm. Positive values indicate movement away from the mould.",
-      "descriptionGerman": "Axiale Duesenposition relativ zum ersten mechanischen Kontakt mit dem Werkzeug, der als 0 mm definiert ist. Positive Werte bezeichnen eine Bewegung vom Werkzeug weg.",
+      "descriptionEnglish": "Time-resolved axial nozzle position relative to the first mechanical contact with the mould, which is defined as 0 mm. Positive values indicate movement away from the mould.",
+      "descriptionGerman": "Zeitaufgeloeste axiale Duesenposition relativ zum ersten mechanischen Kontakt mit dem Werkzeug, der als 0 mm definiert ist. Positive Werte bezeichnen eine Bewegung vom Werkzeug weg.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -720,8 +721,8 @@
     {
       "variableName": "timeseriesPositionScrew",
       "canonicalId": "im-process-data.parameter.timeseriesPositionScrew",
-      "descriptionEnglish": "Axial screw position relative to the mechanically foremost screw position, which is defined as 0 mm. The value increases as the screw moves backward during plasticising; negative values are not permitted.",
-      "descriptionGerman": "Axiale Schneckenposition relativ zur mechanisch vordersten Schneckenposition, die als 0 mm definiert ist. Der Wert waechst, wenn sich die Schnecke beim Dosieren nach hinten bewegt; negative Werte sind nicht zulaessig.",
+      "descriptionEnglish": "Time-resolved axial screw position relative to the mechanically foremost screw position, which is defined as 0 mm. The value increases as the screw moves backward during plasticising; negative values are not permitted.",
+      "descriptionGerman": "Zeitaufgeloeste axiale Schneckenposition relativ zur mechanisch vordersten Schneckenposition, die als 0 mm definiert ist. Der Wert waechst, wenn sich die Schnecke beim Dosieren nach hinten bewegt; negative Werte sind nicht zulaessig.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -775,8 +776,8 @@
     {
       "variableName": "timeseriesPositionScrewVolume",
       "canonicalId": "im-process-data.parameter.timeseriesPositionScrewVolume",
-      "descriptionEnglish": "Volumetric representation of the axial screw position, using the same zero point and positive direction as timeseriesPositionScrew. When derived from position and nominalDiameterScrew in millimetres, the volume in cubic centimetres is pi/4 * diameter^2 * position / 1000.",
-      "descriptionGerman": "Volumenbezogene Darstellung der axialen Schneckenposition mit demselben Nullpunkt und derselben positiven Richtung wie timeseriesPositionScrew. Bei Ableitung aus Position und nominalDiameterScrew in Millimetern ergibt sich das Volumen in Kubikzentimetern als pi/4 * Durchmesser^2 * Position / 1000.",
+      "descriptionEnglish": "Time-resolved volumetric representation of the axial screw position, using the same zero point and positive direction as timeseriesPositionScrew. When derived from position and nominalDiameterScrew in millimetres, the volume in cubic centimetres is pi/4 * diameter^2 * position / 1000.",
+      "descriptionGerman": "Zeitaufgeloeste und volumenbezogene Darstellung der axialen Schneckenposition mit demselben Nullpunkt und derselben positiven Richtung wie timeseriesPositionScrew. Bei Ableitung aus Position und nominalDiameterScrew in Millimetern ergibt sich das Volumen in Kubikzentimetern als pi/4 * Durchmesser^2 * Position / 1000.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -830,8 +831,8 @@
     {
       "variableName": "timeseriesPowerConsumption",
       "canonicalId": "im-process-data.parameter.timeseriesPowerConsumption",
-      "descriptionEnglish": "device-specific actual power consumption",
-      "descriptionGerman": "geraetespezifische aktuelle Leistungsaufnahme",
+      "descriptionEnglish": "Time-resolved device-specific actual power consumption",
+      "descriptionGerman": "Zeitaufgeloeste geraetespezifische aktuelle Leistungsaufnahme",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -975,7 +976,7 @@
       },
       "curation": {
         "reviewStatus": "reviewed",
-        "notes": "Use providingAssetCode and deviceIndex to identify the device whose power consumption is reported."
+        "notes": "Use providingAssetCode and deviceIndex to identify the device whose power consumption is reported. Device-specific measurement context is required to compare values."
       },
       "releaseProfile": "draft"
     },
@@ -1120,89 +1121,10 @@
       "releaseProfile": "experimental"
     },
     {
-      "variableName": "timeseriesPowerSupply",
-      "canonicalId": "im-process-data.parameter.timeseriesPowerSupply",
-      "descriptionEnglish": "power supply",
-      "descriptionGerman": "Stromversorgung, Spannungsversorgung",
-      "dataType": "float",
-      "dataRepresentation": "timeSeries",
-      "valueRole": "actual",
-      "unit": {
-        "displayName": "V",
-        "codes": {
-          "unEceRec20": "VLT",
-          "iecTs62720": "UAA296"
-        }
-      },
-      "standardReferences": [
-        {
-          "sourceStandard": "OPC 40083",
-          "aliasStandards": [
-            "EUROMAP 83",
-            "VDMA 40083:2021-08"
-          ],
-          "release": "1.03",
-          "term": "MonitoredParameterType/ActualValue",
-          "relation": "related",
-          "explanation": "OPC 40083 defines a generic monitored actual value, while the local parameter defines the concrete quantity."
-        }
-      ],
-      "assetAssignment": {
-        "possibleProvidingAssets": [
-          "InjectionMoldingMachine",
-          "TemperatureControlDevice",
-          "HotRunnerDevice"
-        ],
-        "affectedAssets": [
-          "InjectionMoldingMachine",
-          "TemperatureControlDevice",
-          "HotRunnerDevice"
-        ]
-      },
-      "measurementLocation": {
-        "kind": "unknown",
-        "descriptionEnglish": "Device-specific power-supply voltage. The physical measurement point or controller source may differ for InjectionMoldingMachine, TemperatureControlDevice and HotRunnerDevice instances.",
-        "descriptionGerman": "Geraetespezifische Versorgungsspannung. Der physikalische Messpunkt oder die controllerseitige Quelle kann fuer InjectionMoldingMachine-, TemperatureControlDevice- und HotRunnerDevice-Instanzen unterschiedlich sein.",
-        "isInstanceSpecific": true
-      },
-      "instances": {
-        "supported": true,
-        "indexBase": 1,
-        "headerPattern": "timeseriesPowerSupply_<providingAssetCode>_<deviceIndex>",
-        "dimensions": [
-          {
-            "key": "providingAssetCode",
-            "allowedValues": [
-              "InjectionMoldingMachine",
-              "TemperatureControlDevice",
-              "HotRunnerDevice"
-            ],
-            "descriptionEnglish": "Asset code of the device for which the power supply is reported.",
-            "descriptionGerman": "Asset-Code des Geraets, fuer das die Versorgungsspannung angegeben wird."
-          },
-          {
-            "key": "deviceIndex",
-            "descriptionEnglish": "One-based index of the device within the selected providing asset class.",
-            "descriptionGerman": "Einsbasierter Index des Geraets innerhalb der ausgewaehlten Asset-Klasse."
-          }
-        ],
-        "unsuffixedValuePolicy": "singleOrUnspecifiedInstance"
-      },
-      "representativeValue": {
-        "isRepresentative": false,
-        "representativeVariantAllowed": false
-      },
-      "curation": {
-        "reviewStatus": "reviewed",
-        "notes": "Identify device-specific supply voltage using providingAssetCode and deviceIndex."
-      },
-      "releaseProfile": "draft"
-    },
-    {
       "variableName": "timeseriesPressureAccumulator",
       "canonicalId": "im-process-data.parameter.timeseriesPressureAccumulator",
-      "descriptionEnglish": "accumulator pressure",
-      "descriptionGerman": "Druckspeicher Druck",
+      "descriptionEnglish": "Time-resolved accumulator pressure",
+      "descriptionGerman": "Zeitaufgeloester Druck im Druckspeicher",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -1262,8 +1184,8 @@
     {
       "variableName": "timeseriesPressureCavity",
       "canonicalId": "im-process-data.parameter.timeseriesPressureCavity",
-      "descriptionEnglish": "cavity pressure",
-      "descriptionGerman": "Werkzeuginnendruck",
+      "descriptionEnglish": "Time-resolved cavity pressure",
+      "descriptionGerman": "Zeitaufgeloester Werkzeuginnendruck",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -1437,7 +1359,7 @@
       "curation": {
         "reviewStatus": "reviewed"
       },
-      "releaseProfile": "draft"
+      "releaseProfile": "core"
     },
     {
       "variableName": "actualPressureCavityMaximumRepresentative",
@@ -1484,9 +1406,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "mouldCavity",
-        "descriptionEnglish": "Representative aggregation across documented cavity and pressure-sensor-position instances.",
-        "descriptionGerman": "Repraesentative Aggregation ueber dokumentierte Werkzeugkavitaets- und Drucksensorpositionsinstanzen.",
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated representative aggregation across documented cavity and pressure-sensor-position instances.",
+        "descriptionGerman": "Berechnete repraesentative Aggregation ueber dokumentierte Werkzeugkavitaets- und Drucksensorpositionsinstanzen.",
         "isInstanceSpecific": false
       },
       "instances": {
@@ -1519,8 +1441,8 @@
     {
       "variableName": "timeseriesPressureInjection",
       "canonicalId": "im-process-data.parameter.timeseriesPressureInjection",
-      "descriptionEnglish": "Injection Pressure. Single machine-reported pressure signal covering injection pressure, holding pressure and back pressure. Process-section attribution is performed from separate events or dataset metadata rather than from different parameter names.",
-      "descriptionGerman": "Spritzdruck. Einzelnes maschinenseitig bereitgestelltes Drucksignal fuer Spritzdruck, Nachdruck und Staudruck. Die Zuordnung zu Prozessabschnitten erfolgt ueber separate Ereignisse oder Datensatzmetadaten und nicht ueber unterschiedliche Parameternamen.",
+      "descriptionEnglish": "Time-resolved injection Ppessure. Single machine-reported pressure signal covering injection pressure, holding pressure and back pressure. Process-section attribution is performed from separate events or dataset metadata rather than from different parameter names.",
+      "descriptionGerman": "Zeitaufgeloester Spritzdruck. Einzelnes maschinenseitig bereitgestelltes Drucksignal fuer Spritzdruck, Nachdruck und Staudruck. Die Zuordnung zu Prozessabschnitten erfolgt ueber separate Ereignisse oder Datensatzmetadaten und nicht ueber unterschiedliche Parameternamen.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -1613,8 +1535,8 @@
     {
       "variableName": "timeseriesPressurePump",
       "canonicalId": "im-process-data.parameter.timeseriesPressurePump",
-      "descriptionEnglish": "pump pressure 1-n",
-      "descriptionGerman": "Pumpendruck 1-n",
+      "descriptionEnglish": "Time-resolved pump pressure",
+      "descriptionGerman": "Zeitaufgeloester Pumpendruck",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -1692,7 +1614,8 @@
         ]
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "Machine-specific pressure basis and measurement context are required to compare values."
       },
       "releaseProfile": "draft"
     },
@@ -1730,9 +1653,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -1770,8 +1693,8 @@
         "timeseriesVelocityScrewPeripheral",
         "nominalDiameterScrew"
       ],
-      "descriptionEnglish": "Time-resolved actual rotational speed of the screw. This is the rotational alternative representation of timeseriesVelocityScrewPeripheral; with peripheral velocity in mm/s and nominalDiameterScrew in mm greater than zero, the rotational speed in r/min is 60 * timeseriesVelocityScrewPeripheral / (pi * nominalDiameterScrew). The sign follows the peripheral-velocity source convention.",
-      "descriptionGerman": "Zeitaufgeloeste Ist-Drehzahl der Schnecke. Dies ist die rotatorische Alternativdarstellung von timeseriesVelocityScrewPeripheral; bei Umfangsgeschwindigkeit in mm/s und nominalDiameterScrew in mm groesser als null ergibt sich die Drehzahl in r/min als 60 * timeseriesVelocityScrewPeripheral / (pi * nominalDiameterScrew). Das Vorzeichen folgt der Konvention der Umfangsgeschwindigkeitsquelle.",
+      "descriptionEnglish": "Time-resolved actual screw rotational speed in r/min. Positive values denote the documented normal plasticising rotation direction, negative values denote the opposite rotation direction, and 0 denotes standstill.",
+      "descriptionGerman": "Zeitaufgeloeste Ist-Drehzahl der Schnecke in r/min. Positive Werte bezeichnen die dokumentierte normale Plastifizierdrehrichtung, negative Werte die entgegengesetzte Drehrichtung und 0 den Stillstand.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -1842,8 +1765,8 @@
     {
       "variableName": "timeseriesVelocityScrewPeripheral",
       "canonicalId": "im-process-data.parameter.timeseriesVelocityScrewPeripheral",
-      "descriptionEnglish": "Time-resolved actual peripheral velocity at the nominal outer diameter of the rotating screw, distinct from the axial screw velocity timeseriesVelocityScrew. When derived from timeseriesRevolutionsScrew in r/min and nominalDiameterScrew in mm, with nominalDiameterScrew greater than zero, the velocity in mm/s is pi * nominalDiameterScrew * timeseriesRevolutionsScrew / 60. The sign follows the rotational-speed source convention.",
-      "descriptionGerman": "Zeitaufgeloeste Ist-Umfangsgeschwindigkeit am nominalen Aussendurchmesser der rotierenden Schnecke, getrennt von der axialen Schneckengeschwindigkeit timeseriesVelocityScrew. Bei Ableitung aus timeseriesRevolutionsScrew in r/min und nominalDiameterScrew in mm mit nominalDiameterScrew groesser als null ergibt sich die Geschwindigkeit in mm/s als pi * nominalDiameterScrew * timeseriesRevolutionsScrew / 60. Das Vorzeichen folgt der Konvention der Rotationsgeschwindigkeitsquelle.",
+      "descriptionEnglish": "Time-resolved actual peripheral velocity at the nominal outer diameter of the rotating screw, in mm/s. Positive values denote the documented normal plasticising rotation direction, negative values denote the opposite rotation direction, and 0 denotes standstill.",
+      "descriptionGerman": "Zeitaufgeloeste Ist-Umfangsgeschwindigkeit am nominalen Aussendurchmesser der rotierenden Schnecke in mm/s. Positive Werte bezeichnen die dokumentierte normale Plastifizierdrehrichtung, negative Werte die entgegengesetzte Drehrichtung und 0 den Stillstand.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -1920,8 +1843,8 @@
     {
       "variableName": "timeseriesSeparationMould",
       "canonicalId": "im-process-data.parameter.timeseriesSeparationMould",
-      "descriptionEnglish": "Mould separation relative to the zero recorded under established clamping force. Negative values are permitted when a changed clamping force causes further compression relative to that zero.",
-      "descriptionGerman": "Werkzeugtrennung relativ zu dem bei aufgebauter Schliesskraft erfassten Nullpunkt. Negative Werte sind zulaessig, wenn eine veraenderte Schliesskraft zu weiterer Stauchung gegenueber diesem Nullpunkt fuehrt.",
+      "descriptionEnglish": "Time-resolved mould separation relative to the zero recorded under established clamping force. Negative values are permitted when a changed clamping force causes further compression relative to that zero.",
+      "descriptionGerman": "Zeitaufgeloeste Werkzeugtrennung relativ zu dem bei aufgebauter Schliesskraft erfassten Nullpunkt. Negative Werte sind zulaessig, wenn eine veraenderte Schliesskraft zu weiterer Stauchung gegenueber diesem Nullpunkt fuehrt.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -2055,9 +1978,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "externalMeasurementLocation",
-        "descriptionEnglish": "Representative value derived from external mould-separation measurement locations; exact sensor principle and source positions must be documented.",
-        "descriptionGerman": "Repraesentativer Wert aus externen Messorten fuer Werkzeugatmung bzw. Werkzeugtrennung; Sensorprinzip und Quellpositionen muessen dokumentiert werden."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated representative value derived from external mould-separation measurement locations; exact sensor principle and source positions must be documented.",
+        "descriptionGerman": "Berechneter repraesentativer Wert aus externen Messorten fuer Werkzeugatmung bzw. Werkzeugtrennung; Sensorprinzip und Quellpositionen muessen dokumentiert werden."
       },
       "instances": {
         "supported": false
@@ -2221,7 +2144,7 @@
           "release": "1.03",
           "term": "TemperatureZoneType/ActualTemperature",
           "relation": "related",
-          "explanation": "Flange temperature can be modelled as a temperature-zone value, but the exact zone classification needs review."
+          "explanation": "Flange temperature can be modelled as a temperature-zone value, but the exact zone classification is unresolved."
         }
       ],
       "assetAssignment": {
@@ -2343,9 +2266,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "barrelHeatingZone",
-        "descriptionEnglish": "Representative aggregation across documented barrel temperature-zone instances, excluding barrel flange and nozzle.",
-        "descriptionGerman": "Repraesentative Aggregation ueber dokumentierte Temperaturzoneninstanzen der Zylinderheizung ohne Zylinderflansch und Duese.",
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated representative aggregation across documented barrel temperature-zone instances, excluding barrel flange and nozzle.",
+        "descriptionGerman": "Berechneter repraesentative Aggregation ueber dokumentierte Temperaturzoneninstanzen der Zylinderheizung ohne Zylinderflansch und Duese.",
         "isInstanceSpecific": false
       },
       "instances": {
@@ -2379,8 +2302,8 @@
     {
       "variableName": "timeseriesTemperatureCavity",
       "canonicalId": "im-process-data.parameter.timeseriesTemperatureCavity",
-      "descriptionEnglish": "cavity temperature",
-      "descriptionGerman": "Werkzeuginnentemperatur",
+      "descriptionEnglish": "Time-resolved cavity temperature",
+      "descriptionGerman": "Zeitaufgeloeste Werkzeuginnentemperatur",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -2552,9 +2475,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "mouldCavity",
-        "descriptionEnglish": "Representative aggregation across documented mould-cavity and cavity-sensor-position instances.",
-        "descriptionGerman": "Repraesentative Aggregation ueber dokumentierte Werkzeugkavitaets- und Kavitaetssensorpositionsinstanzen.",
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated representative aggregation across documented mould-cavity and cavity-sensor-position instances.",
+        "descriptionGerman": "Berechneter repraesentative Aggregation ueber dokumentierte Werkzeugkavitaets- und Kavitaetssensorpositionsinstanzen.",
         "isInstanceSpecific": false
       },
       "instances": {
@@ -2655,7 +2578,8 @@
         ]
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "Cycle assignment and measurement context must be documented for dryer-temperature observations."
       },
       "releaseProfile": "draft"
     },
@@ -2693,7 +2617,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "unknown"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -3028,9 +2954,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "mouldInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -3152,7 +3078,7 @@
       },
       "curation": {
         "reviewStatus": "reviewed",
-        "notes": "Modelled as a once-per-cycle actual value; time-resolved cavity temperature remains timeseriesTemperatureCavity."
+        "notes": "The catalogue does not prescribe a measurement method. A separate definition for fixed and moving side is not implemented."
       },
       "releaseProfile": "draft"
     },
@@ -3202,7 +3128,7 @@
           "release": "1.03",
           "term": "PowerUnitType/ActualTemperature",
           "relation": "related",
-          "explanation": "OPC 40083 power-unit temperature is related to oil temperature, but exact measurement origin needs review."
+          "explanation": "OPC 40083 power-unit temperature may be related to oil temperature, but the exact measurement origin is unresolved."
         }
       ],
       "assetAssignment": {
@@ -3226,13 +3152,13 @@
         "reviewStatus": "reviewed",
         "notes": "Modelled as a once-per-cycle actual value; high-resolution oil-temperature traces are outside the canonical profile."
       },
-      "releaseProfile": "draft"
+      "releaseProfile": "core"
     },
     {
       "variableName": "timeseriesTorqueScrew",
       "canonicalId": "im-process-data.parameter.timeseriesTorqueScrew",
-      "descriptionEnglish": "screw torque plasticising",
-      "descriptionGerman": "Drehmoment Plastifiziermaschine",
+      "descriptionEnglish": "Time-resolved screw torque plasticising",
+      "descriptionGerman": "Zeitaufgeloestes Drehmoment der Plastifiziermaschine",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -3292,8 +3218,8 @@
     {
       "variableName": "timeseriesVelocityEjector",
       "canonicalId": "im-process-data.parameter.timeseriesVelocityEjector",
-      "descriptionEnglish": "ejector velocity",
-      "descriptionGerman": "Auswerfergeschwindigkeit",
+      "descriptionEnglish": "Time-resolved actual axial ejector velocity in mm/s. The fixed positive reference direction is the ejection direction, matching the positive position direction of timeseriesPositionEjector. Extension is positive, retraction is negative, and standstill is 0.",
+      "descriptionGerman": "Zeitaufgeloeste axiale Istgeschwindigkeit des Auswerfers in mm/s. Als feste positive Bezugsrichtung gilt die Auswerfrichtung entsprechend der positiven Positionsrichtung von timeseriesPositionEjector. Ausfahren ist positiv, Zurueckfahren negativ und Stillstand 0.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -3345,8 +3271,8 @@
     {
       "variableName": "timeseriesVelocityMould",
       "canonicalId": "im-process-data.parameter.timeseriesVelocityMould",
-      "descriptionEnglish": "mould velocity during opening and closing",
-      "descriptionGerman": "Werkzeuggeschwindigkeit oeffnen sowie schliessen",
+      "descriptionEnglish": "Time-resolved actual axial mould velocity during opening and closing, in mm/s. The fixed positive reference direction is opening. Opening is positive, closing is negative, and standstill is 0.",
+      "descriptionGerman": "Zeitaufgeloeste axiale Istgeschwindigkeit des Werkzeugs beim Oeffnen und Schliessen in mm/s. Als feste positive Bezugsrichtung gilt die Oeffnungsrichtung. Oeffnen ist positiv, Schliessen negativ und Stillstand 0.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -3398,8 +3324,8 @@
     {
       "variableName": "timeseriesVelocityScrew",
       "canonicalId": "im-process-data.parameter.timeseriesVelocityScrew",
-      "descriptionEnglish": "Time-resolved axial screw velocity during injection and holding. This linear axial velocity is distinct from the rotational peripheral velocity timeseriesVelocityScrewPeripheral.",
-      "descriptionGerman": "Zeitaufgeloeste axiale Schneckengeschwindigkeit waehrend Einspritzen und Nachdruck. Diese lineare Axialgeschwindigkeit ist von der rotatorischen Umfangsgeschwindigkeit timeseriesVelocityScrewPeripheral zu unterscheiden.",
+      "descriptionEnglish": "Time-resolved actual axial screw velocity during injection and holding, in mm/s. The negative reference direction is forward motion in the injection direction. Backward motion is positive and standstill is 0.",
+      "descriptionGerman": "Zeitaufgeloeste axiale Istgeschwindigkeit der Schnecke waehrend Einspritzen und Nachdruck in mm/s. Als negative Bezugsrichtung gilt die Vorwaertsbewegung in Einspritzrichtung. Rueckwaertsbewegung ist positiv und Stillstand 0.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -3475,8 +3401,8 @@
     {
       "variableName": "timeseriesVelocityScrewVolume",
       "canonicalId": "im-process-data.parameter.timeseriesVelocityScrewVolume",
-      "descriptionEnglish": "injection rate; screw velocity; screw velocity during holding",
-      "descriptionGerman": "Einspritzgeschwindigkeit; Schneckengeschwindigkeit; Schneckengeschwindigkeit waehrend der Nachdruckphase",
+      "descriptionEnglish": "Time-resolved volumetric representation of actual axial screw velocity during injection and holding, in ccm/s. The positive reference direction matches timeseriesVelocityScrew: injection is negative, backward motion is positive, and standstill is 0.",
+      "descriptionGerman": "Zeitaufgeloeste volumenbezogene Darstellung der axialen Istgeschwindigkeit der Schnecke waehrend Einspritzen und Nachdruck in ccm/s. Die positive Bezugsrichtung entspricht timeseriesVelocityScrew: Einspritzen negativ, Rueckwaertsbewegung positiv und Stillstand 0.",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -3580,7 +3506,7 @@
           "release": "1.03",
           "term": "ActiveCyclicJobValuesType/JobCycleCounter",
           "relation": "related",
-          "explanation": "OPC 40083 job cycle counter is related to article cycle count, but job/article scope needs review."
+          "explanation": "OPC 40083 job cycle counter is related to article cycle count, but equivalence of job and article scope is unresolved."
         },
         {
           "sourceStandard": "OPC 40083",
@@ -3591,7 +3517,7 @@
           "release": "1.03",
           "term": "CycleParametersEventType/JobCycleCounter",
           "relation": "related",
-          "explanation": "OPC 40083 cycle event job counter is related to article cycle count, but job/article scope needs review."
+          "explanation": "OPC 40083 cycle event job counter is related to article cycle count, but equivalence of job and article scope is unresolved."
         }
       ],
       "assetAssignment": {
@@ -3750,8 +3676,8 @@
     {
       "variableName": "timeseriesTriggerAirEjector",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerAirEjector",
-      "descriptionEnglish": "trigger air ejector 0-n",
-      "descriptionGerman": "Trigger Luftauswerfer 0-n",
+      "descriptionEnglish": "Time-resolved triggersignal for the air ejector",
+      "descriptionGerman": "Zeitaufgeloestes Triggersingal fuer den Luftauswerfer",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -3806,8 +3732,8 @@
     {
       "variableName": "timeseriesTriggerBarrelHeater",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerBarrelHeater",
-      "descriptionEnglish": "trigger cylinder heater 1-n",
-      "descriptionGerman": "Trigger Zylinderheizung 1-n",
+      "descriptionEnglish": "Time-resolved trigger cylinder heater",
+      "descriptionGerman": "Zeitaufgeloestes Triggersingal fuer die Zylinderheizung",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -3859,8 +3785,8 @@
     {
       "variableName": "timeseriesTriggerBarrelHeaterFlange",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerBarrelHeaterFlange",
-      "descriptionEnglish": "trigger cylinder heater Flange",
-      "descriptionGerman": "Trigger Zylinderheizung Flansch",
+      "descriptionEnglish": "Time-resolved trigger cylinder heater Flange",
+      "descriptionGerman": "Zeitaufgeloestes Triggersingal fuer die Zylinderheizung Flansch",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -3900,10 +3826,10 @@
       "releaseProfile": "draft"
     },
     {
-      "variableName": "timeseriesTriggerClampingForceReduce",
-      "canonicalId": "im-process-data.parameter.timeseriesTriggerClampingForceReduce",
-      "descriptionEnglish": "trigger clamping force reduction",
-      "descriptionGerman": "Trigger Schliesskraftabbau",
+      "variableName": "timeseriesTriggerClampingForceReduction",
+      "canonicalId": "im-process-data.parameter.timeseriesTriggerClampingForceReduction",
+      "descriptionEnglish": "Time-resolved trigger clamping force reduction",
+      "descriptionGerman": "Zeitaufgeloestes Triggersingal fuer den Schliesskraftabbau",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -3948,8 +3874,8 @@
     {
       "variableName": "timeseriesTriggerClampingForceBuildUp",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerClampingForceBuildUp",
-      "descriptionEnglish": "trigger clamping force build-up",
-      "descriptionGerman": "Trigger Schliesskraftaufbau",
+      "descriptionEnglish": "Time-resolved trigger clamping force build-up",
+      "descriptionGerman": "Zeitaufgeloestes Triggersingal fuer den Schliesskraftaufbau",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -3988,15 +3914,15 @@
       },
       "curation": {
         "reviewStatus": "reviewed",
-        "notes": "No specific EUROMAP or OPC term exists for this trigger. The generic OPC 40083 actual-value anchor is intentionally retained only as a related reference."
+        "notes": "No specific EUROMAP or OPC term exists for this trigger. The generic OPC 40083 actual-value anchor is a related reference only."
       },
       "releaseProfile": "draft"
     },
     {
       "variableName": "timeseriesTriggerClampingUnitClose",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerClampingUnitClose",
-      "descriptionEnglish": "trigger close clamping unit",
-      "descriptionGerman": "Trigger Schliesseinheit schliessen",
+      "descriptionEnglish": "Time-resolved trigger close clamping unit",
+      "descriptionGerman": "Zeitaufgeloestes Triggersingal fuer das Schliessen der Schliesseinheit",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -4041,8 +3967,8 @@
     {
       "variableName": "timeseriesTriggerClampingUnitOpen",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerClampingUnitOpen",
-      "descriptionEnglish": "trigger open clamping unit",
-      "descriptionGerman": "Trigger Schliesskraft oeffnen",
+      "descriptionEnglish": "Time-resolved trigger open clamping unit",
+      "descriptionGerman": "Zeitaufgeloestes Triggersingal fuer das Oeffnen der Schliesseinheit",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -4087,8 +4013,8 @@
     {
       "variableName": "timeseriesTriggerCooling",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerCooling",
-      "descriptionEnglish": "trigger cooling",
-      "descriptionGerman": "Trigger Kuehlzeit",
+      "descriptionEnglish": "Time-resolved trigger cooling",
+      "descriptionGerman": "Zeitaufgeloestes Triggersingal fuer eine aktive Kuehlzeit",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -4130,8 +4056,8 @@
     {
       "variableName": "timeseriesTriggerCountCycle",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerCountCycle",
-      "descriptionEnglish": "trigger new cycle",
-      "descriptionGerman": "Trigger neuer Zyklus",
+      "descriptionEnglish": "Time-resolved trigger new cycle",
+      "descriptionGerman": "Zeitaufgeloestes Triggersignal fuer einen Zykluswechsel",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -4173,8 +4099,8 @@
     {
       "variableName": "timeseriesTriggerCycleActive",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerCycleActive",
-      "descriptionEnglish": "trigger cycle is running",
-      "descriptionGerman": "Trigger Zyklus laeuft",
+      "descriptionEnglish": "Time-resolved trigger cycle is running",
+      "descriptionGerman": "Zeitaufgeloestes Triggersignal fuer einen aktiv Zyklus",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -4216,8 +4142,8 @@
     {
       "variableName": "timeseriesTriggerDecompressionAfterPlasticising",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerDecompressionAfterPlasticising",
-      "descriptionEnglish": "Trigger for decompression after plasticising.",
-      "descriptionGerman": "Trigger fuer die Dekompression nach dem Plastifizieren.",
+      "descriptionEnglish": "Time-resolved trigger for decompression after plasticising.",
+      "descriptionGerman": "Zeitaufgeloestes Triggersignal fuer die Dekompression nach dem Plastifizieren.",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -4259,8 +4185,8 @@
     {
       "variableName": "timeseriesTriggerDecompressionBeforePlasticising",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerDecompressionBeforePlasticising",
-      "descriptionEnglish": "Trigger for decompression before plasticising.",
-      "descriptionGerman": "Trigger fuer die Dekompression vor dem Plastifizieren.",
+      "descriptionEnglish": "Time-resolved trigger for decompression before plasticising.",
+      "descriptionGerman": "Zeitaufgeloestes Triggersignal fuer die Dekompression vor dem Plastifizieren.",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -4302,8 +4228,8 @@
     {
       "variableName": "timeseriesTriggerEjectorBackward",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerEjectorBackward",
-      "descriptionEnglish": "trigger ejector backward",
-      "descriptionGerman": "Trigger Auswerfer zurueck",
+      "descriptionEnglish": "Time-resolved trigger ejector backward",
+      "descriptionGerman": "Zeitaufgeloestes Triggersignal fuer Auswerfer zurueck",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -4348,8 +4274,8 @@
     {
       "variableName": "timeseriesTriggerEjectorForward",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerEjectorForward",
-      "descriptionEnglish": "trigger ejector forward",
-      "descriptionGerman": "Trigger Auswerfer vorwaerts",
+      "descriptionEnglish": "Time-resolved trigger ejector forward",
+      "descriptionGerman": "Zeitaufgeloestes Triggersignal fuer Auswerfer vorwaerts",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -4394,8 +4320,8 @@
     {
       "variableName": "timeseriesTriggerHolding",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerHolding",
-      "descriptionEnglish": "Trigger signal for the holding-pressure phase.",
-      "descriptionGerman": "Triggersignal fuer die Nachdruckphase.",
+      "descriptionEnglish": "Time-resolved trigger signal for the holding-pressure phase.",
+      "descriptionGerman": "Zeitaufgeloestes Triggersignal fuer die Nachdruckphase.",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -4437,8 +4363,8 @@
     {
       "variableName": "timeseriesTriggerInjection",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerInjection",
-      "descriptionEnglish": "Trigger signal for injection.",
-      "descriptionGerman": "Triggersignal fuer das Einspritzen.",
+      "descriptionEnglish": "Time-resolved trigger signal for injection.",
+      "descriptionGerman": "Zeitaufgeloestes Triggersignal fuer das Einspritzen.",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -4480,8 +4406,8 @@
     {
       "variableName": "timeseriesTriggerInjectionUnitBackward",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerInjectionUnitBackward",
-      "descriptionEnglish": "Trigger for the injection unit moving backward.",
-      "descriptionGerman": "Trigger fuer die Rueckwaertsbewegung der Spritzeinheit.",
+      "descriptionEnglish": "Time-resolved trigger for the injection unit moving backward.",
+      "descriptionGerman": "Zeitaufgeloestes Triggersignal fuer die Rueckwaertsbewegung der Spritzeinheit.",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -4523,8 +4449,8 @@
     {
       "variableName": "timeseriesTriggerInjectionUnitForward",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerInjectionUnitForward",
-      "descriptionEnglish": "Trigger for the injection unit moving forward.",
-      "descriptionGerman": "Trigger fuer die Vorwaertsbewegung der Spritzeinheit.",
+      "descriptionEnglish": "Time-resolved trigger for the injection unit moving forward.",
+      "descriptionGerman": "Zeitaufgeloestes Triggersignal fuer die Vorwaertsbewegung der Spritzeinheit.",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -4566,8 +4492,8 @@
     {
       "variableName": "timeseriesTriggerPlasticising",
       "canonicalId": "im-process-data.parameter.timeseriesTriggerPlasticising",
-      "descriptionEnglish": "Trigger indicating the plasticising phase.",
-      "descriptionGerman": "Trigger fuer die Plastifizierphase.",
+      "descriptionEnglish": "Time-resolved trigger indicating the plasticising phase.",
+      "descriptionGerman": "Zeitaufgeloestes Triggersignal fuer die Dosierphase.",
       "dataType": "boolean",
       "dataRepresentation": "timeSeries",
       "valueRole": "actual",
@@ -4652,7 +4578,7 @@
       "curation": {
         "reviewStatus": "reviewed"
       },
-      "releaseProfile": "draft"
+      "releaseProfile": "core"
     },
     {
       "variableName": "actualCyclicDurationFactorHeaterBarrelFlange",
@@ -4690,7 +4616,7 @@
       "curation": {
         "reviewStatus": "reviewed"
       },
-      "releaseProfile": "draft"
+      "releaseProfile": "core"
     },
     {
       "variableName": "actualCyclicDurationFactorHeaterHotRunner",
@@ -4743,7 +4669,7 @@
       "curation": {
         "reviewStatus": "reviewed"
       },
-      "releaseProfile": "draft"
+      "releaseProfile": "core"
     },
     {
       "variableName": "measuredHumidityAir",
@@ -4806,7 +4732,8 @@
         ]
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "The catalogue does not prescribe a transferable air-humidity measurement method; document the method and reference conditions with the dataset."
       },
       "releaseProfile": "draft"
     },
@@ -4833,9 +4760,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "ambient",
-        "descriptionEnglish": "Representative aggregation across documented ambient-air humidity measurement-point instances.",
-        "descriptionGerman": "Repraesentative Aggregation ueber dokumentierte Umgebungsluftfeuchte-Messpunktinstanzen.",
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated representative aggregation across documented ambient-air humidity measurement-point instances.",
+        "descriptionGerman": "Berechnete repraesentative Aggregation ueber dokumentierte Umgebungsluftfeuchte-Messpunktinstanzen.",
         "isInstanceSpecific": false
       },
       "instances": {
@@ -4929,7 +4856,8 @@
         ]
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "The catalogue does not prescribe a transferable measurement method; document the method and reference conditions with the dataset."
       },
       "releaseProfile": "draft"
     },
@@ -4961,9 +4889,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "unknown",
-        "descriptionEnglish": "Representative aggregation across documented material-moisture measurement-point instances; the physical locations are unspecified.",
-        "descriptionGerman": "Repraesentative Aggregation ueber dokumentierte Materialfeuchte-Messpunktinstanzen; die physikalischen Messorte sind nicht spezifiziert.",
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated representative aggregation across documented material-moisture measurement-point instances; the physical locations are unspecified.",
+        "descriptionGerman": "Berechnete repraesentative Aggregation ueber dokumentierte Materialfeuchte-Messpunktinstanzen; die physikalischen Messorte sind nicht spezifiziert.",
         "isInstanceSpecific": false
       },
       "instances": {
@@ -5033,7 +4961,8 @@
         "representativeVariantAllowed": false
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "The catalogue does not prescribe a transferable measurement method; document the method and reference conditions with the dataset."
       },
       "releaseProfile": "draft"
     },
@@ -5214,7 +5143,8 @@
         "representativeVariantAllowed": false
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "The catalogue does not prescribe the measurement boundaries; document the system boundary and cycle integration interval with the energy measurement."
       },
       "releaseProfile": "draft"
     },
@@ -5275,7 +5205,7 @@
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Further definition for intensities is needed."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -5296,7 +5226,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -5321,12 +5253,12 @@
         ]
       },
       "curation": {
-        "reviewStatus": "needsReview",
+        "reviewStatus": "needsCuration",
         "fieldsNeedingReview": [
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Needs review because the represented intensity parameter measuredQualityAirEntrapmentIntensity does not yet define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -5428,7 +5360,7 @@
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Further definition for intensities is needed."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -5449,7 +5381,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -5474,12 +5408,12 @@
         ]
       },
       "curation": {
-        "reviewStatus": "needsReview",
+        "reviewStatus": "needsCuration",
         "fieldsNeedingReview": [
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Needs review because the represented intensity parameter measuredQualityBurnMarkIntensity does not yet define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -5586,10 +5520,10 @@
         ]
       },
       "curation": {
-        "reviewStatus": "needsCuration",
-        "notes": "An absolute value may be introduced in addition to the relative value."
+        "reviewStatus": "reviewed",
+        "notes": "The catalogue does not prescribe a transferable measurement method; document the method and reference conditions with the dataset."
       },
-      "releaseProfile": "draft"
+      "releaseProfile": "experimental"
     },
     {
       "variableName": "measuredQualityDimensionalDeviationRepresentative",
@@ -5613,7 +5547,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -5700,7 +5636,7 @@
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Further definition for intensities is needed."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -5721,7 +5657,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -5746,12 +5684,12 @@
         ]
       },
       "curation": {
-        "reviewStatus": "needsReview",
+        "reviewStatus": "needsCuration",
         "fieldsNeedingReview": [
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Needs review because the represented intensity parameter measuredQualityFlashIntensity does not yet define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -5853,7 +5791,7 @@
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Further definition for intensities is needed."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -5874,7 +5812,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -5899,12 +5839,12 @@
         ]
       },
       "curation": {
-        "reviewStatus": "needsReview",
+        "reviewStatus": "needsCuration",
         "fieldsNeedingReview": [
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Needs review because the represented intensity parameter measuredQualityFlowLineIntensity does not yet define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -5969,7 +5909,7 @@
           "release": "1.03",
           "term": "CycleParametersEventType/CavityCycleQuality",
           "relation": "related",
-          "explanation": "the local quality parameter still needs review for cavity scope and coding."
+          "explanation": "Equivalence to the local quality parameter is unresolved for cavity scope and coding."
         },
         {
           "sourceStandard": "OPC 40083",
@@ -5991,7 +5931,7 @@
           "release": "1.0.0 RC",
           "term": "MouldCycleInformationEventType/CycleQuality",
           "relation": "related",
-          "explanation": "OPC 40082-5 exposes whole-cycle quality in the mould cycle information event; local coding as a part-good boolean still needs review."
+          "explanation": "OPC 40082-5 exposes whole-cycle quality in the mould cycle information event; equivalence to local coding as a part-good boolean is unresolved."
         },
         {
           "sourceStandard": "OPC 40082-5",
@@ -6176,7 +6116,7 @@
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Further definition for intensities is needed; a source-reported defect area may be retained as a related metric."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -6263,7 +6203,7 @@
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Further definition for intensities is needed."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -6324,7 +6264,7 @@
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Further definition for intensities is needed."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -6345,7 +6285,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -6370,12 +6312,12 @@
         ]
       },
       "curation": {
-        "reviewStatus": "needsReview",
+        "reviewStatus": "needsCuration",
         "fieldsNeedingReview": [
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Needs review because the represented intensity parameter measuredQualityPorosityIntensity does not yet define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -6473,7 +6415,7 @@
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Further definition for intensities is needed."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -6494,7 +6436,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -6519,12 +6463,12 @@
         ]
       },
       "curation": {
-        "reviewStatus": "needsReview",
+        "reviewStatus": "needsCuration",
         "fieldsNeedingReview": [
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Needs review because the represented intensity parameter measuredQualityShortShotIntensity does not yet define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -6626,7 +6570,7 @@
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Further definition for intensities is needed."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -6647,7 +6591,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -6672,12 +6618,12 @@
         ]
       },
       "curation": {
-        "reviewStatus": "needsReview",
+        "reviewStatus": "needsCuration",
         "fieldsNeedingReview": [
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Needs review because the represented intensity parameter measuredQualitySinkMarkIntensity does not yet define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -6779,7 +6725,7 @@
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Further definition for intensities is needed."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -6800,7 +6746,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -6825,12 +6773,12 @@
         ]
       },
       "curation": {
-        "reviewStatus": "needsReview",
+        "reviewStatus": "needsCuration",
         "fieldsNeedingReview": [
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Needs review because the represented intensity parameter measuredQualityStreakIntensity does not yet define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -6932,7 +6880,7 @@
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Further definition for intensities is needed."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -6953,7 +6901,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -6978,12 +6928,12 @@
         ]
       },
       "curation": {
-        "reviewStatus": "needsReview",
+        "reviewStatus": "needsCuration",
         "fieldsNeedingReview": [
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Needs review because the represented intensity parameter measuredQualityStringingIntensity does not yet define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -7085,7 +7035,7 @@
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Further definition for scaling/intensities is needed. It combines with measuredQualityDimensionalDeviation for value representation."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit. It combines with measuredQualityDimensionalDeviation for value representation."
       },
       "releaseProfile": "experimental"
     },
@@ -7106,7 +7056,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -7131,12 +7083,12 @@
         ]
       },
       "curation": {
-        "reviewStatus": "needsReview",
+        "reviewStatus": "needsCuration",
         "fieldsNeedingReview": [
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Needs review because the represented intensity parameter measuredQualityWarpageIntensity does not yet define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable. It combines with measuredQualityDimensionalDeviation for value representation."
+        "notes": "The represented intensity parameter measuredQualityWarpageIntensity does not define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable. It combines with measuredQualityDimensionalDeviation for value representation."
       },
       "releaseProfile": "experimental"
     },
@@ -7265,7 +7217,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -7412,7 +7366,7 @@
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Further definition for intensities is needed."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -7433,7 +7387,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -7458,12 +7414,12 @@
         ]
       },
       "curation": {
-        "reviewStatus": "needsReview",
+        "reviewStatus": "needsCuration",
         "fieldsNeedingReview": [
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Needs review because the represented intensity parameter measuredQualityWeldLineIntensity does not yet define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable."
+        "notes": "The represented intensity parameter measuredQualityWeldLineIntensity does not define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable."
       },
       "releaseProfile": "experimental"
     },
@@ -7565,7 +7521,7 @@
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Further definition for intensities is needed."
+        "notes": "The catalogue does not prescribe an intensity scale, measurement or evaluation method, or unit."
       },
       "releaseProfile": "experimental"
     },
@@ -7586,7 +7542,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -7611,12 +7569,12 @@
         ]
       },
       "curation": {
-        "reviewStatus": "needsReview",
+        "reviewStatus": "needsCuration",
         "fieldsNeedingReview": [
           "qualityScaleAndMethod",
           "unit"
         ],
-        "notes": "Needs review because the represented intensity parameter measuredQualityWhiteningIntensity does not yet define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable."
+        "notes": "The represented intensity parameter measuredQualityWhiteningIntensity does not define an intensity scale, measurement or evaluation method, or unit; the representative derivation structure alone does not make its values interoperable."
       },
       "releaseProfile": "experimental"
     },
@@ -7722,7 +7680,8 @@
         ]
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "The catalogue does not prescribe a transferable measurement method; document the method and reference conditions with the dataset."
       },
       "releaseProfile": "draft"
     },
@@ -7748,9 +7707,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "ambient",
-        "descriptionEnglish": "Representative aggregation across documented ambient-air temperature measurement-point instances.",
-        "descriptionGerman": "Repraesentative Aggregation ueber dokumentierte Umgebungslufttemperatur-Messpunktinstanzen.",
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated representative aggregation across documented ambient-air temperature measurement-point instances.",
+        "descriptionGerman": "Berechnete repraesentative Aggregation ueber dokumentierte Umgebungslufttemperatur-Messpunktinstanzen.",
         "isInstanceSpecific": false
       },
       "instances": {
@@ -7844,7 +7803,8 @@
         ]
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "The catalogue does not prescribe a transferable measurement method; document the method and reference conditions with the dataset."
       },
       "releaseProfile": "draft"
     },
@@ -7875,9 +7835,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "unknown",
-        "descriptionEnglish": "Representative aggregation across documented material-temperature measurement-point instances; the physical locations are unspecified.",
-        "descriptionGerman": "Repraesentative Aggregation ueber dokumentierte Materialtemperatur-Messpunktinstanzen; die physikalischen Messorte sind nicht spezifiziert.",
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated representative aggregation across documented material-temperature measurement-point instances; the physical locations are unspecified.",
+        "descriptionGerman": "Berechnete repraesentative Aggregation ueber dokumentierte Materialtemperatur-Messpunktinstanzen; die physikalischen Messorte sind nicht spezifiziert.",
         "isInstanceSpecific": false
       },
       "instances": {
@@ -7904,7 +7864,7 @@
       },
       "curation": {
         "reviewStatus": "reviewed",
-        "notes": "Representative parameter introduced for measuredTemperatureMaterial; the method is documented per dataset."
+        "notes": "Represents measuredTemperatureMaterial; document the derivation method with each dataset."
       },
       "releaseProfile": "experimental"
     },
@@ -7945,7 +7905,8 @@
         "representativeVariantAllowed": false
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "The catalogue does not prescribe a transferable measurement method; document the method and reference conditions with the dataset."
       },
       "releaseProfile": "draft"
     },
@@ -7994,7 +7955,8 @@
         "representativeVariantAllowed": false
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "The catalogue does not prescribe a transferable measurement method; document the method and reference conditions with the dataset."
       },
       "releaseProfile": "draft"
     },
@@ -8082,7 +8044,7 @@
           "release": "1.03",
           "term": "ActiveCyclicJobValuesType/LastCycleTime",
           "relation": "closeMatch",
-          "explanation": "OPC 40083 last cycle time is a strong candidate for cycle time; exact boundary still needs review."
+          "explanation": "OPC 40083 last cycle time is a strong candidate for cycle time; the exact cycle boundary is unresolved."
         },
         {
           "sourceStandard": "OPC 40083",
@@ -8207,7 +8169,8 @@
         "representativeVariantAllowed": false
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "Document the drying procedure, elapsed time after drying and subsequent storage conditions with the observation."
       },
       "releaseProfile": "draft"
     },
@@ -8406,9 +8369,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -8456,7 +8419,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -8473,8 +8438,8 @@
     {
       "variableName": "setPositionScrewDecompressionAfterPlasticising",
       "canonicalId": "im-process-data.parameter.setPositionScrewDecompressionAfterPlasticising",
-      "descriptionEnglish": "Positive set displacement magnitude for decompression after plasticising, referenced to the screw position immediately before this decompression movement starts.",
-      "descriptionGerman": "Positiver Soll-Wegbetrag fuer die Dekompression nach dem Plastifizieren, bezogen auf die Schneckenposition unmittelbar vor Beginn dieser Dekompressionsbewegung.",
+      "descriptionEnglish": "Positive set screw retraction displacement for decompression after plasticising, in mm, referenced to the screw position immediately before this decompression movement starts. The value is a relative displacement, not an end position referenced to the mechanical zero.",
+      "descriptionGerman": "Positiver Soll-Rueckzugshub der Schnecke fuer die Dekompression nach dem Plastifizieren in mm, bezogen auf die Schneckenposition unmittelbar vor Beginn dieser Dekompressionsbewegung. Der Wert ist eine relative Wegaenderung, keine nullpunktbezogene Endposition.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -8509,9 +8474,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -8528,8 +8493,8 @@
     {
       "variableName": "setPositionScrewDecompressionBeforePlasticising",
       "canonicalId": "im-process-data.parameter.setPositionScrewDecompressionBeforePlasticising",
-      "descriptionEnglish": "Positive set displacement magnitude for decompression before plasticising, referenced to the screw position immediately before this decompression movement starts.",
-      "descriptionGerman": "Positiver Soll-Wegbetrag fuer die Dekompression vor dem Plastifizieren, bezogen auf die Schneckenposition unmittelbar vor Beginn dieser Dekompressionsbewegung.",
+      "descriptionEnglish": "Positive set screw retraction displacement for decompression before plasticising, in mm, referenced to the screw position immediately before this decompression movement starts. The value is a relative displacement, not an end position referenced to the mechanical zero.",
+      "descriptionGerman": "Positiver Soll-Rueckzugshub der Schnecke fuer die Dekompression vor dem Plastifizieren in mm, bezogen auf die Schneckenposition unmittelbar vor Beginn dieser Dekompressionsbewegung. Der Wert ist eine relative Wegaenderung, keine nullpunktbezogene Endposition.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -8552,9 +8517,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -8628,9 +8593,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -8704,9 +8669,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -8723,8 +8688,8 @@
     {
       "variableName": "setPressureHolding",
       "canonicalId": "im-process-data.parameter.setPressureHolding",
-      "descriptionEnglish": "Holding-pressure setpoint. Each instance is paired by profileSegmentIndex with the duration in setTimeHolding.",
-      "descriptionGerman": "Nachdruck-Sollwert. Jede Instanz ist ueber den profileSegmentIndex mit der Dauer in setTimeHolding gekoppelt.",
+      "descriptionEnglish": "Holding-pressure setpoint paired by profileSegmentIndex with the duration in setTimeHolding.",
+      "descriptionGerman": "Nachdruck-Sollwert, ueber den profileSegmentIndex mit der Dauer in setTimeHolding gekoppelt.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -8765,9 +8730,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": true,
@@ -8786,7 +8751,9 @@
         "indexDimension": "profileSegmentIndex",
         "segmentDurationParameterRef": "setTimeHolding",
         "indexAlignment": "sameProfileSegmentIndex",
-        "totalDurationParameterRef": "setTimeHoldingCumulative"
+        "totalDurationParameterRef": "setTimeHoldingCumulative",
+        "interpolationParameterRef": "setPressureHoldingProfileInterpolation",
+        "rampStartValueParameterRef": "setPressureInjectionLimit"
       },
       "representativeValue": {
         "isRepresentative": false,
@@ -8813,6 +8780,57 @@
       "releaseProfile": "core"
     },
     {
+      "variableName": "setPressureHoldingProfileInterpolation",
+      "canonicalId": "im-process-data.parameter.setPressureHoldingProfileInterpolation",
+      "descriptionEnglish": "Interpolation mode for the entire setPressureHolding profile. Steps holds each pressure setpoint constant for its corresponding setTimeHolding segment duration and changes to the next setpoint at the segment boundary. Ramps starts at setPressureInjectionLimit at the beginning of holding and changes linearly over the first segment duration to setPressureHolding_1. Each subsequent segment ramps from the preceding pressure setpoint to its own setpoint, which is reached at that segment end. The final setpoint is reached at the end of holding. The initial ramp value is the configured injection-pressure limit, not the actual switchover pressure.",
+      "descriptionGerman": "Interpolationsart fuer das gesamte Profil setPressureHolding. Steps haelt jeden Nachdruck-Sollwert waehrend seiner zugehoerigen Segmentdauer setTimeHolding konstant und wechselt an der Segmentgrenze zum naechsten Sollwert. Ramps beginnt bei Nachdruckbeginn mit setPressureInjectionLimit und verlaeuft ueber die erste Segmentdauer linear zu setPressureHolding_1. Jedes weitere Segment verlaeuft vom vorherigen Nachdruck-Sollwert zu seinem eigenen Sollwert, der am Segmentende erreicht wird. Der letzte Sollwert wird am Ende des Nachdrucks erreicht. Der Anfangswert der Rampe ist das eingestellte Einspritzdrucklimit, nicht der tatsaechliche Umschaltdruck.",
+      "dataType": "string",
+      "allowedValues": [
+        "Steps",
+        "Ramps"
+      ],
+      "allowedValuesCaseSensitive": false,
+      "dataRepresentation": "cycleValue",
+      "valueRole": "set",
+      "unit": null,
+      "unitSemantics": "notApplicable",
+      "standardReferences": [
+        {
+          "sourceStandard": "OPC 40083",
+          "aliasStandards": [
+            "EUROMAP 83",
+            "VDMA 40083:2021-08"
+          ],
+          "release": "1.03",
+          "term": "MonitoredParameterType/SetValue",
+          "relation": "related",
+          "explanation": "OPC 40083 defines a generic monitored set value, while the local parameter defines the concrete set quantity."
+        }
+      ],
+      "assetAssignment": {
+        "possibleProvidingAssets": [
+          "InjectionMoldingMachine"
+        ]
+      },
+      "measurementLocation": {
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
+      },
+      "instances": {
+        "supported": false
+      },
+      "representativeValue": {
+        "isRepresentative": false,
+        "representativeVariantAllowed": false
+      },
+      "curation": {
+        "reviewStatus": "reviewed",
+        "notes": "Profile-wide setting. Values are case-insensitive; the original spelling may be retained. For Ramps, holding-pressure values are segment-end targets and the initial value comes from setPressureInjectionLimit in the same specific-pressure basis. Preserve setTimeHolding as per-segment durations. No implicit Steps default, per-segment mode changes or monotonicity assumption."
+      },
+      "releaseProfile": "core"
+    },
+    {
       "variableName": "setPressureHoldingRepresentative",
       "canonicalId": "im-process-data.parameter.setPressureHoldingRepresentative",
       "descriptionEnglish": "Representative value for setPressureHolding; intended for comparison and does not replace instance-level set values.",
@@ -8834,9 +8852,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -8864,68 +8882,6 @@
         "reviewStatus": "reviewed"
       },
       "releaseProfile": "experimental"
-    },
-    {
-      "variableName": "setPressureInjection",
-      "canonicalId": "im-process-data.parameter.setPressureInjection",
-      "descriptionEnglish": "Injection-pressure setpoint; only relevant for pressure-controlled injection.",
-      "descriptionGerman": "Einspritzdruck-Sollwert; nur fuer druckgesteuertes Einspritzen relevant.",
-      "dataType": "float",
-      "dataRepresentation": "cycleValue",
-      "valueRole": "set",
-      "unit": {
-        "displayName": "bar",
-        "codes": {
-          "unEceRec20": "BAR",
-          "iecTs62720": "UAA323"
-        }
-      },
-      "standardReferences": [
-        {
-          "sourceStandard": "OPC 40083",
-          "aliasStandards": [
-            "EUROMAP 83",
-            "VDMA 40083:2021-08"
-          ],
-          "release": "1.03",
-          "term": "MonitoredParameterType/SetValue",
-          "relation": "related",
-          "explanation": "OPC 40083 defines a generic monitored set value, while the local parameter defines the concrete set quantity."
-        },
-        {
-          "sourceStandard": "OPC 40077",
-          "aliasStandards": [
-            "EUROMAP 77",
-            "VDMA 40077:2020-06"
-          ],
-          "release": "1.01",
-          "term": "InjectionUnitCycleParametersType/SpecificPressureMaximum",
-          "relation": "related",
-          "explanation": "Related EUROMAP 77 pressure term; SpecificPressureMaximum is defined as pressure in the screw tip which is not measured by default."
-        }
-      ],
-      "assetAssignment": {
-        "possibleProvidingAssets": [
-          "InjectionMoldingMachine"
-        ]
-      },
-      "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
-      },
-      "instances": {
-        "supported": false
-      },
-      "representativeValue": {
-        "isRepresentative": false,
-        "representativeVariantAllowed": false
-      },
-      "curation": {
-        "reviewStatus": "reviewed",
-        "notes": "Set injection pressure is a single cycle value and does not define a segmented profile."
-      },
-      "releaseProfile": "core"
     },
     {
       "variableName": "setPressureInjectionLimit",
@@ -8972,9 +8928,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -9033,9 +8989,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -9045,7 +9001,8 @@
         "representativeVariantAllowed": false
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "Machine-specific pressure basis and measurement context are required to compare values."
       },
       "releaseProfile": "draft"
     },
@@ -9094,9 +9051,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -9166,9 +9123,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -9178,7 +9135,8 @@
         "representativeVariantAllowed": false
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "Machine-specific pressure basis and measurement context are required to compare values."
       },
       "releaseProfile": "draft"
     },
@@ -9237,9 +9195,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -9311,9 +9269,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "mouldCavity",
-        "descriptionEnglish": "Measurement location associated with a mould cavity or cavity sensor position.",
-        "descriptionGerman": "Messort, der einer Werkzeugkavitaet oder einer Sensorposition in der Kavitaet zugeordnet ist."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -9382,9 +9340,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -9394,15 +9352,16 @@
         "representativeVariantAllowed": false
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "Machine-specific pressure basis and measurement context are required to compare values."
       },
       "releaseProfile": "draft"
     },
     {
       "variableName": "setRevolutionsScrew",
       "canonicalId": "im-process-data.parameter.setRevolutionsScrew",
-      "descriptionEnglish": "set screw revolutions",
-      "descriptionGerman": "eingestellte Schneckenumdrehungen",
+      "descriptionEnglish": " Set screw rotational speed in r/min. Positive values denote the documented normal plasticising rotation direction, negative values denote the opposite rotation direction, and 0 denotes standstill.",
+      "descriptionGerman": "Soll-Drehzahl der Schnecke in r/min. Positive Werte bezeichnen die dokumentierte normale Plastifizierdrehrichtung, negative Werte die entgegengesetzte Drehrichtung und 0 den Stillstand.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -9459,9 +9418,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -9509,9 +9468,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "barrelHeatingZone",
-        "descriptionEnglish": "Indexed barrel heating zone; barrel flange and nozzle are excluded.",
-        "descriptionGerman": "Indizierte Zylinderheizzone; Zylinderflansch und Duese sind ausgeschlossen.",
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value for indexed barrel heating zone; barrel flange and nozzle are excluded.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert fuer die indizierte Zylinderheizzone; Zylinderflansch und Duese sind ausgeschlossen.",
         "isInstanceSpecific": true
       },
       "instances": {
@@ -9571,9 +9530,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "barrelFlange",
-        "descriptionEnglish": "Temperature setpoint assigned to the barrel flange.",
-        "descriptionGerman": "Dem Zylinderflansch zugeordneter Temperatur-Sollwert."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -9622,9 +9581,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "nozzle",
-        "descriptionEnglish": "Temperature setpoint assigned to the injection nozzle.",
-        "descriptionGerman": "Der Einspritzduese zugeordneter Temperatur-Sollwert."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -9677,9 +9636,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "hotRunnerZone",
-        "descriptionEnglish": "Hot-runner heating zone identified by the instance index.",
-        "descriptionGerman": "Durch den Instanzindex bezeichnete Heisskanal-Heizzone.",
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert.",
         "isInstanceSpecific": true
       },
       "instances": {
@@ -9707,8 +9666,8 @@
     {
       "variableName": "setTemperatureTemperatureControlDevice",
       "canonicalId": "im-process-data.parameter.setTemperatureTemperatureControlDevice",
-      "descriptionEnglish": "Set temperature at the temperature control device",
-      "descriptionGerman": "Eingestellte Temperatur am Temperiergeraet",
+      "descriptionEnglish": "Set temperature at the temperature control device, resulting in the actualTemperatureHoseMouldInlet",
+      "descriptionGerman": "Eingestellte Temperatur am Temperiergeraet, resultiert in der Vorlauftemperatur fuer actualTemperatureHoseMouldInlet",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -9828,7 +9787,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -9880,7 +9841,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": true,
@@ -9938,9 +9901,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -10000,9 +9963,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -10014,7 +9977,7 @@
       "curation": {
         "reviewStatus": "reviewed"
       },
-      "releaseProfile": "draft"
+      "releaseProfile": "core"
     },
     {
       "variableName": "setTimeResidualCooling",
@@ -10050,9 +10013,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -10110,9 +10073,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -10129,8 +10092,8 @@
     {
       "variableName": "setVelocityScrewInjection",
       "canonicalId": "im-process-data.parameter.setVelocityScrewInjection",
-      "descriptionEnglish": "Set injection speed in mm/s. Instance suffixes describe stages of an injection-speed profile.",
-      "descriptionGerman": "Eingestellte Einspritzgeschwindigkeit in mm/s. Instanzsuffixe beschreiben Stufen eines Einspritzgeschwindigkeitsprofils.",
+      "descriptionEnglish": "Set injection speed in mm/s. Instance suffixes describe stages of an injection-speed profile. setVelocityScrewInjectionProfileInterpolation defines Steps or Ramps for the entire profile and is shared by the linear and volumetric representations.",
+      "descriptionGerman": "Eingestellte Einspritzgeschwindigkeit in mm/s. Instanzsuffixe beschreiben Stufen eines Einspritzgeschwindigkeitsprofils. setVelocityScrewInjectionProfileInterpolation legt Steps oder Ramps fuer das gesamte Profil fest und gilt gemeinsam fuer die lineare und volumenbezogene Darstellung.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -10187,9 +10150,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": true,
@@ -10216,7 +10179,8 @@
         "lastSegmentEnd": {
           "eventReference": "injectionToHoldingSwitchover",
           "relation": "coincidentEvent"
-        }
+        },
+        "interpolationParameterRef": "setVelocityScrewInjectionProfileInterpolation"
       },
       "representativeValue": {
         "isRepresentative": false,
@@ -10244,10 +10208,61 @@
       "releaseProfile": "core"
     },
     {
+      "variableName": "setVelocityScrewInjectionProfileInterpolation",
+      "canonicalId": "im-process-data.parameter.setVelocityScrewInjectionProfileInterpolation",
+      "descriptionEnglish": "Shared interpolation mode for the entire injection-velocity profile, applying to both setVelocityScrewInjection and setVelocityScrewInjectionVolume. Steps holds each velocity setpoint constant within its segment and changes to the next setpoint at the boundary. Ramps changes linearly from the current segment value to the following segment value over the segment screw-position coordinate, or the corresponding volumetric screw-position coordinate. The profile begins at its first stored velocity value; the final segment holds the last value until injection-to-holding switchover. Linearity is defined over position or volume, not elapsed time. One mode applies to both representations and all segments; omission leaves it unspecified. Steps and Ramps are case-insensitive; steps, ramps and other capitalizations have the same meaning.",
+      "descriptionGerman": "Gemeinsame Interpolationsart fuer das gesamte Einspritzgeschwindigkeitsprofil, gueltig fuer setVelocityScrewInjection und setVelocityScrewInjectionVolume. Steps haelt jeden Geschwindigkeits-Sollwert innerhalb seines Segments konstant und wechselt an der Grenze zum naechsten Sollwert. Ramps verlaeuft vom aktuellen Segmentwert zum folgenden Segmentwert linear ueber die Schneckenpositionskoordinate beziehungsweise die zugehoerige volumenbezogene Schneckenpositionskoordinate des Segments. Das Profil beginnt mit dem ersten gespeicherten Geschwindigkeitswert; das letzte Segment haelt den letzten Wert bis zum Umschalten auf Nachdruck. Die Linearitaet bezieht sich auf Position oder Volumen, nicht auf die verstrichene Zeit. Eine Einstellung gilt fuer beide Darstellungen und alle Segmente; bei fehlender Angabe ist sie nicht spezifiziert. Bei Steps und Ramps wird Gross-/Kleinschreibung nicht unterschieden; steps, ramps und andere Schreibweisen haben dieselbe Bedeutung.",
+      "dataType": "string",
+      "allowedValues": [
+        "Steps",
+        "Ramps"
+      ],
+      "allowedValuesCaseSensitive": false,
+      "dataRepresentation": "cycleValue",
+      "valueRole": "set",
+      "unit": null,
+      "unitSemantics": "notApplicable",
+      "standardReferences": [
+        {
+          "sourceStandard": "OPC 40083",
+          "aliasStandards": [
+            "EUROMAP 83",
+            "VDMA 40083:2021-08"
+          ],
+          "release": "1.03",
+          "term": "MonitoredParameterType/SetValue",
+          "relation": "related",
+          "explanation": "OPC 40083 defines a generic monitored set value, while the local parameter defines the concrete set quantity."
+        }
+      ],
+      "assetAssignment": {
+        "possibleProvidingAssets": [
+          "InjectionMoldingMachine"
+        ]
+      },
+      "measurementLocation": {
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
+      },
+      "instances": {
+        "supported": false
+      },
+      "representativeValue": {
+        "isRepresentative": false,
+        "representativeVariantAllowed": false
+      },
+      "curation": {
+        "reviewStatus": "reviewed",
+        "notes": "Profile-wide setting shared by the linear and volumetric injection-velocity representations."
+      },
+      "releaseProfile": "core"
+    },
+    {
       "variableName": "setVelocityScrewInjectionProfileBreakpoint",
       "canonicalId": "im-process-data.parameter.setVelocityScrewInjectionProfileBreakpoint",
-      "descriptionEnglish": "Set screw-position breakpoint between adjacent segments of the setVelocityScrewInjection profile.",
-      "descriptionGerman": "Soll-Schneckenpositions-Breakpoint zwischen benachbarten Segmenten des Profils setVelocityScrewInjection.",
+      "descriptionEnglish": "Set screw position at the transition between adjacent segments of the setVelocityScrewInjection profile, referenced to the same mechanical zero point as timeseriesPositionScrew. The mechanically foremost screw position is 0 mm; values increase as the screw moves backward. Record the position at the segment transition, not the travel since the start of injection. Negative values are not permitted.",
+      "descriptionGerman": "Soll-Schneckenposition am Uebergang zwischen benachbarten Segmenten des Profils setVelocityScrewInjection, bezogen auf denselben mechanischen Nullpunkt wie timeseriesPositionScrew. Die mechanisch vorderste Schneckenposition ist 0 mm; die Werte nehmen bei einer Bewegung nach hinten zu. Einzutragen ist die Position am Segmentuebergang, nicht der seit Einspritzbeginn zurueckgelegte Weg. Negative Werte sind nicht zulaessig.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -10265,9 +10280,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis. The mechanically foremost screw position is 0 mm; values increase as the screw moves backward.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug. Die mechanisch vorderste Schneckenposition ist 0 mm; die Werte nehmen bei einer Bewegung nach hinten zu."
       },
       "instances": {
         "supported": true,
@@ -10288,15 +10303,15 @@
       },
       "curation": {
         "reviewStatus": "reviewed",
-        "notes": "For N setVelocityScrewInjection profile segments, N - 1 internal screw-position breakpoints are stored."
+        "notes": "For N setVelocityScrewInjection profile segments, N - 1 internal screw-position breakpoints are stored. The mechanically foremost screw position is 0 mm; values increase as the screw moves backward."
       },
       "releaseProfile": "core"
     },
     {
       "variableName": "setVelocityScrewInjectionRepresentative",
       "canonicalId": "im-process-data.parameter.setVelocityScrewInjectionRepresentative",
-      "descriptionEnglish": "Representative value for setVelocityScrewInjection; intended for comparison and does not replace instance-level set values.",
-      "descriptionGerman": "Repraesentativer Wert fuer setVelocityScrewInjection; fuer Vergleiche vorgesehen und kein Ersatz fuer instanzbezogene Sollwerte.",
+      "descriptionEnglish": "Representative set value for setVelocityScrewInjection using the same sign convention: the injection direction is positive and backward motion is negative. For comparison only; document its derivation and retain the instance-level set values.",
+      "descriptionGerman": "Repraesentativer Sollwert fuer setVelocityScrewInjection mit derselben Vorzeichenkonvention: Einspritzrichtung positiv, Rueckwaertsbewegung negativ. Nur fuer Vergleiche; die Herleitung muss dokumentiert werden und der Wert ersetzt keine instanzbezogenen Sollwerte.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -10314,9 +10329,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -10348,8 +10363,8 @@
     {
       "variableName": "setVelocityScrewInjectionVolume",
       "canonicalId": "im-process-data.parameter.setVelocityScrewInjectionVolume",
-      "descriptionEnglish": "Set volumetric injection speed in ccm/s. Instance suffixes describe stages of an injection-speed profile.",
-      "descriptionGerman": "Eingestellte volumetrische Einspritzgeschwindigkeit in ccm/s. Instanzsuffixe beschreiben Stufen eines Einspritzgeschwindigkeitsprofils.",
+      "descriptionEnglish": "Set volumetric representation of axial injection velocity in ccm/s. Positive values denote forward screw motion in the injection direction and negative values denote backward motion. Instances describe the segments of the injection-velocity profile. setVelocityScrewInjectionProfileInterpolation defines Steps or Ramps for the entire profile and is shared by the linear and volumetric representations.",
+      "descriptionGerman": "Volumenbezogener Sollwert der axialen Einspritzgeschwindigkeit in ccm/s. Positive Werte bezeichnen die Vorwaertsbewegung der Schnecke in Einspritzrichtung und negative Werte eine Rueckwaertsbewegung. Instanzen beschreiben die Segmente des Einspritzgeschwindigkeitsprofils. setVelocityScrewInjectionProfileInterpolation legt Steps oder Ramps fuer das gesamte Profil fest und gilt gemeinsam fuer die lineare und volumenbezogene Darstellung.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -10406,9 +10421,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": true,
@@ -10435,7 +10450,8 @@
         "lastSegmentEnd": {
           "eventReference": "injectionToHoldingSwitchover",
           "relation": "coincidentEvent"
-        }
+        },
+        "interpolationParameterRef": "setVelocityScrewInjectionProfileInterpolation"
       },
       "representativeValue": {
         "isRepresentative": false,
@@ -10458,15 +10474,15 @@
       },
       "curation": {
         "reviewStatus": "reviewed",
-        "notes": "Profile segments are one-based. Internal breakpoints are volumes referenced through setVelocityScrewInjectionVolumeProfileBreakpoint; the final segment ends at the injection-to-holding switchover event."
+        "notes": "Profile segments are one-based. Internal breakpoints are volumetric screw-position coordinates referenced through setVelocityScrewInjectionVolumeProfileBreakpoint; the final segment ends at the injection-to-holding switchover event."
       },
       "releaseProfile": "core"
     },
     {
       "variableName": "setVelocityScrewInjectionVolumeProfileBreakpoint",
       "canonicalId": "im-process-data.parameter.setVelocityScrewInjectionVolumeProfileBreakpoint",
-      "descriptionEnglish": "Set injection-volume breakpoint between adjacent segments of the setVelocityScrewInjectionVolume profile.",
-      "descriptionGerman": "Soll-Einspritzvolumen-Breakpoint zwischen benachbarten Segmenten des Profils setVelocityScrewInjectionVolume.",
+      "descriptionEnglish": "Set volumetric screw-position value at the transition between adjacent segments of the setVelocityScrewInjectionVolume profile, in ccm. The zero point and positive direction are the same as for timeseriesPositionScrewVolume: the mechanically foremost screw position corresponds to 0 ccm; values increase as the screw moves backward. Record the volume corresponding to the screw position at the segment transition, not the volume displaced since the start of injection. Negative values are not permitted.",
+      "descriptionGerman": "Sollwert der volumenbezogenen Schneckenposition am Uebergang zwischen benachbarten Segmenten des Profils setVelocityScrewInjectionVolume, in ccm. Nullpunkt und positive Richtung entsprechen timeseriesPositionScrewVolume: Die mechanisch vorderste Schneckenposition entspricht 0 ccm; die Werte nehmen bei einer Bewegung nach hinten zu. Einzutragen ist der zur Schneckenposition am Segmentuebergang gehoerende Volumenwert, nicht das seit Einspritzbeginn verdraengte Volumen. Negative Werte sind nicht zulaessig.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -10484,9 +10500,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.  The mechanically foremost screw position corresponds to 0 ccm; values increase as the screw moves backward.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug. Die mechanisch vorderste Schneckenposition entspricht 0 ccm; die Werte nehmen bei einer Bewegung nach hinten zu."
       },
       "instances": {
         "supported": true,
@@ -10507,15 +10523,15 @@
       },
       "curation": {
         "reviewStatus": "reviewed",
-        "notes": "For N setVelocityScrewInjectionVolume profile segments, N - 1 internal injection-volume breakpoints are stored."
+        "notes": "For N setVelocityScrewInjectionVolume profile segments, N - 1 internal volumetric screw-position breakpoints are stored. The mechanically foremost screw position is 0 ccm; values increase as the screw moves backward."
       },
       "releaseProfile": "core"
     },
     {
       "variableName": "setVelocityScrewInjectionVolumeRepresentative",
       "canonicalId": "im-process-data.parameter.setVelocityScrewInjectionVolumeRepresentative",
-      "descriptionEnglish": "Representative value for setVelocityScrewInjectionVolume; intended for comparison and does not replace instance-level set values.",
-      "descriptionGerman": "Repraesentativer Wert fuer setVelocityScrewInjectionVolume; fuer Vergleiche vorgesehen und kein Ersatz fuer instanzbezogene Sollwerte.",
+      "descriptionEnglish": "Representative set value for setVelocityScrewInjectionVolume using the same sign convention: the injection direction is positive and backward motion is negative. For comparison only; document its derivation and retain the instance-level set values.",
+      "descriptionGerman": "Repraesentativer Sollwert fuer setVelocityScrewInjectionVolume mit derselben Vorzeichenkonvention: Einspritzrichtung positiv, Rueckwaertsbewegung negativ. Nur fuer Vergleiche; die Herleitung muss dokumentiert werden und der Wert ersetzt keine instanzbezogenen Sollwerte.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -10545,9 +10561,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -10577,10 +10593,413 @@
       "releaseProfile": "experimental"
     },
     {
+      "variableName": "setVelocityEjectorForward",
+      "canonicalId": "im-process-data.parameter.setVelocityEjectorForward",
+      "descriptionEnglish": "Set ejector forward velocity in mm/s. Positive values denote forward motion and negative values denote backward motion",
+      "descriptionGerman": "Soll-Auswerfergeschwindigkeit fuer die Vorwaertsbewegung in mm/s. Positive Werte beschreiben die Vorwartsbewegung.",
+      "dataType": "float",
+      "dataRepresentation": "cycleValue",
+      "valueRole": "set",
+      "unit": {
+        "displayName": "mm/s",
+        "codes": {
+          "unEceRec20": "C16",
+          "iecTs62720": "UAA867"
+        }
+      },
+      "standardReferences": [
+        {
+          "sourceStandard": "OPC 40083",
+          "aliasStandards": [
+            "EUROMAP 83",
+            "VDMA 40083:2021-08"
+          ],
+          "release": "1.03",
+          "term": "MonitoredParameterType/SetValue",
+          "relation": "related",
+          "explanation": "OPC 40083 defines a generic monitored set value, while the local parameter defines the concrete set quantity."
+        },
+        {
+          "sourceStandard": "OPC 40083",
+          "aliasStandards": [
+            "EUROMAP 83",
+            "VDMA 40083:2021-08"
+          ],
+          "release": "1.03",
+          "term": "DriveType/Speed/SetValue",
+          "relation": "related",
+          "explanation": "Generic drive-speed set value; relation to ejector translation requires machine-specific confirmation."
+        }
+      ],
+      "assetAssignment": {
+        "possibleProvidingAssets": [
+          "InjectionMoldingMachine"
+        ]
+      },
+      "measurementLocation": {
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
+      },
+      "instances": {
+        "supported": true,
+        "indexBase": 1,
+        "headerPattern": "setVelocityEjectorForward_<profileSegmentIndex>",
+        "dimensions": [
+          {
+            "key": "profileSegmentIndex",
+            "descriptionEnglish": "One-based index of the ejector motion segment, shared by its velocity, end position and force limit.",
+            "descriptionGerman": "Einsbasierter Index des Auswerfer-Bewegungssegments, gemeinsam fuer Geschwindigkeit, Endposition und Kraftgrenze."
+          }
+        ],
+        "unsuffixedValuePolicy": "singleOnly"
+      },
+      "profileSegments": {
+        "indexDimension": "profileSegmentIndex",
+        "segmentEndPositionParameterRef": "setPositionEjectorForward",
+        "segmentForceLimitParameterRef": "setForceEjectorForward",
+        "indexAlignment": "sameProfileSegmentIndex",
+        "fixedInterpolation": "Steps"
+      },
+      "representativeValue": {
+        "isRepresentative": false,
+        "representativeVariantAllowed": false
+      },
+      "curation": {
+        "reviewStatus": "reviewed",
+        "notes": "Position, velocity and force-limit indices identify the same segment. Forward profiles need N end positions for N segments."
+      },
+      "releaseProfile": "core"
+    },
+    {
+      "variableName": "setPositionEjectorForward",
+      "canonicalId": "im-process-data.parameter.setPositionEjectorForward",
+      "descriptionEnglish": "Set ejector position at the end of a forward motion segment, in mm.",
+      "descriptionGerman": "Soll-Auswerferposition am Ende eines Segments der Vorwaertsbewegung in mm.",
+      "dataType": "float",
+      "dataRepresentation": "cycleValue",
+      "valueRole": "set",
+      "unit": {
+        "displayName": "mm",
+        "codes": {
+          "unEceRec20": "MMT",
+          "iecTs62720": "UAA862"
+        }
+      },
+      "standardReferences": [
+        {
+          "sourceStandard": "OPC 40083",
+          "aliasStandards": [
+            "EUROMAP 83",
+            "VDMA 40083:2021-08"
+          ],
+          "release": "1.03",
+          "term": "MonitoredParameterType/SetValue",
+          "relation": "related",
+          "explanation": "OPC 40083 defines a generic monitored set value, while the local parameter defines the concrete set quantity."
+        }
+      ],
+      "assetAssignment": {
+        "possibleProvidingAssets": [
+          "InjectionMoldingMachine"
+        ]
+      },
+      "measurementLocation": {
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
+      },
+      "instances": {
+        "supported": true,
+        "indexBase": 1,
+        "headerPattern": "setPositionEjectorForward_<profileSegmentIndex>",
+        "dimensions": [
+          {
+            "key": "profileSegmentIndex",
+            "descriptionEnglish": "One-based index of the ejector motion segment, shared by its velocity, end position and force limit.",
+            "descriptionGerman": "Einsbasierter Index des Auswerfer-Bewegungssegments, gemeinsam fuer Geschwindigkeit, Endposition und Kraftgrenze."
+          }
+        ],
+        "unsuffixedValuePolicy": "singleOnly"
+      },
+      "representativeValue": {
+        "isRepresentative": false,
+        "representativeVariantAllowed": false
+      },
+      "curation": {
+        "reviewStatus": "reviewed",
+        "notes": "Position, velocity and force-limit indices identify the same segment. Forward profiles need N end positions for N segments."
+      },
+      "releaseProfile": "core"
+    },
+    {
+      "variableName": "setForceEjectorForward",
+      "canonicalId": "im-process-data.parameter.setForceEjectorForward",
+      "descriptionEnglish": "Set ejector-force limit during a forward motion segment, in kN.",
+      "descriptionGerman": "Eingestellte Auswerferkraftgrenze waehrend eines Segments der Vorwaertsbewegung in kN.",
+      "dataType": "float",
+      "dataRepresentation": "cycleValue",
+      "valueRole": "set",
+      "unit": {
+        "displayName": "kN",
+        "codes": {
+          "unEceRec20": "B47",
+          "iecTs62720": "UAA573"
+        }
+      },
+      "standardReferences": [
+        {
+          "sourceStandard": "OPC 40083",
+          "aliasStandards": [
+            "EUROMAP 83",
+            "VDMA 40083:2021-08"
+          ],
+          "release": "1.03",
+          "term": "MonitoredParameterType/SetValue",
+          "relation": "related",
+          "explanation": "OPC 40083 defines a generic monitored set value, while the local parameter defines the concrete set quantity."
+        }
+      ],
+      "assetAssignment": {
+        "possibleProvidingAssets": [
+          "InjectionMoldingMachine"
+        ]
+      },
+      "measurementLocation": {
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
+      },
+      "instances": {
+        "supported": true,
+        "indexBase": 1,
+        "headerPattern": "setForceEjectorForward_<profileSegmentIndex>",
+        "dimensions": [
+          {
+            "key": "profileSegmentIndex",
+            "descriptionEnglish": "One-based index of the ejector motion segment, shared by its velocity, end position and force limit.",
+            "descriptionGerman": "Einsbasierter Index des Auswerfer-Bewegungssegments, gemeinsam fuer Geschwindigkeit, Endposition und Kraftgrenze."
+          }
+        ],
+        "unsuffixedValuePolicy": "singleOnly"
+      },
+      "representativeValue": {
+        "isRepresentative": false,
+        "representativeVariantAllowed": false
+      },
+      "curation": {
+        "reviewStatus": "reviewed",
+        "notes": "Position, velocity and force-limit indices identify the same segment. Forward profiles need N end positions for N segments."
+      },
+      "releaseProfile": "core"
+    },
+    {
+      "variableName": "setVelocityEjectorBackward",
+      "canonicalId": "im-process-data.parameter.setVelocityEjectorBackward",
+      "descriptionEnglish": "Set ejector backward velocity in mm/s. Positive values denote backward motion and negative values denote forward motion; converting from an oppositely oriented axis requires a sign reversal, not an absolute value.",
+      "descriptionGerman": "Soll-Auswerfergeschwindigkeit fuer die Rueckwaertsbewegung in mm/s. Positive Werte bezeichnen die Rueckwaertsbewegung, negative Werte die Vorwaertsbewegung; bei entgegengesetzter Quellenachse ist das Vorzeichen umzukehren, nicht der Betrag zu bilden.",
+      "dataType": "float",
+      "dataRepresentation": "cycleValue",
+      "valueRole": "set",
+      "unit": {
+        "displayName": "mm/s",
+        "codes": {
+          "unEceRec20": "C16",
+          "iecTs62720": "UAA867"
+        }
+      },
+      "standardReferences": [
+        {
+          "sourceStandard": "OPC 40083",
+          "aliasStandards": [
+            "EUROMAP 83",
+            "VDMA 40083:2021-08"
+          ],
+          "release": "1.03",
+          "term": "MonitoredParameterType/SetValue",
+          "relation": "related",
+          "explanation": "OPC 40083 defines a generic monitored set value, while the local parameter defines the concrete set quantity."
+        },
+        {
+          "sourceStandard": "OPC 40083",
+          "aliasStandards": [
+            "EUROMAP 83",
+            "VDMA 40083:2021-08"
+          ],
+          "release": "1.03",
+          "term": "DriveType/Speed/SetValue",
+          "relation": "related",
+          "explanation": "Generic drive-speed set value; relation to ejector translation requires machine-specific confirmation."
+        }
+      ],
+      "assetAssignment": {
+        "possibleProvidingAssets": [
+          "InjectionMoldingMachine"
+        ]
+      },
+      "measurementLocation": {
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
+      },
+      "instances": {
+        "supported": true,
+        "indexBase": 1,
+        "headerPattern": "setVelocityEjectorBackward_<profileSegmentIndex>",
+        "dimensions": [
+          {
+            "key": "profileSegmentIndex",
+            "descriptionEnglish": "One-based index of the ejector motion segment, shared by its velocity, end position and force limit.",
+            "descriptionGerman": "Einsbasierter Index des Auswerfer-Bewegungssegments, gemeinsam fuer Geschwindigkeit, Endposition und Kraftgrenze."
+          }
+        ],
+        "unsuffixedValuePolicy": "singleOnly"
+      },
+      "profileSegments": {
+        "indexDimension": "profileSegmentIndex",
+        "segmentEndPositionParameterRef": "setPositionEjectorBackward",
+        "segmentForceLimitParameterRef": "setForceEjectorBackward",
+        "indexAlignment": "sameProfileSegmentIndex",
+        "fixedInterpolation": "Steps",
+        "defaultLastSegmentEndPosition": 0
+      },
+      "representativeValue": {
+        "isRepresentative": false,
+        "representativeVariantAllowed": false
+      },
+      "curation": {
+        "reviewStatus": "reviewed",
+        "notes": "The profile is always Steps: the first segment starts at its configured velocity, and each segment holds its velocity until its end position. Earlier segments require their end positions in setPositionEjectorBackward; if the last segment end position is omitted, the movement ends at 0 mm. A single backward segment therefore needs no explicit position."
+      },
+      "releaseProfile": "core"
+    },
+    {
+      "variableName": "setPositionEjectorBackward",
+      "canonicalId": "im-process-data.parameter.setPositionEjectorBackward",
+      "descriptionEnglish": "Set ejector position at the end of a backward motion segment, in mm.",
+      "descriptionGerman": "Soll-Auswerferposition am Ende eines Segments der Rueckwaertsbewegung in mm.",
+      "dataType": "float",
+      "dataRepresentation": "cycleValue",
+      "valueRole": "set",
+      "unit": {
+        "displayName": "mm",
+        "codes": {
+          "unEceRec20": "MMT",
+          "iecTs62720": "UAA862"
+        }
+      },
+      "standardReferences": [
+        {
+          "sourceStandard": "OPC 40083",
+          "aliasStandards": [
+            "EUROMAP 83",
+            "VDMA 40083:2021-08"
+          ],
+          "release": "1.03",
+          "term": "MonitoredParameterType/SetValue",
+          "relation": "related",
+          "explanation": "OPC 40083 defines a generic monitored set value, while the local parameter defines the concrete set quantity."
+        }
+      ],
+      "assetAssignment": {
+        "possibleProvidingAssets": [
+          "InjectionMoldingMachine"
+        ]
+      },
+      "measurementLocation": {
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
+      },
+      "instances": {
+        "supported": true,
+        "indexBase": 1,
+        "headerPattern": "setPositionEjectorBackward_<profileSegmentIndex>",
+        "dimensions": [
+          {
+            "key": "profileSegmentIndex",
+            "descriptionEnglish": "One-based index of the ejector motion segment, shared by its velocity, end position and force limit.",
+            "descriptionGerman": "Einsbasierter Index des Auswerfer-Bewegungssegments, gemeinsam fuer Geschwindigkeit, Endposition und Kraftgrenze."
+          }
+        ],
+        "unsuffixedValuePolicy": "singleOnly"
+      },
+      "representativeValue": {
+        "isRepresentative": false,
+        "representativeVariantAllowed": false
+      },
+      "curation": {
+        "reviewStatus": "reviewed",
+        "notes": "Position, velocity and force-limit indices identify the same segment. Forward profiles need N end positions for N segments; backward profiles may omit only the final endpoint, which then defaults to the calibrated retracted zero. Unknown force limits remain unspecified."
+      },
+      "releaseProfile": "core"
+    },
+    {
+      "variableName": "setForceEjectorBackward",
+      "canonicalId": "im-process-data.parameter.setForceEjectorBackward",
+      "descriptionEnglish": "Set ejector-force limit during a backward motion segment, in kN. This is a limiting threshold, not an actual force or a force-control target.",
+      "descriptionGerman": "Eingestellte Auswerferkraftgrenze waehrend eines Segments der Rueckwaertsbewegung in kN. Der Wert ist eine Begrenzung, kein Kraft-Istwert und kein Sollwert einer Kraftregelung.",
+      "dataType": "float",
+      "dataRepresentation": "cycleValue",
+      "valueRole": "set",
+      "unit": {
+        "displayName": "kN",
+        "codes": {
+          "unEceRec20": "B47",
+          "iecTs62720": "UAA573"
+        }
+      },
+      "standardReferences": [
+        {
+          "sourceStandard": "OPC 40083",
+          "aliasStandards": [
+            "EUROMAP 83",
+            "VDMA 40083:2021-08"
+          ],
+          "release": "1.03",
+          "term": "MonitoredParameterType/SetValue",
+          "relation": "related",
+          "explanation": "OPC 40083 defines a generic monitored set value, while the local parameter defines the concrete set quantity."
+        }
+      ],
+      "assetAssignment": {
+        "possibleProvidingAssets": [
+          "InjectionMoldingMachine"
+        ]
+      },
+      "measurementLocation": {
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
+      },
+      "instances": {
+        "supported": true,
+        "indexBase": 1,
+        "headerPattern": "setForceEjectorBackward_<profileSegmentIndex>",
+        "dimensions": [
+          {
+            "key": "profileSegmentIndex",
+            "descriptionEnglish": "One-based index of the ejector motion segment, shared by its velocity, end position and force limit.",
+            "descriptionGerman": "Einsbasierter Index des Auswerfer-Bewegungssegments, gemeinsam fuer Geschwindigkeit, Endposition und Kraftgrenze."
+          }
+        ],
+        "unsuffixedValuePolicy": "singleOnly"
+      },
+      "representativeValue": {
+        "isRepresentative": false,
+        "representativeVariantAllowed": false
+      },
+      "curation": {
+        "reviewStatus": "reviewed",
+        "notes": "Position, velocity and force-limit indices identify the same segment. Forward profiles need N end positions for N segments; backward profiles may omit only the final endpoint, which then defaults to the calibrated retracted zero. Unknown force limits remain unspecified."
+      },
+      "releaseProfile": "core"
+    },
+    {
       "variableName": "setVelocityMouldOpen",
       "canonicalId": "im-process-data.parameter.setVelocityMouldOpen",
-      "descriptionEnglish": "Set mould velocity during opening.",
-      "descriptionGerman": "Eingestellte Werkzeuggeschwindigkeit beim Oeffnen.",
+      "descriptionEnglish": "Set mould velocity during opening, in mm/s. Positive values denote the opening direction and negative values denote motion in the closing direction. Instances describe the segments of the opening profile. setVelocityMouldOpenProfileInterpolation defines Steps or Ramps for the entire profile.",
+      "descriptionGerman": "Soll-Werkzeuggeschwindigkeit beim Oeffnen in mm/s. Positive Werte bezeichnen die Oeffnungsrichtung, negative Werte eine Bewegung in Schliessrichtung. Instanzen beschreiben die Segmente des Oeffnungsprofils. setVelocityMouldOpenProfileInterpolation legt Steps oder Ramps fuer das gesamte Profil fest.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -10624,7 +11043,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": true,
@@ -10647,7 +11068,8 @@
           "semantics": "betweenSegments",
           "indexRelationship": "breakpoint_i_between_segment_i_and_i_plus_1",
           "cardinality": "segmentCountMinusOne"
-        }
+        },
+        "interpolationParameterRef": "setVelocityMouldOpenProfileInterpolation"
       },
       "representativeValue": {
         "isRepresentative": false,
@@ -10670,15 +11092,66 @@
       },
       "curation": {
         "reviewStatus": "reviewed",
-        "notes": "No direction-specific EUROMAP or OPC term exists for mould opening speed. Generic OPC 40083 anchors are intentionally retained only as related references. Internal position breakpoints are referenced through setVelocityMouldOpenProfileBreakpoint."
+        "notes": "No direction-specific EUROMAP or OPC term exists for mould opening speed. Generic OPC 40083 anchors are related references only. Internal position breakpoints are referenced through setVelocityMouldOpenProfileBreakpoint."
+      },
+      "releaseProfile": "core"
+    },
+    {
+      "variableName": "setVelocityMouldOpenProfileInterpolation",
+      "canonicalId": "im-process-data.parameter.setVelocityMouldOpenProfileInterpolation",
+      "descriptionEnglish": "Interpolation mode for the entire setVelocityMouldOpen mould-opening velocity profile. Steps holds each velocity setpoint constant within its segment and changes to the next setpoint at the boundary. Ramps changes linearly from the current segment value to the following segment value over the segment mould-position coordinate, not elapsed time. The profile begins at its first stored velocity value; the final segment holds the last value until the opening profile ends. The mode cannot vary between segments; omission leaves it unspecified. Steps and Ramps are case-insensitive; steps, ramps and other capitalizations have the same meaning.",
+      "descriptionGerman": "Interpolationsart fuer das gesamte Werkzeuggeschwindigkeitsprofil setVelocityMouldOpen beim Oeffnen. Steps haelt jeden Geschwindigkeits-Sollwert innerhalb seines Segments konstant und wechselt an der Grenze zum naechsten Sollwert. Ramps verlaeuft vom aktuellen Segmentwert zum folgenden Segmentwert linear ueber die Werkzeugpositionskoordinate des Segments, nicht ueber die verstrichene Zeit. Das Profil beginnt mit dem ersten gespeicherten Geschwindigkeitswert; das letzte Segment haelt den letzten Wert bis zum Ende des Oeffnungsprofils. Die Einstellung gilt fuer alle Segmente; bei fehlender Angabe ist sie nicht spezifiziert. Bei Steps und Ramps wird Gross-/Kleinschreibung nicht unterschieden; steps, ramps und andere Schreibweisen haben dieselbe Bedeutung.",
+      "dataType": "string",
+      "allowedValues": [
+        "Steps",
+        "Ramps"
+      ],
+      "allowedValuesCaseSensitive": false,
+      "dataRepresentation": "cycleValue",
+      "valueRole": "set",
+      "unit": null,
+      "unitSemantics": "notApplicable",
+      "standardReferences": [
+        {
+          "sourceStandard": "OPC 40083",
+          "aliasStandards": [
+            "EUROMAP 83",
+            "VDMA 40083:2021-08"
+          ],
+          "release": "1.03",
+          "term": "MonitoredParameterType/SetValue",
+          "relation": "related",
+          "explanation": "OPC 40083 defines a generic monitored set value, while the local parameter defines the concrete set quantity."
+        }
+      ],
+      "assetAssignment": {
+        "possibleProvidingAssets": [
+          "InjectionMoldingMachine"
+        ]
+      },
+      "measurementLocation": {
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
+      },
+      "instances": {
+        "supported": false
+      },
+      "representativeValue": {
+        "isRepresentative": false,
+        "representativeVariantAllowed": false
+      },
+      "curation": {
+        "reviewStatus": "reviewed",
+        "notes": "Position breakpoints retain their first-contact reference; interpolation does not change the direction-specific velocity sign convention. No implicit Steps default or per-segment mode changes."
       },
       "releaseProfile": "core"
     },
     {
       "variableName": "setVelocityMouldOpenProfileBreakpoint",
       "canonicalId": "im-process-data.parameter.setVelocityMouldOpenProfileBreakpoint",
-      "descriptionEnglish": "Set mould-position breakpoint between adjacent segments of the setVelocityMouldOpen profile.",
-      "descriptionGerman": "Soll-Werkzeugpositions-Breakpoint zwischen benachbarten Segmenten des Profils setVelocityMouldOpen.",
+      "descriptionEnglish": "Set mould position at the transition between adjacent segments of the setVelocityMouldOpen profile, referenced to the same first-contact position defined as 0 mm in timeseriesPositionMould. Record the mould position at the segment transition, not the travel since the start of the opening profile.",
+      "descriptionGerman": "Soll-Werkzeugposition am Uebergang zwischen benachbarten Segmenten des Profils setVelocityMouldOpen, bezogen auf dieselbe erste Kontaktposition als 0 mm wie timeseriesPositionMould. Einzutragen ist die Werkzeugposition am Segmentuebergang, nicht der seit Beginn des Oeffnungsprofils zurueckgelegte Weg.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -10699,7 +11172,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": true,
@@ -10720,15 +11195,15 @@
       },
       "curation": {
         "reviewStatus": "reviewed",
-        "notes": "For N setVelocityMouldOpen profile segments, N - 1 internal mould-position breakpoints are stored."
+        "notes": "For N setVelocityMouldOpen profile segments, N - 1 internal mould-position breakpoints are stored. It is referenced to the same first-contact position defined as 0 mm in timeseriesPositionMould."
       },
       "releaseProfile": "core"
     },
     {
       "variableName": "setVelocityMouldOpenRepresentative",
       "canonicalId": "im-process-data.parameter.setVelocityMouldOpenRepresentative",
-      "descriptionEnglish": "Representative value for setVelocityMouldOpen; intended for comparison and does not replace instance-level set values.",
-      "descriptionGerman": "Repraesentativer Wert fuer setVelocityMouldOpen; fuer Vergleiche vorgesehen und kein Ersatz fuer instanzbezogene Sollwerte.",
+      "descriptionEnglish": "Representative set value for setVelocityMouldOpen using the same sign convention: opening is positive and closing is negative. For comparison only; document its derivation and retain the instance-level set values.",
+      "descriptionGerman": "Repraesentativer Sollwert fuer setVelocityMouldOpen mit derselben Vorzeichenkonvention: Oeffnungsrichtung positiv, Schliessrichtung negativ. Nur fuer Vergleiche; die Herleitung muss dokumentiert werden und der Wert ersetzt keine instanzbezogenen Sollwerte.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -10749,7 +11224,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -10781,8 +11258,8 @@
     {
       "variableName": "setVelocityMouldClose",
       "canonicalId": "im-process-data.parameter.setVelocityMouldClose",
-      "descriptionEnglish": "Set mould velocity during closing.",
-      "descriptionGerman": "Eingestellte Werkzeuggeschwindigkeit beim Schliessen.",
+      "descriptionEnglish": "Set mould velocity during closing, in mm/s. Positive values denote the closing direction and negative values denote motion in the opening direction. Instances describe the segments of the closing profile. setVelocityMouldCloseProfileInterpolation defines Steps or Ramps for the entire profile.",
+      "descriptionGerman": "Soll-Werkzeuggeschwindigkeit beim Schliessen in mm/s. Positive Werte bezeichnen die Schliessrichtung, negative Werte eine Bewegung in Oeffnungsrichtung. Instanzen beschreiben die Segmente des Schliessprofils. setVelocityMouldCloseProfileInterpolation legt Steps oder Ramps fuer das gesamte Profil fest.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -10826,7 +11303,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": true,
@@ -10849,7 +11328,8 @@
           "semantics": "betweenSegments",
           "indexRelationship": "breakpoint_i_between_segment_i_and_i_plus_1",
           "cardinality": "segmentCountMinusOne"
-        }
+        },
+        "interpolationParameterRef": "setVelocityMouldCloseProfileInterpolation"
       },
       "representativeValue": {
         "isRepresentative": false,
@@ -10872,15 +11352,66 @@
       },
       "curation": {
         "reviewStatus": "reviewed",
-        "notes": "No direction-specific EUROMAP or OPC term exists for mould closing speed. Generic OPC 40083 anchors are intentionally retained only as related references. Internal position breakpoints are referenced through setVelocityMouldCloseProfileBreakpoint."
+        "notes": "No direction-specific EUROMAP or OPC term exists for mould closing speed. Generic OPC 40083 anchors are related references only. Internal position breakpoints are referenced through setVelocityMouldCloseProfileBreakpoint."
       },
-      "releaseProfile": "draft"
+      "releaseProfile": "core"
+    },
+    {
+      "variableName": "setVelocityMouldCloseProfileInterpolation",
+      "canonicalId": "im-process-data.parameter.setVelocityMouldCloseProfileInterpolation",
+      "descriptionEnglish": "Interpolation mode for the entire setVelocityMouldClose mould-closing velocity profile. Steps holds each velocity setpoint constant within its segment and changes to the next setpoint at the boundary. Ramps changes linearly from the current segment value to the following segment value over the segment mould-position coordinate, not elapsed time. The profile begins at its first stored velocity value; the final segment holds the last value until the closing profile ends. The mode cannot vary between segments; omission leaves it unspecified. Steps and Ramps are case-insensitive; steps, ramps and other capitalizations have the same meaning.",
+      "descriptionGerman": "Interpolationsart fuer das gesamte Werkzeuggeschwindigkeitsprofil setVelocityMouldClose beim Schliessen. Steps haelt jeden Geschwindigkeits-Sollwert innerhalb seines Segments konstant und wechselt an der Grenze zum naechsten Sollwert. Ramps verlaeuft vom aktuellen Segmentwert zum folgenden Segmentwert linear ueber die Werkzeugpositionskoordinate des Segments, nicht ueber die verstrichene Zeit. Das Profil beginnt mit dem ersten gespeicherten Geschwindigkeitswert; das letzte Segment haelt den letzten Wert bis zum Ende des Schliessprofils. Die Einstellung gilt fuer alle Segmente; bei fehlender Angabe ist sie nicht spezifiziert. Bei Steps und Ramps wird Gross-/Kleinschreibung nicht unterschieden; steps, ramps und andere Schreibweisen haben dieselbe Bedeutung.",
+      "dataType": "string",
+      "allowedValues": [
+        "Steps",
+        "Ramps"
+      ],
+      "allowedValuesCaseSensitive": false,
+      "dataRepresentation": "cycleValue",
+      "valueRole": "set",
+      "unit": null,
+      "unitSemantics": "notApplicable",
+      "standardReferences": [
+        {
+          "sourceStandard": "OPC 40083",
+          "aliasStandards": [
+            "EUROMAP 83",
+            "VDMA 40083:2021-08"
+          ],
+          "release": "1.03",
+          "term": "MonitoredParameterType/SetValue",
+          "relation": "related",
+          "explanation": "OPC 40083 defines a generic monitored set value, while the local parameter defines the concrete set quantity."
+        }
+      ],
+      "assetAssignment": {
+        "possibleProvidingAssets": [
+          "InjectionMoldingMachine"
+        ]
+      },
+      "measurementLocation": {
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
+      },
+      "instances": {
+        "supported": false
+      },
+      "representativeValue": {
+        "isRepresentative": false,
+        "representativeVariantAllowed": false
+      },
+      "curation": {
+        "reviewStatus": "reviewed",
+        "notes": "Position breakpoints retain their first-contact reference; interpolation does not change the direction-specific velocity sign convention. No implicit Steps default or per-segment mode changes."
+      },
+      "releaseProfile": "core"
     },
     {
       "variableName": "setVelocityMouldCloseProfileBreakpoint",
       "canonicalId": "im-process-data.parameter.setVelocityMouldCloseProfileBreakpoint",
-      "descriptionEnglish": "Set mould-position breakpoint between adjacent segments of the setVelocityMouldClose profile.",
-      "descriptionGerman": "Soll-Werkzeugpositions-Breakpoint zwischen benachbarten Segmenten des Profils setVelocityMouldClose.",
+      "descriptionEnglish": "Set mould position at the transition between adjacent segments of the setVelocityMouldClose profile, referenced to the same first-contact position defined as 0 mm in timeseriesPositionMould. Record the mould position at the segment transition, not the travel since the start of the closing profile.",
+      "descriptionGerman": "Soll-Werkzeugposition am Uebergang zwischen benachbarten Segmenten des Profils setVelocityMouldClose, bezogen auf dieselbe erste Kontaktposition als 0 mm wie timeseriesPositionMould. Einzutragen ist die Werkzeugposition am Segmentuebergang, nicht der seit Beginn des Schliessprofils zurueckgelegte Weg.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -10901,7 +11432,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": true,
@@ -10922,15 +11455,15 @@
       },
       "curation": {
         "reviewStatus": "reviewed",
-        "notes": "For N setVelocityMouldClose profile segments, N - 1 internal mould-position breakpoints are stored."
+        "notes": "For N setVelocityMouldClose profile segments, N - 1 internal mould-position breakpoints are stored. It is referenced to the same first-contact position defined as 0 mm in timeseriesPositionMould."
       },
-      "releaseProfile": "draft"
+      "releaseProfile": "core"
     },
     {
       "variableName": "setVelocityMouldCloseRepresentative",
       "canonicalId": "im-process-data.parameter.setVelocityMouldCloseRepresentative",
-      "descriptionEnglish": "Representative value for setVelocityMouldClose; intended for comparison and does not replace instance-level set values.",
-      "descriptionGerman": "Repraesentativer Wert fuer setVelocityMouldClose; fuer Vergleiche vorgesehen und kein Ersatz fuer instanzbezogene Sollwerte.",
+      "descriptionEnglish": "Representative set value for setVelocityMouldClose using the same sign convention: closing is positive and opening is negative. For comparison only; document its derivation and retain the instance-level set values.",
+      "descriptionGerman": "Repraesentativer Sollwert fuer setVelocityMouldClose mit derselben Vorzeichenkonvention: Schliessrichtung positiv, Oeffnungsrichtung negativ. Nur fuer Vergleiche; die Herleitung muss dokumentiert werden und der Wert ersetzt keine instanzbezogenen Sollwerte.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -10951,7 +11484,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "notApplicable"
+        "kind": "notApplicable",
+        "descriptionEnglish": "Calculated value with unspecified calculation basis.",
+        "descriptionGerman": "Berechneter Wert mit nicht spezifiziertem Berechnungsbezug."
       },
       "instances": {
         "supported": false
@@ -10983,8 +11518,8 @@
     {
       "variableName": "setVelocityScrewPeripheral",
       "canonicalId": "im-process-data.parameter.setVelocityScrewPeripheral",
-      "descriptionEnglish": "set screw peripheral velocity",
-      "descriptionGerman": "eingestellte Schneckenumfangsgeschwindigkeit",
+      "descriptionEnglish": "Set peripheral velocity at the nominal outer diameter of the rotating screw, in mm/s. Positive values denote the documented normal plasticising rotation direction, negative values denote the opposite rotation direction, and 0 denotes standstill.",
+      "descriptionGerman": "Soll-Umfangsgeschwindigkeit am nominalen Aussendurchmesser der rotierenden Schnecke in mm/s. Positive Werte bezeichnen die dokumentierte normale Plastifizierdrehrichtung, negative Werte die entgegengesetzte Drehrichtung und 0 den Stillstand.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -11030,9 +11565,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -11049,8 +11584,8 @@
     {
       "variableName": "setVolumeDecompressionAfterPlasticising",
       "canonicalId": "im-process-data.parameter.setVolumeDecompressionAfterPlasticising",
-      "descriptionEnglish": "Set displacement volume for decompression after plasticising.",
-      "descriptionGerman": "Soll-Dekompressionshub nach dem Plastifizieren in ccm.",
+      "descriptionEnglish": "Positive set decompression displacement volume after plasticising, in ccm, expressed as the relative change in volumetric screw position from the value immediately before this decompression movement starts. The displacement volume is not a volumetric end position.",
+      "descriptionGerman": "Positiver Soll-Dekompressionshub nach dem Plastifizieren in ccm, ausgedrueckt als relative Aenderung der volumenbezogenen Schneckenposition ab dem unmittelbar vor Beginn dieser Dekompressionsbewegung vorliegenden Wert. Der Hub ist keine volumenbezogene Endposition.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -11106,9 +11641,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -11125,8 +11660,8 @@
     {
       "variableName": "setVolumeDecompressionBeforePlasticising",
       "canonicalId": "im-process-data.parameter.setVolumeDecompressionBeforePlasticising",
-      "descriptionEnglish": "Set displacement volume for decompression after injection and before plasticising.",
-      "descriptionGerman": "Soll-Dekompressionshub nach dem Einspritzen, vor dem Plastifizieren in ccm.",
+      "descriptionEnglish": "Positive set decompression displacement volume after injection and before plasticising, in ccm, expressed as the relative change in volumetric screw position from the value immediately before this decompression movement starts. The displacement volume is not a volumetric end position.",
+      "descriptionGerman": "Positiver Soll-Dekompressionshub nach dem Einspritzen und vor dem Plastifizieren in ccm, ausgedrueckt als relative Aenderung der volumenbezogenen Schneckenposition ab dem unmittelbar vor Beginn dieser Dekompressionsbewegung vorliegenden Wert. Der Hub ist keine volumenbezogene Endposition.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "set",
@@ -11182,9 +11717,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -11258,9 +11793,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -11334,9 +11869,9 @@
         ]
       },
       "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided value with unspecified physical sensor location or calculation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter Wert mit nicht spezifiziertem physikalischem Messort oder Berechnungsbezug."
+        "kind": "notApplicable",
+        "descriptionEnglish": "Machine-provided value.",
+        "descriptionGerman": "Maschinenseitig bereitgestellter Wert."
       },
       "instances": {
         "supported": false
@@ -11353,8 +11888,8 @@
     {
       "variableName": "actualPositionScrewDecompressionAfterPlasticising",
       "canonicalId": "im-process-data.parameter.actualPositionScrewDecompressionAfterPlasticising",
-      "descriptionEnglish": "Once-per-cycle positive actual displacement magnitude for decompression after plasticising, referenced to the screw position immediately before this decompression movement starts.",
-      "descriptionGerman": "Einmaliger positiver Ist-Wegbetrag pro Zyklus fuer die Dekompression nach dem Plastifizieren, bezogen auf die Schneckenposition unmittelbar vor Beginn dieser Dekompressionsbewegung.",
+      "descriptionEnglish": "Once-per-cycle positive actual screw retraction displacement for decompression after plasticising, in mm. The value is the relative displacement between the actual screw position immediately before this decompression movement starts and its position at the end. It is not an end position referenced to the mechanical zero; that position equals the actual start position plus the actual displacement.",
+      "descriptionGerman": "Einmaliger positiver Ist-Rueckzugshub der Schnecke pro Zyklus fuer die Dekompression nach dem Plastifizieren in mm. Der Wert ist die relative Wegaenderung zwischen der tatsaechlichen Schneckenposition unmittelbar vor Beginn und am Ende dieser Dekompressionsbewegung. Er ist keine nullpunktbezogene Endposition; diese ergibt sich aus der tatsaechlichen Anfangsposition plus Ist-Hub.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "actual",
@@ -11408,8 +11943,8 @@
     {
       "variableName": "actualPositionScrewDecompressionBeforePlasticising",
       "canonicalId": "im-process-data.parameter.actualPositionScrewDecompressionBeforePlasticising",
-      "descriptionEnglish": "Once-per-cycle positive actual displacement magnitude for decompression before plasticising, referenced to the screw position immediately before this decompression movement starts.",
-      "descriptionGerman": "Einmaliger positiver Ist-Wegbetrag pro Zyklus fuer die Dekompression vor dem Plastifizieren, bezogen auf die Schneckenposition unmittelbar vor Beginn dieser Dekompressionsbewegung.",
+      "descriptionEnglish": "Once-per-cycle positive actual screw retraction displacement for decompression before plasticising, in mm. The value is the relative displacement between the actual screw position immediately before this decompression movement starts and its position at the end. It is not an end position referenced to the mechanical zero; that position equals the actual start position plus the actual displacement.",
+      "descriptionGerman": "Einmaliger positiver Ist-Rueckzugshub der Schnecke pro Zyklus fuer die Dekompression vor dem Plastifizieren in mm. Der Wert ist die relative Wegaenderung zwischen der tatsaechlichen Schneckenposition unmittelbar vor Beginn und am Ende dieser Dekompressionsbewegung. Er ist keine nullpunktbezogene Endposition; diese ergibt sich aus der tatsaechlichen Anfangsposition plus Ist-Hub.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "actual",
@@ -11518,7 +12053,7 @@
       "variableName": "actualForceClampingMouldMaximum",
       "canonicalId": "im-process-data.parameter.actualForceClampingMouldMaximum",
       "descriptionEnglish": "Maximum actual clamping force of the mould within a production cycle.",
-      "descriptionGerman": "Maximaler Istwert der Werkzeugschließkraft innerhalb eines Produktionszyklus.",
+      "descriptionGerman": "Maximaler Istwert der Werkzeugschliesskraft innerhalb eines Produktionszyklus.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "actual",
@@ -11574,7 +12109,7 @@
       "measurementLocation": {
         "kind": "machineInternalUnspecified",
         "descriptionEnglish": "Clamping system of the injection moulding machine.",
-        "descriptionGerman": "Schließeinheit der Spritzgießmaschine."
+        "descriptionGerman": "Schliesseinheit der Spritzgiessmaschine."
       },
       "instances": {
         "supported": false
@@ -11772,7 +12307,8 @@
         "representativeVariantAllowed": false
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "Machine-specific pressure basis and measurement context are required to compare values."
       },
       "releaseProfile": "draft"
     },
@@ -11958,15 +12494,16 @@
         "representativeVariantAllowed": false
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "Machine-specific pressure basis and measurement context are required to compare values."
       },
       "releaseProfile": "draft"
     },
     {
       "variableName": "actualRevolutionsScrew",
       "canonicalId": "im-process-data.parameter.actualRevolutionsScrew",
-      "descriptionEnglish": "Once-per-cycle actual value corresponding to setRevolutionsScrew. Use this when the machine or source system reports one actual value for the cycle; time-dependent traces remain timeseries parameters.",
-      "descriptionGerman": "Einmaliger Istwert pro Zyklus als Gegenstueck zu setRevolutionsScrew. Verwenden, wenn Maschine oder Quellsystem einen Istwert fuer den Zyklus meldet; zeitabhaengige Verlaeufe bleiben timeseries-Parameter.",
+      "descriptionEnglish": "Once-per-cycle actual screw rotational speed in r/min corresponding to setRevolutionsScrew. Positive values denote the documented normal plasticising rotation direction, negative values denote the opposite rotation direction, and 0 denotes standstill.",
+      "descriptionGerman": "Einmaliger Ist-Drehzahlwert der Schnecke pro Zyklus in r/min als Gegenstueck zu setRevolutionsScrew. Positive Werte bezeichnen die dokumentierte normale Plastifizierdrehrichtung, negative Werte die entgegengesetzte Drehrichtung und 0 den Stillstand.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "actual",
@@ -12049,196 +12586,6 @@
         "reviewStatus": "reviewed"
       },
       "releaseProfile": "core"
-    },
-    {
-      "variableName": "actualTemperatureTemperatureControlDevice",
-      "canonicalId": "im-process-data.parameter.actualTemperatureTemperatureControlDevice",
-      "descriptionEnglish": "Once-per-cycle actual value corresponding to setTemperatureTemperatureControlDevice. Use this when the machine or source system reports one actual value for the cycle; time-dependent traces remain timeseries parameters.",
-      "descriptionGerman": "Einmaliger Istwert pro Zyklus als Gegenstueck zu setTemperatureTemperatureControlDevice. Verwenden, wenn Maschine oder Quellsystem einen Istwert fuer den Zyklus meldet; zeitabhaengige Verlaeufe bleiben timeseries-Parameter.",
-      "dataType": "float",
-      "dataRepresentation": "cycleValue",
-      "valueRole": "actual",
-      "unit": {
-        "displayName": "°C",
-        "codes": {
-          "unEceRec20": "CEL",
-          "iecTs62720": "UAA033"
-        }
-      },
-      "standardReferences": [
-        {
-          "sourceStandard": "OPC 40083",
-          "aliasStandards": [
-            "EUROMAP 83",
-            "VDMA 40083:2021-08"
-          ],
-          "release": "1.03",
-          "term": "MonitoredParameterType/ActualValue",
-          "relation": "related",
-          "explanation": "OPC 40083 defines a generic monitored actual value, while the local parameter defines the concrete once-per-cycle actual quantity."
-        },
-        {
-          "sourceStandard": "OPC 40082-1",
-          "aliasStandards": [
-            "EUROMAP 82.1",
-            "VDMA 40082-1:2020-06"
-          ],
-          "release": "1.01",
-          "term": "DeviceZone/Temperature/ActualValue",
-          "relation": "closeMatch",
-          "explanation": "OPC 40082-1 provides an actual temperature value for a temperature-control device zone."
-        },
-        {
-          "sourceStandard": "OPC 40083",
-          "aliasStandards": [
-            "EUROMAP 83",
-            "VDMA 40083:2021-08"
-          ],
-          "release": "1.03",
-          "term": "TemperatureZoneType/ActualTemperature",
-          "relation": "related",
-          "explanation": "OPC 40083 actual temperature is related to temperature-zone modelling; TCD-specific semantics are covered more directly by OPC 40082-1."
-        }
-      ],
-      "assetAssignment": {
-        "possibleProvidingAssets": [
-          "TemperatureControlDevice"
-        ],
-        "affectedAssets": [
-          "Mould"
-        ]
-      },
-      "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided once-per-cycle actual value with unspecified physical sensor location or aggregation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter einmaliger Istwert pro Zyklus mit nicht spezifiziertem physikalischem Messort oder Aggregationsbezug."
-      },
-      "instances": {
-        "supported": true,
-        "indexBase": 1,
-        "headerPattern": "actualTemperatureTemperatureControlDevice_<temperatureControlDeviceIndex>",
-        "dimensions": [
-          {
-            "key": "temperatureControlDeviceIndex",
-            "descriptionEnglish": "Index of the temperature-control device.",
-            "descriptionGerman": "Index des Temperiergeraets."
-          }
-        ],
-        "unsuffixedValuePolicy": "singleOrUnspecifiedInstance"
-      },
-      "representativeValue": {
-        "isRepresentative": false,
-        "representativeVariantAllowed": true,
-        "recommendedVariableName": "actualTemperatureTemperatureControlDeviceRepresentative",
-        "descriptionEnglish": "A representative once-per-cycle actual value may be defined for comparison if its derivation is documented.",
-        "descriptionGerman": "Ein repraesentativer einmaliger Istwert pro Zyklus kann fuer Vergleiche definiert werden, wenn seine Ermittlung dokumentiert wird.",
-        "allowedMethods": [
-          "machineReportedRepresentative",
-          "arithmeticMean",
-          "weightedMean",
-          "referenceInstance",
-          "otherDocumented"
-        ],
-        "requiredDocumentation": [
-          "representationMethod",
-          "sourceParameter",
-          "sourceInstances"
-        ]
-      },
-      "curation": {
-        "reviewStatus": "reviewed"
-      },
-      "releaseProfile": "draft"
-    },
-    {
-      "variableName": "actualTemperatureTemperatureControlDeviceRepresentative",
-      "canonicalId": "im-process-data.parameter.actualTemperatureTemperatureControlDeviceRepresentative",
-      "descriptionEnglish": "Representative once-per-cycle actual value corresponding to actualTemperatureTemperatureControlDevice; intended for comparison and not a replacement for instance-level values.",
-      "descriptionGerman": "Repraesentativer einmaliger Istwert pro Zyklus zu actualTemperatureTemperatureControlDevice; fuer Vergleiche vorgesehen und kein Ersatz fuer instanzbezogene Werte.",
-      "dataType": "float",
-      "dataRepresentation": "cycleValue",
-      "valueRole": "actual",
-      "unit": {
-        "displayName": "°C",
-        "codes": {
-          "unEceRec20": "CEL",
-          "iecTs62720": "UAA033"
-        }
-      },
-      "standardReferences": [
-        {
-          "sourceStandard": "OPC 40083",
-          "aliasStandards": [
-            "EUROMAP 83",
-            "VDMA 40083:2021-08"
-          ],
-          "release": "1.03",
-          "term": "MonitoredParameterType/ActualValue",
-          "relation": "related",
-          "explanation": "OPC 40083 defines a generic monitored actual value, while the local parameter defines the concrete once-per-cycle actual quantity."
-        },
-        {
-          "sourceStandard": "OPC 40082-1",
-          "aliasStandards": [
-            "EUROMAP 82.1",
-            "VDMA 40082-1:2020-06"
-          ],
-          "release": "1.01",
-          "term": "DeviceZone/Temperature/ActualValue",
-          "relation": "related",
-          "explanation": "A representative TCD temperature may be derived from device-zone actual temperatures; the derivation must be documented."
-        },
-        {
-          "sourceStandard": "OPC 40083",
-          "aliasStandards": [
-            "EUROMAP 83",
-            "VDMA 40083:2021-08"
-          ],
-          "release": "1.03",
-          "term": "TemperatureZoneType/ActualTemperature",
-          "relation": "related",
-          "explanation": "Representative TCD temperature is related to generic temperature-zone actual temperature modelling."
-        }
-      ],
-      "assetAssignment": {
-        "possibleProvidingAssets": [
-          "TemperatureControlDevice"
-        ],
-        "affectedAssets": [
-          "Mould"
-        ]
-      },
-      "measurementLocation": {
-        "kind": "machineInternalUnspecified",
-        "descriptionEnglish": "Machine-provided once-per-cycle actual value with unspecified physical sensor location or aggregation basis.",
-        "descriptionGerman": "Maschinenseitig bereitgestellter einmaliger Istwert pro Zyklus mit nicht spezifiziertem physikalischem Messort oder Aggregationsbezug."
-      },
-      "instances": {
-        "supported": false
-      },
-      "representativeValue": {
-        "isRepresentative": true,
-        "representativeVariantAllowed": false,
-        "represents": "actualTemperatureTemperatureControlDevice",
-        "descriptionEnglish": "For comparison only; the derivation must be documented and the value must not replace instance-level values.",
-        "descriptionGerman": "Nur fuer Vergleiche; die Herleitung muss dokumentiert werden und der Wert darf instanzbezogene Werte nicht ersetzen.",
-        "allowedMethods": [
-          "machineReportedRepresentative",
-          "arithmeticMean",
-          "weightedMean",
-          "referenceInstance",
-          "otherDocumented"
-        ],
-        "requiredDocumentation": [
-          "representationMethod",
-          "sourceParameter",
-          "sourceInstances"
-        ]
-      },
-      "curation": {
-        "reviewStatus": "reviewed"
-      },
-      "releaseProfile": "experimental"
     },
     {
       "variableName": "actualTimeHoldingCumulative",
@@ -12393,8 +12740,8 @@
     {
       "variableName": "actualVelocityScrewPeripheral",
       "canonicalId": "im-process-data.parameter.actualVelocityScrewPeripheral",
-      "descriptionEnglish": "Once-per-cycle actual value corresponding to setVelocityScrewPeripheral. Use this when the machine or source system reports one actual value for the cycle; time-dependent traces remain timeseries parameters.",
-      "descriptionGerman": "Einmaliger Istwert pro Zyklus als Gegenstueck zu setVelocityScrewPeripheral. Verwenden, wenn Maschine oder Quellsystem einen Istwert fuer den Zyklus meldet; zeitabhaengige Verlaeufe bleiben timeseries-Parameter.",
+      "descriptionEnglish": "Once-per-cycle actual peripheral screw velocity in mm/s corresponding to setVelocityScrewPeripheral. Positive values denote the documented normal plasticising rotation direction, negative values denote the opposite rotation direction, and 0 denotes standstill.",
+      "descriptionGerman": " Einmaliger Istwert der Schneckenumfangsgeschwindigkeit pro Zyklus in mm/s als Gegenstueck zu setVelocityScrewPeripheral. Positive Werte bezeichnen die dokumentierte normale Plastifizierdrehrichtung, negative Werte die entgegengesetzte Drehrichtung und 0 den Stillstand.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "actual",
@@ -12470,8 +12817,8 @@
     {
       "variableName": "actualVolumeDecompressionAfterPlasticising",
       "canonicalId": "im-process-data.parameter.actualVolumeDecompressionAfterPlasticising",
-      "descriptionEnglish": "Once-per-cycle actual displacement volume for decompression after plasticising.",
-      "descriptionGerman": "Einmaliges Ist-Verschiebevolumen pro Zyklus fuer die Dekompression nach dem Plastifizieren.",
+      "descriptionEnglish": "Once-per-cycle positive actual decompression displacement volume after plasticising, in ccm. The value is the relative change in volumetric screw position between the actual value immediately before this decompression movement starts and the value at its end. It is not a volumetric end position.",
+      "descriptionGerman": "Einmaliger positiver Ist-Dekompressionshub pro Zyklus nach dem Plastifizieren in ccm. Der Wert ist die relative Aenderung der volumenbezogenen Schneckenposition zwischen dem tatsaechlich vorliegenden Wert unmittelbar vor Beginn und dem Wert am Ende dieser Dekompressionsbewegung. Er ist keine volumenbezogene Endposition.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "actual",
@@ -12531,13 +12878,13 @@
       "curation": {
         "reviewStatus": "reviewed"
       },
-      "releaseProfile": "draft"
+      "releaseProfile": "core"
     },
     {
       "variableName": "actualVolumeDecompressionBeforePlasticising",
       "canonicalId": "im-process-data.parameter.actualVolumeDecompressionBeforePlasticising",
-      "descriptionEnglish": "Once-per-cycle actual displacement volume for decompression after injection and before plasticising.",
-      "descriptionGerman": "Einmaliges Ist-Verschiebevolumen pro Zyklus fuer die Dekompression nach dem Einspritzen und vor dem Plastifizieren.",
+      "descriptionEnglish": "Once-per-cycle positive actual decompression displacement volume after injection and before plasticising, in ccm. The value is the relative change in volumetric screw position between the actual value immediately before this decompression movement starts and the value at its end. It is not a volumetric end position.",
+      "descriptionGerman": "Einmaliger positiver Ist-Dekompressionshub pro Zyklus nach dem Einspritzen und vor dem Plastifizieren in ccm. Der Wert ist die relative Aenderung der volumenbezogenen Schneckenposition zwischen dem tatsaechlich vorliegenden Wert unmittelbar vor Beginn und dem Wert am Ende dieser Dekompressionsbewegung. Er ist keine volumenbezogene Endposition.",
       "dataType": "float",
       "dataRepresentation": "cycleValue",
       "valueRole": "actual",
@@ -12597,7 +12944,7 @@
       "curation": {
         "reviewStatus": "reviewed"
       },
-      "releaseProfile": "draft"
+      "releaseProfile": "core"
     },
     {
       "variableName": "actualVolumePlasticising",
@@ -13059,7 +13406,8 @@
         "representativeVariantAllowed": false
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "Filler naming is not standardised by the catalogue; document the filler designation and composition."
       },
       "releaseProfile": "draft"
     },
@@ -13147,7 +13495,8 @@
         "representativeVariantAllowed": false
       },
       "curation": {
-        "reviewStatus": "reviewed"
+        "reviewStatus": "reviewed",
+        "notes": "Filler naming is not standardised by the catalogue; document the filler designation and composition."
       },
       "releaseProfile": "draft"
     },
@@ -13224,7 +13573,7 @@
       "curation": {
         "reviewStatus": "reviewed"
       },
-      "releaseProfile": "draft"
+      "releaseProfile": "core"
     },
     {
       "variableName": "descriptionMouldCavity",
@@ -13292,13 +13641,13 @@
       "curation": {
         "reviewStatus": "reviewed"
       },
-      "releaseProfile": "draft"
+      "releaseProfile": "core"
     },
     {
       "variableName": "relativeTimestampCycle",
       "canonicalId": "im-process-data.parameter.relativeTimestampCycle",
-      "descriptionEnglish": "relative timestamp in milliseconds since start of the cycle, beginning with 0 ms",
-      "descriptionGerman": "relativer Zeitstempel in Millisekunden seit Beginn des Zyklus, beginnend mit 0 ms",
+      "descriptionEnglish": "Time-resolved relative timestamp in milliseconds since start of the cycle, beginning with 0 ms",
+      "descriptionGerman": "Zeitaufgeloester relativer Zeitstempel in Millisekunden seit Beginn des Zyklus, beginnend mit 0 ms",
       "dataType": "float",
       "dataRepresentation": "timeSeries",
       "valueRole": "timestamp",

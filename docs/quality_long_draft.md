@@ -1,6 +1,6 @@
 # Recording quality observations
 
-Quality-Long is a design draft for detailed quality observations. It has a defined six-column layout and examples, but no standalone machine-readable schema. Store the file under `metadata/measured_qualities_<cycleId>.csv` and inventory it with resource role `measuredQualities`.
+Quality-Long records detailed quality observations in a six-column layout. Version `1.0` defines the fields and rules below and provides example observations; it does not include a standalone machine-readable schema for this format. Store the file under `metadata/measured_qualities_<cycleId>.csv` and inventory it with resource role `measuredQualities`.
 
 ## One observation per row
 

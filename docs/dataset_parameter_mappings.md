@@ -2,7 +2,24 @@
 
 The optional [correspondence register](../mappings/datasetParameterMappings.json) connects catalogue parameters to names in published datasets. It can guide a source-specific conversion, but it is not an executable mapping and is not consumed by the example CSV converter.
 
-The current register contains 12 sources, 102 canonical parameter groups and 529 assignments. The source datasets themselves are not included in this repository.
+Version `1.0` of the register contains 12 sources, 100 canonical parameter groups and 520 assignments. A group represents one distinct catalogue `variableName`; an assignment is one `publishedNamings` entry within a group. The source datasets themselves are not included in this repository.
+
+| Relation | Assignments |
+| --- | ---: |
+| `closeMatch` | 368 |
+| `related` | 152 |
+| **Total** | **520** |
+
+The mapped groups and their assignments cover these catalogue maturity profiles:
+
+| Catalogue profile | Parameter groups | Assignments |
+| --- | ---: | ---: |
+| Core | 71 | 434 |
+| Draft | 24 | 52 |
+| Experimental | 5 | 34 |
+| **Total** | **100** | **520** |
+
+Pressure-controlled injection is outside the intended current catalogue scope. Correspondences for this control mode are excluded from the active register; they are not assigned to an injection-pressure limit or holding-pressure parameter.
 
 ## Read an assignment
 
@@ -24,14 +41,14 @@ Read the exact source version and file before applying an assignment. A listed f
 
 | Relation | Meaning |
 | --- | --- |
-| `exactMatch` | Reviewed source evidence supports the same concept and a compatible unit. |
-| `closeMatch` | Strong correspondence with remaining questions about phase, aggregation, location or instances. |
-| `related` | Relevant quantity with a different role, representation, scope or scale; direct substitution is not justified. |
-| `needsCuration` | Plausible target with unresolved ambiguity or missing evidence. |
+| `closeMatch` | The public source evidence establishes a close match for the parameter concept. Source-specific phase, aggregation, sensor position or instance semantics may still differ. This is a source-name mapping and does not assert conformance with an external standard. |
+| `related` | The source field is relevant to the canonical parameter but differs in role, aggregation, scope, unit or specificity and is not directly interchangeable. |
 
-All current assignments have been reviewed by the specification author. The register records `sourceAuthorConfirmation: "notObtained"` and `conversionValidation: "notPerformed"`. Review status and relation are separate: review can retain an unresolved question.
+The retained curation records identify reviews by the specification author and record `sourceAuthorConfirmation: "notObtained"` and `conversionValidation: "notPerformed"`. Review status and relation are separate: review can retain an unresolved question. The `reviewDate` fields identify the recorded source reviews: 391 assignments are dated 2026-08-18 and 129 are dated 2026-10-09.
 
-For example, `MET_JobCycleID` in source `proBayesDataset2022V2` is assigned to `actualCountCycleArticle` with `exactMatch`. The entry explains that the job counter restarts for each experiment day. Preserve that scope; it is not a lifetime machine counter.
+The twelve `MldHt20mA101TmpAct` through `MldHt20mA112TmpAct` fields in `proBayesDataset2023` are listed under `actualTemperatureHoseMouldInlet`, with `relation: "related"` and no assigned `canonicalInstanceHeader`. Their source labels identify temperature-control devices, but do not establish the supply-line measurement location, cycle-value selection or canonical device instance. Establish these before converting them to this parameter.
+
+For example, `MET_JobCycleID` in source `proBayesDataset2022V2` is assigned to `actualCountCycleArticle` with `closeMatch`. The entry explains that the job counter restarts for each experiment day. Preserve that scope; it is not a lifetime machine counter.
 
 ## Prepare a conversion
 

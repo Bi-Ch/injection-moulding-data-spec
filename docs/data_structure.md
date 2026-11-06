@@ -27,7 +27,7 @@ The machine folder identifies the source machine. `cycleId` identifies the cycle
 | `actual_set_parameters/actual_<cycleId>.csv` | `actualParameters` | Defined cycle-level actual process values. |
 | `timeseries/timeseries_<cycleId>.csv` | `timeSeries` | Sampled signals and their relative time axis. |
 | `metadata/measured_<cycleId>.csv` | `measuredMetadata` | Non-quality measured cycle values, such as material measurements. |
-| `metadata/measured_qualities_<cycleId>.csv` | `measuredQualities` | Detailed quality observations in the [Quality-Long draft](quality_long_draft.md). |
+| `metadata/measured_qualities_<cycleId>.csv` | `measuredQualities` | Detailed quality observations in the [Quality-Long format](quality_long_draft.md). |
 | `metadata/`, package documentation or `raw/` | `supplementary` | Inspection context, provenance, reports or unchanged source files. |
 
 Preserve unchanged source exports under `raw/` when available. Their names, formats and internal layout remain source-specific. They are supplementary resources rather than canonical CSV files.
@@ -59,7 +59,7 @@ The [manifest schema](../manifest.schema.json) requires four fields:
 
 | Field | Meaning |
 | --- | --- |
-| `manifestVersion` | `0.1.0-draft.1` for the current structure. |
+| `manifestVersion` | `1.0` for this structure. |
 | `parameterDefinition` | Relative path to the exact catalogue used. |
 | `cycleId` | Non-empty string matching the cycle folder. |
 | `resources` | Non-empty array of files, each with `path` and `role`. |

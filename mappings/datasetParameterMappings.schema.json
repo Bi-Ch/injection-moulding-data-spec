@@ -11,10 +11,10 @@
     "purpose": {"type": "string", "minLength": 1},
     "relationDefinitions": {
       "type": "object", "additionalProperties": false,
-      "required": ["exactMatch", "closeMatch", "related", "needsCuration"],
+      "required": ["closeMatch", "related"],
       "properties": {
-        "exactMatch": {"type": "string"}, "closeMatch": {"type": "string"},
-        "related": {"type": "string"}, "needsCuration": {"type": "string"}
+        "closeMatch": {"type": "string"},
+        "related": {"type": "string"}
       }
     },
     "curationPolicy": {"type": "object", "additionalProperties": {"type": "string"}},
@@ -37,7 +37,14 @@
         "sources": {"type": "integer", "minimum": 1},
         "mappingGroups": {"type": "integer", "minimum": 1},
         "assignments": {"type": "integer", "minimum": 1},
-        "relations": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+        "relations": {
+          "type": "object", "additionalProperties": false,
+          "required": ["closeMatch", "related"],
+          "properties": {
+            "closeMatch": {"type": "integer", "minimum": 0},
+            "related": {"type": "integer", "minimum": 0}
+          }
+        },
         "reviewDates": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}}
       }
     }
@@ -84,7 +91,7 @@
         "publishedUnit": {"$ref": "#/$defs/nullableText"},
         "publishedDtype": {"$ref": "#/$defs/nullableText"},
         "canonicalInstanceHeader": {"$ref": "#/$defs/nullableText"},
-        "relation": {"enum": ["exactMatch", "closeMatch", "related", "needsCuration"]},
+        "relation": {"enum": ["closeMatch", "related"]},
         "note": {"type": "string"},
         "curation": {"$ref": "#/$defs/curation"},
         "sourceFiles": {
