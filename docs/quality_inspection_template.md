@@ -15,6 +15,6 @@ The accompanying document supplies context for the six-column Quality-Long obser
 | Reassessment | Changed rule and dataset version, with the relationship to the earlier assessment. |
 | Known limits | Uninspected characteristics and unavailable measurement or assessment context. |
 
-A missing inspection is not a negative defect observation. A recorded part mass is not automatically a good/bad classification. If no acceptance criterion was applied, state that directly; do not infer one from the presence of a numeric value.
+A missing inspection is neither a negative nor a positive defect observation. A recorded part mass is not automatically a good/bad classification. If no acceptance criterion was applied, state that directly; do not infer one from the presence of a numeric value.
 
 This is a documentation convention, not a prescribed inspection method, tolerance or defect-intensity scale. See the [quality format](quality_long_draft.md) for the observation fields and Boolean polarities.

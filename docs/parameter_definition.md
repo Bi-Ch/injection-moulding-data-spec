@@ -10,14 +10,14 @@ Use the exact, case-sensitive `variableName` or a concrete header generated from
 
 | `valueRole` | Meaning |
 | --- | --- |
-| `set` | Configured setting or target. |
+| `set` | Configured setting or target value. |
 | `actual` | Machine or process observation. |
 | `measured` | Additional measured or inspected value, including quality. |
 | `nominal` | Nominal property or reference value. |
 | `description` | Textual description. |
 | `timestamp` | Time coordinate. |
 
-`dataRepresentation` is a separate distinction: `cycleValue` describes a cycle-related value; `timeSeries` describes sampled values. For example, `timeseriesPressureInjection` is a trajectory, while `actualPressureInjectionMaximum` is the machine-reported maximum during injection. Taking the last sample of the trajectory does not calculate that maximum.
+`dataRepresentation` is a separate distinction: `cycleValue` describes a cycle-related value; `timeSeries` describes sampled values. For example, `timeseriesPressureInjection` is a trajectory, while `actualPressureInjectionMaximum` is the machine-reported maximum during injection.
 
 Follow the [resource layout](data_structure.md) when storing values. A setting, a reported cycle result and a sampled signal keep their different roles even if they use the same unit.
 
@@ -67,11 +67,12 @@ The documented unit-code editions are UNECE Recommendation 20, Revision 17 (2021
 
 | `releaseProfile` | Interpretation |
 | --- | --- |
-| `core` | Definitions within the authors' practical expertise and stated scope. |
-| `draft` | Definitions requiring specialist review of their measurement basis, signal meaning or context. |
+| `core` | Definitions for interoperable variables. |
+| `draft` | Definitions requiring further context for measurement basis and signal meaning to be interoperable. |
 | `experimental` | Definitions requiring application-specific methods, including numeric defect intensities and dedicated Representative values. |
 
-All profiles use the same file rules. Core status does not certify the measurement, and a past `curation.reviewStatus` does not override the release profile. Read the entry's limitations before using a Draft or Experimental parameter. The Core cycle-quality field remains an application-specific assessment with documented criteria.
+All profiles use the same file rules. Core status does not certify the measurement. Read the entry's limitations before implementing a Draft or Experimental parameter in applications.
+The Core cycle-quality field `measuredQualityCycleIsGood` remains an application-specific assessment with documented criteria.
 
 ## Standards references
 
@@ -89,6 +90,6 @@ These references are informative. They do not establish interface conformance or
 
 ## Extensions and versioning
 
-Retain the catalogue version used by each dataset. Published keys and identifiers remain stable; changed meanings require a documented version transition. The schema supports `legacyAliases`, `deprecated` and `replacedBy` for version migrations; catalogue version `1.0` does not use them. Renaming cannot resolve a changed physical meaning or representation.
+Retain the catalogue version used by each dataset. Published keys and identifiers remain stable; changed meanings require a documented version transition. The schema supports the fields `legacyAliases`, `deprecated` and `replacedBy` for version migrations; catalogue version `1.0` does not use them. Renaming cannot resolve a changed physical meaning or representation.
 
 For an additional quantity, provide an explicit definition in a versioned extended catalogue and point the manifest to it. Keep unrelated source columns as supplementary data until their meaning is established. Describe required reader support; an application supporting only the published catalogue may not understand extensions. Multiple injection units and multi-component moulding are outside the scope of version `1.0`.

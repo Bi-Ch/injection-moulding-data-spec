@@ -1,8 +1,10 @@
 # Creating a cycle package
 
-A package contains the available observations for one cycle and a `manifest.json` linking its files. Select the parameters needed for the application; the convention does not require a fixed set or column order.
+A package contains the available observations for one cycle and a `manifest.json` linking its files. Select the parameters needed for the application; the convention does not require a fixed set of parameters or a fixed order of columns.
 
 ## Folders and resource roles
+
+The data structure uses the unique, non-resettable lifetime cycle counters of injection moulding machines, in combination with the manufacturer and machine name, as well as the machine ID, to generate unique, findable path names.
 
 ```text
 <Manufacturer-MachineType-MachineID>/
@@ -19,7 +21,7 @@ A package contains the available observations for one cycle and a `manifest.json
     raw/
 ```
 
-The machine folder identifies the source machine. `cycleId` identifies the cycle within its documented scope and remains a string to preserve leading zeroes. The filenames shown are the convention used by the examples; readers resolve files through the manifest. Create only the files and directories needed for the available data.
+The machine folder identifies the source machine. `cycleId` identifies the cycle within its documented scope and remains a string to preserve leading zeroes. The filenames shown are the convention used by the examples; readers resolve filenames through the manifest. It is only required to create the files and directories needed for the available data.
 
 | Location | Manifest role | Content |
 | --- | --- | --- |
@@ -28,9 +30,9 @@ The machine folder identifies the source machine. `cycleId` identifies the cycle
 | `timeseries/timeseries_<cycleId>.csv` | `timeSeries` | Sampled signals and their relative time axis. |
 | `metadata/measured_<cycleId>.csv` | `measuredMetadata` | Non-quality measured cycle values, such as material measurements. |
 | `metadata/measured_qualities_<cycleId>.csv` | `measuredQualities` | Detailed quality observations in the [Quality-Long format](quality_long_draft.md). |
-| `metadata/`, package documentation or `raw/` | `supplementary` | Inspection context, provenance, reports or unchanged source files. |
+| `metadata/`, package documentation or `raw/` | `supplementary` | Inspection context, provenance, reports, images or unchanged source files. |
 
-Preserve unchanged source exports under `raw/` when available. Their names, formats and internal layout remain source-specific. They are supplementary resources rather than canonical CSV files.
+It is recommended to preserve unchanged source exports under `raw/` when available. Their names, formats and internal layout remain source-specific. They are supplementary resources rather than canonical CSV files.
 
 ## CSV layout
 
@@ -51,7 +53,7 @@ ms,bar
 2.0,12.5
 ```
 
-`relativeTimestampCycle` expresses milliseconds from the documented cycle start. Preserve the actual observation times and describe any alignment or resampling. The manifest's nominal sampling interval does not replace this axis. Detailed quality files use a different layout, with units in each observation row.
+`relativeTimestampCycle` expresses milliseconds from the documented cycle start, starting at zero. Preserve the actual observation times and describe any alignment or resampling. The manifest's nominal sampling interval does not replace this axis. This is important because using the nominal sampling rate and the index to implement the time axis may mask potential issues with data collection. Detailed quality files use a different layout, with units in each observation row.
 
 ## Manifest
 
@@ -84,5 +86,6 @@ Keep material, mould and nominal machine properties in the manifest under their 
 Use `descriptionMouldCavity_1`, `descriptionMouldCavity_2` and further declared instances for cavity descriptions. Relate them to `nominalCountCavitiesMould`. Keep administrative information and provenance in `manifestMetadata` or a supplementary document.
 
 `measuredQualityCycleIsGood` is the overall assessment: `true` means good, `false` means bad, and `null` means no assessment is available. Detailed observations belong in a `measuredQualities` resource, not a nested manifest object. Use native JSON types and only use null where the schema permits it; omit unavailable optional fields that do not permit null.
+`measuredQualityCycleIsGood` is context-dependent, so it cannot be used interoperably without the relevant context.
 
 The [fictional manifest](../example/FictionalManufacturer-FictionalMachineType-FictionalMachineID/000001/manifest.json) provides a complete example. Apply the [validation checks](validation_rules.md) to the manifest and the files it references.

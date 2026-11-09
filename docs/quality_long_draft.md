@@ -4,7 +4,7 @@ Quality-Long records detailed quality observations in a six-column layout. Versi
 
 ## One observation per row
 
-Use these columns in this order:
+It is recommended to use these columns in this order:
 
 ```csv
 qualityParameter,instanceHeader,observedAt,booleanValue,numericValue,unit
@@ -37,7 +37,7 @@ measuredQualityWarpageIsPresent,measuredQualityWarpageIsPresent_1,2026-01-01T12:
 measuredQualityWeightPart,measuredQualityWeightPart_1,2026-01-01T12:00:15Z,,12.5,g
 ```
 
-Both rows concern cavity 1. The first records that warpage was not observed under the fictional example's unspecified inspection criteria; the second records an invented part mass of 12.5 g. These rows demonstrate the layout, not a validated inspection procedure.
+Both rows concern cavity 1. The first records that no warpage was observed under the fictional example's unspecified inspection criteria; the second records an invented part mass of 12.5 g. These rows illustrate the layout rather than a validated inspection procedure.
 
 `measuredQualityWeightPart` describes a part mass. `measuredQualityWeightShot` describes the total mass of all moulded parts and the sprue/runner material of one shot. Keep these objects distinct.
 

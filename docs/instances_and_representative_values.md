@@ -6,16 +6,17 @@ An instance distinguishes repeated entities such as heating zones, cavities, dev
 
 | Quantity | Valid example | Association to document |
 | --- | --- | --- |
-| Barrel-zone setpoint | `setTemperatureBarrel_1` | Physical interior heating zone. |
-| Barrel-zone actual value | `actualTemperatureBarrel_1` | Same zone and the cycle-value selection method. |
-| Hot-runner temperature | `actualTemperatureHotRunner_1` | Hot-runner zone. |
-| Cavity temperature signal | `timeseriesTemperatureCavity_1_1` | Cavity 1 and sensor position 1 within it. |
-| Device power consumption | `timeseriesPowerConsumption_TemperatureControlDevice_1` | Physical device 1 of that asset class and its metering boundary. |
-| Cavity description | `descriptionMouldCavity_1` | Cavity corresponding to this description. |
+| Barrel-zone 1 setpoint | `setTemperatureBarrel_1` | Physical interior heating zone. |
+| Barrel-zone 1 actual value | `actualTemperatureBarrel_1` | Same zone and the cycle-value selection method. |
+| Hot-runner zone 1 temperature | `actualTemperatureHotRunner_1` | Hot-runner zone. |
+| Cavity temperature signal | `timeseriesTemperatureCavity_1_1` | Cavity 1 and sensor position 1. |
+| Cavity description | `descriptionMouldCavity_1` | Cavity 1 corresponding to this description. |
 
 For a controlled-code dimension, such as `providingAssetCode`, use the entry's `allowedValues`. A valid asset code in the vocabulary is not necessarily permitted for every parameter.
 
 When `supported` is false, use the canonical name without adding indices. For instance-capable parameters, `unsuffixedValuePolicy` governs the bare name. `singleOrUnspecifiedInstance` permits one instance or an unspecified instance; it does not denote an average and does not prove that no profile or additional physical instance exists. `singleOnly` restricts use to a single instance, and `notAllowed` requires the declared suffix. In this catalogue, cavity descriptions and profile breakpoints require their indices.
+
+As an example, `setPressureHolding` alsows permits `singleOrUnspecifiedInstance`, therefore it allows a single entry for a constant holding pressure using either `setPressureHolding` or only `setPressureHolding_1`. However, it also allows instances to describe a profile using multiple settings, such as `setPressureHolding_1` and `setPressureHolding_2`.
 
 ## Heating zones and temperature-control devices
 
@@ -62,7 +63,7 @@ bar,s,bar,s,s
 
 This excerpt contains no interpolation selector, so its interpolation remains unspecified.
 
-With `setPressureHoldingProfileInterpolation = Steps`, pressure value `p_i` is held throughout segment `i`. With `Ramps`, the first segment starts at `setPressureInjectionLimit` and reaches `p_1` at the end of its `setTimeHolding_1` duration. Each subsequent segment starts at the preceding target and reaches its own target `p_i` at the end of its duration. Interpolation is linear in elapsed time within each segment. The profile ends at the final target; targets can increase or decrease and need not form a monotonically decreasing sequence. The starting-pressure dependency is declared by `profileSegments.rampStartValueParameterRef`; retain `setPressureInjectionLimit` when recording holding-pressure `Ramps`.
+With `setPressureHoldingProfileInterpolation = Steps`, pressure value `setPressureHolding_i` is held throughout segment `i`. With `Ramps`, the first segment starts at `setPressureInjectionLimit` and reaches `setPressureHolding_1` at the end of its `setTimeHolding_1` duration. Each subsequent segment starts at the preceding target and reaches its own target `setPressureHolding_i` at the end of its duration. Interpolation is linear in elapsed time within each segment. The profile ends at the final target; targets can increase or decrease and need not form a monotonically decreasing sequence. The starting-pressure dependency is declared by `profileSegments.rampStartValueParameterRef`; retain `setPressureInjectionLimit` when recording holding-pressure `Ramps`.
 
 For example, with an injection-pressure limit of 1000 bar, targets of 400 and 350 bar, and segment durations of 1 and 2 s, `Ramps` means 1000 to 400 bar during the first second, then 400 to 350 bar during the following two seconds. With the same targets and durations, `Steps` means 400 bar for the first second and 350 bar for the next two seconds. In both cases the total duration is 3 s; `setTimeHolding_2 = 2 s` remains a segment duration, not a breakpoint measured from the start of holding.
 
@@ -77,15 +78,16 @@ Profile values and internal boundaries use separate canonical parameters in the 
 | `setVelocityMouldOpen` | `setVelocityMouldOpenProfileBreakpoint` | Mould position relative to first contact, mm. |
 | `setVelocityMouldClose` | `setVelocityMouldCloseProfileBreakpoint` | Mould position relative to first contact, mm. |
 
-Screw-position breakpoints use the same reference as `timeseriesPositionScrew` and `timeseriesPositionScrewVolume`: the mechanically foremost screw position is zero, and values increase as the screw moves backward. Record the screw position or its corresponding volume at the segment transition, not the travel or displaced volume since injection started. Negative screw-position breakpoint values are not permitted. Mould-position breakpoints use the first-contact position defined as zero in `timeseriesPositionMould`, not the travel since the opening or closing profile started.
+Screw-position breakpoints use the same reference as `timeseriesPositionScrew` and `timeseriesPositionScrewVolume`: the mechanically foremost screw position is zero, and values increase as the screw moves backward. Record the screw position or its corresponding volume at the segment transition, not the travel or displaced volume since injection started. Negative screw-position breakpoint values are not permitted. 
+Mould-position breakpoints use the first-contact position defined as zero in `timeseriesPositionMould`, not the travel since the opening or closing profile started.
 
 Use `profileSegmentIndex` for segment values and `profileBreakpointIndex` for boundaries. A complete profile with `N` segments has `N - 1` internal breakpoints. Breakpoint `i` separates segments `i` and `i + 1`. Indices are contiguous from `1`, and each breakpoint has an explicit suffix even when there is only one.
 
-With `Steps`, velocity value `v_i` is held throughout segment `i`. With `Ramps`, the profile starts at `v_1`; segment `i` changes linearly from `v_i` to `v_(i+1)` over its position or volume interval. The last segment holds the last velocity value. Interpolation follows the profile's boundary coordinate, not elapsed time. Document the starting position or volumetric position as well as the internal breakpoints to reconstruct the first ramp. With one segment, the single velocity value is held for the whole profile in either mode.
+With `Steps`, velocity value `setVelocityScrewInjection_i` is held throughout segment `i`. With `Ramps`, the profile starts at `setVelocityScrewInjection_1`; segment `i` changes linearly from `setVelocityScrewInjection_i` to `setVelocityScrewInjection_(i+1)` over its position or volume interval. The last segment holds the last velocity value. Interpolation follows the profile's boundary coordinate, not elapsed time. Document the starting position or volumetric position as well as the internal breakpoints to reconstruct the first ramp. With one segment, the single velocity value is held for the whole profile in either mode.
 
 For example, consider a volumetric injection-velocity profile starting at a volumetric screw position of 20 ccm, with an internal breakpoint at 10 ccm and velocities of 40 and 25 ccm/s. `Ramps` changes the first segment from 40 to 25 ccm/s as the screw-position coordinate decreases from 20 to 10 ccm; the final segment holds 25 ccm/s until switchover. `Steps` holds 40 ccm/s until 10 ccm, then 25 ccm/s until switchover.
 
-The last injection-velocity segment ends at the injection-to-holding switchover event. Its criterion can use a different quantity from the internal breakpoint coordinate; a time-based switchover does not become a volume breakpoint. No additional final internal breakpoint is stored. Pressure-controlled injection is outside the intended current scope.
+The last injection-velocity segment ends at the injection-to-holding switchover event. Its criterion can use a different quantity from the internal breakpoint coordinate; a time-based switchover does not become a volume breakpoint. No additional final internal breakpoint is stored.
 
 ## Ejector profiles
 
@@ -110,8 +112,9 @@ The catalogue links these settings through `segmentEndPositionParameterRef` and 
 
 ## Representative values
 
-Use only Representative parameters already defined in the catalogue. Their `representativeValue` metadata identifies the source parameter and required documentation: `representationMethod`, `sourceParameter` and `sourceInstances`. This metadata describes the relationship; it does not contain the observed result.
+`Representative` parameters have been introduced to enable comparable processes to be clustered. They are used solely to compare or label processes without interfering with measurements or introducing false results.
+Their `representativeValue` metadata identifies the source parameter and required documentation: `representationMethod`, `sourceParameter` and `sourceInstances`. This metadata describes the relationship; it does not contain the observed result.
 
-Document the selected instances, process interval, aggregation or weighting, and any normalisation in accompanying provenance. Retain the underlying values. For example, `actualTemperatureBarrelRepresentative` represents documented interior barrel zones and excludes flange and nozzle. Similar summary values can hide different zone distributions or profile shapes.
+Document the selected instances, process interval, aggregation or weighting, and any normalisation in accompanying provenance. Retain the underlying values. For example, the `actualTemperatureBarrelRepresentative` parameter represents the documented interior barrel zones independently of the machine-specific number of zones, and it may offer the clustering of comparable processes.
 
 Dedicated parameters ending in `Representative` are Experimental because their derivation is application-specific. The field `measuredQualityCycleIsGood` has a separate role as an overall assessment of part-level quality; its [inspection criteria](quality_inspection_template.md) must still be documented.

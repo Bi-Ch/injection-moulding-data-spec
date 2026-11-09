@@ -1,9 +1,3 @@
-"""Small CSV-to-cycle-package example. Python 3.10+, standard library only.
-
-Source columns are mapped explicitly; no machine interface or proprietary mapping
-is included. See README.md for the supported input contract and its limitations.
-"""
-
 import argparse
 import csv
 from datetime import datetime, timezone
@@ -16,6 +10,8 @@ from pathlib import Path
 import re
 import tempfile
 
+# Basic CSV-to-cycle-package example. Python 3.10+, standard library only.
+# Source columns are mapped explicitly; no machine interface or proprietary mapping is included.
 
 VERSION = "1.0"
 SPECIFICATION = Path(__file__).resolve().parents[2]

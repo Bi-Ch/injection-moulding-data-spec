@@ -58,7 +58,7 @@ For another dataset, apply the manifest check to its cycle directories and the c
 | Units | Exact catalogue display units or unit-semantics tokens; any source conversion is documented. |
 | File role | Settings, cycle actuals, time series and non-quality measurements match their catalogue roles and representations. |
 | Instance headers | Declared patterns, numeric indices from 1, permitted controlled codes and documented physical associations. |
-| Profiles | Paired holding pressures and durations; contiguous injection/mould velocity segments with exactly `N - 1` matching internal breakpoints. Position and volume breakpoints use the catalogue's fixed reference positions; screw-position breakpoint values are nonnegative. |
+| Profiles | Paired holding pressures and durations; Paired injection/mould velocity segments with exactly `N - 1` matching internal breakpoints. Position and volume breakpoints use the catalogue's fixed reference positions. |
 | Profile interpolation | Case-insensitive matching against `Steps` or `Ramps`, as declared by `allowedValuesCaseSensitive: false`; `steps`, `ramps` and other capitalizations are accepted. An absent selector remains unknown. Holding-pressure ramps require their declared starting pressure and use segment durations; velocity ramps use position or volume intervals and hold the final segment value. |
 | Ejector profiles | Fixed steps with aligned velocity, endpoint and force-limit indices. Forward requires `N` end positions; backward may omit only the final one, explicitly defaulting to 0 mm. Recorded endpoints must be populated. Optional force-limit blocks cover all segments; supplied limits are nonnegative, while negative velocity or position values retain their meanings. |
 | Time series | Documented cycle origin, ordered observation times and explained gaps or transformations; no assumption of regularity from a nominal interval alone. |
@@ -66,7 +66,7 @@ For another dataset, apply the manifest check to its cycle directories and the c
 | Cavity descriptions | Non-empty indexed descriptions, with indices within the stated cavity count when available. |
 | Derived or representative values | Source observations and method are retained, including required geometry, selection and weighting. |
 
-For a derived screw peripheral velocity, the catalogue relates `timeseriesRevolutionsScrew` in r/min and positive `nominalDiameterScrew` in mm through `v = pi * d * n / 60`, yielding mm/s. Check alignment and documented rounding. This circumferential velocity is distinct from the axial `timeseriesVelocityScrew`, even though both use mm/s.
+For a derived screw peripheral velocity, the catalogue relates `timeseriesRevolutionsScrew` in r/min and positive `nominalDiameterScrew` in mm through `v = pi * d * n / 60`, yielding mm/s. Check alignment and documented rounding.
 
 Supplementary raw files retain their original format. Validate their inventory and provenance without applying canonical CSV rules to their contents.
 

@@ -1,11 +1,12 @@
 # Reading and assessing data
 
 Begin with the cycle's `manifest.json`, the referenced parameter catalogue and the package documentation. These establish which files belong together and what their values represent. Data can be structurally valid while still lacking the context needed for a particular analysis.
+The `manifest.json` can be used to collectivly store the needed context information, so that processing tools may only need to read the manifest to select usable or required datasets, such as all dataset for a specific mould (`descriptionMould`) and a specific material (`nominalMaterialType` or `nominalMaterialName`).
 
 ## Read a package
 
 1. Resolve `parameterDefinition` relative to the manifest and check the catalogue version.
-2. Identify the source machine and the scope of `cycleId`. Preserve leading zeroes and distinguish it from a resettable job counter.
+2. Identify the source machine and the scope of `cycleId`. Use the absolute, non-resettable machine lifetime count of completed cycles (`actualCountCycleMachine`). Preserve leading zeroes and distinguish it from a resettable job counter.
 3. Select files by their resource `role`. Optional observations may be absent; an absent quality file does not indicate a good part.
 4. For wide CSV files, read the names and unit row before parsing observations. Resolve indexed headers through the catalogue's `instances` definitions. Quality-Long has units per observation and no second header row.
 5. Read acquisition, transformation and inspection context before comparing values.
@@ -20,15 +21,17 @@ The [package layout](data_structure.md), [parameter guide](parameter_definition.
 | Where and how? | Source device, measurement location, pressure or coordinate basis, calculation or aggregation method, and available calibration information. |
 | When? | Cycle assignment, time origin, sampling intervals, missing samples, alignment and any resampling. |
 | Which instance? | Physical zone, cavity, device or sensor corresponding to each index, including changes between runs. |
-| In which process context? | Machine configuration, mould, material and operating conditions relevant to the comparison. |
+| In which process context? | Are machine configuration, mould, material and operating conditions relevant to the comparison. |
 | Which preparation? | Source fields, unit conversions, selection rules, derived values and retained raw data. |
 | Which assessment? | Inspection method, acceptance criteria, label polarity and handling of uninspected parts. |
 
 Record unavailable information as unknown. A common name and unit do not establish equivalent sensors, calculations or operating conditions across machines. `measurementLocation.kind: "machineInternalUnspecified"`, for example, does not identify a physical sensor.
 
-An `actualTemperatureBarrel_1` value represents one documented cycle value for an indexed interior heating zone. Its index does not establish the same physical location on another machine, and its definition requires the source-specific sampling or aggregation method. The [instance guide](instances_and_representative_values.md) explains zone association and summaries across instances.
+An `actualTemperatureBarrel_1` value represents one documented cycle value for an indexed interior heating zone. Its index does not establish the same physical location on another machine, and its definition requires the source-specific sampling or aggregation method. 
+The [instance guide](instances_and_representative_values.md) explains zone association and summaries across instances.
 
-For time series, use `relativeTimestampCycle` and the stated cycle origin. `actualTimestepSizeIMM` records a nominal configured interval; it does not prove regular sampling or synchronisation between sources. File creation time is not acquisition time.
+For time series, use `relativeTimestampCycle` and the stated cycle origin. `actualTimestepSizeIMM` records a nominal configured interval; it does not prove regular sampling or synchronisation between sources. 
+The file creation time, used for the manifest file, is not a substitute for acquisition time.
 
 ## Quality and representative values
 
