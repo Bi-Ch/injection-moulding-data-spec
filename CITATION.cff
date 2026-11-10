@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this specification, please cite the archived version using the metadata below."
+title: "Injection Moulding Data Specification"
+version: "1.0"
+license: "CC-BY-4.0"
+authors:
+  - family-names: Bielenberg
+    given-names: Christian
+    orcid: "https://orcid.org/0009-0006-8396-9926"
+  - family-names: Rottenwalter
+    given-names: Georg
+    orcid: "https://orcid.org/0009-0000-8612-3623"
+  - family-names: Kohlross
+    given-names: Andreas
+  - family-names: Niebler
+    given-names: Lukas
+  - family-names: Schmidt
+    given-names: Jochen
+    orcid: "https://orcid.org/0000-0001-5645-5520"
+abstract: "A specification for the long-term preservation and reuse of injection moulding process data."
+repository-code: "https://github.com/Bi-Ch/injection-moulding-process-data"
+url: "https://github.com/Bi-Ch/injection-moulding-process-data"
+keywords:
+  - injection moulding
+  - process data
+  - data specification
+  - parameter definitions
+  - interoperability
+  - data preservation
+  - time series
