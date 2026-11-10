@@ -2,7 +2,7 @@
 
 This repository provides a specification for the long-term preservation and reuse of injection moulding process data. This specification offers a common interface between data acquisition and downstream applications. By separating data representation from machine-specific acquisition, it aims to reduce repeated data preparation and support the reuse of analysis tools across manufacturers and datasets.
 
-[![Illustration showing source-specific data preparation into shared parameter definitions and cycle packages, supporting analysis and research.](docs/figures/parameterSpecAsInterface.drawio.png)]
+![Illustration showing source-specific data preparation into shared parameter definitions and cycle packages, supporting analysis and research.](docs/figures/parameterSpecAsInterface.drawio.png)
 
 A parameter catalogue defines quantities, units and instance names. A folder for each machine cycle brings together settings, cyclic measured actual values, time series data and quality observations. An additional manifest connects their context and further metadata.
 
