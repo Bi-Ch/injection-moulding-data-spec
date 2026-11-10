@@ -10,7 +10,7 @@ The scope of this version is conventional thermoplastic injection moulding with 
 
 ## Associated publication
 
-This specification accompanies the manuscript `A FAIR-oriented specification for the long-term preservation and reuse of injection moulding process data`, submitted to Scientific Data.
+This specification accompanies the manuscript `A FAIR-oriented specification for the long-term preservation and reuse of injection moulding process data`, prepared for submission to Scientific Data.
 
 ## How to use the specification
 
