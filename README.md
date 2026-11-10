@@ -1,9 +1,16 @@
-# Injection moulding process data
+# Injection Moulding Data Specification
 
-This specification describes how to store injection-moulding process data so that it can be understood and reused independently of the original acquisition software. A parameter catalogue defines quantities, units and instance names. A folder for each machine cycle brings together settings, cyclic measured actual values, time series data and quality observations. An additional manifest connects their context and further metadata.
+This repository provides a specification for the long-term preservation and reuse of injection moulding process data. This specification offers a common interface between data acquisition and downstream applications. By separating data representation from machine-specific acquisition, it aims to reduce repeated data preparation and support the reuse of analysis tools across manufacturers and datasets.
 
-The scope of this version is conventional thermoplastic injection moulding with one injection unit. The catalogue is version `1.0`, and accompanies the submitted article in `A FAIR-oriented specification for the long-term preservation and reuse of injection moulding process data` (Journal: Scientific Data (Sci Data) ISSN 2052-4463). 
-Version `1.0` contains 220 parameter definitions: 134 Core, 39 Draft and 47 Experimental. The documentation is in English; parameter descriptions are available in English and German.
+[![Illustration showing source-specific data preparation into shared parameter definitions and cycle packages, supporting analysis and research.](docs/figures/parameterSpecAsInterface.drawio.png)]
+
+A parameter catalogue defines quantities, units and instance names. A folder for each machine cycle brings together settings, cyclic measured actual values, time series data and quality observations. An additional manifest connects their context and further metadata.
+
+The scope of this version is conventional thermoplastic injection moulding with one injection unit. The catalogue version `1.0` contains 220 parameter definitions: 134 Core, 39 Draft and 47 Experimental. The documentation is in English; parameter descriptions are available in English and German.
+
+## Associated publication
+
+This specification accompanies the manuscript `A FAIR-oriented specification for the long-term preservation and reuse of injection moulding process data`, submitted to Scientific Data.
 
 ## How to use the specification
 
@@ -49,8 +56,10 @@ Quality-Long defines a six-column layout for detailed quality observations for t
 
 Keep the exact catalogue used with the data when archiving or exchanging a package. The catalogue, manifest format, correspondence register and CSV converter use version `1.0`. Versions and release designations of referenced datasets and standards identify those external sources.
 
-## License
+## Funding
 
-Unless otherwise indicated, the original content of this repository is licensed under the [Creative Commons Attribution 4.0 International licence (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). The full licence text is provided in [LICENSE](LICENSE). When reusing the material, credit the repository contributors, identify the specification and version, link to the licence and indicate any changes.
+The specification was developed within the framework of an industrial contract research project, which was funded by KME – Kompetenzzentrum Mittelstand GmbH.
 
-Third-party datasets and standards cited in this repository retain their own licences and terms of use.
+## Competing interests
+
+The industrial project partners are interested in ensuring the long-term usability of the data and results generated within the research project. This specification has been made openly available under the CC BY 4.0 license, to encourage its reuse beyond the original project, including by third parties.
